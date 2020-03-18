@@ -1,1 +1,19 @@
-theme: jekyll-theme-slate
+baseurl: /cme216-spring-2020
+title: Machine Learning in Computational Engineering
+subtitle: Lecture notes for Stanford CME 216.
+author: Eric Darve
+simple_search: http://google.com/search
+description: Lecture notes for Stanford CME 216.
+name: cme216-spring-2020
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+timezone: America/Los_Angeles
+excerpt_separator: <!--more-->  # you can specify your own separator, of course.
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+post:
+  template: _post.txt
+  extension: md
+page:
+  template: _page.txt
+  extension: md
+git:
+  branch: master
