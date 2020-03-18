@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+GitHub page for CME 216, Spring 2020
 
-You can use the [editor on GitHub](https://github.com/EricDarve/cme216-spring-2020/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+You can find the site at https://EricDarve.github.io/cme216-spring2020/.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+If you find errors and want some changes to this material, please use the [Issues](https://github.com/EricDarve/cme216-spring-2020/issues) tab above.
 
-### Markdown
+You can also make changes to this repository to be incorporated later by the instructor of the class. This is a three step process.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Create a [fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/working-with-forks) of this repository. This creates your own private copy of all the files. You are going to use this to make your changes. Use the fork ([fork a repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)) icon above (top right of the screen, next to Watch and Star). 
 
-```markdown
-Syntax highlighted code block
+2. Make changes to the files in your forked repository. This follows the usual git process ([git cheatsheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet/)). `git add ...`; `git commit -m "description of changes"`; `git push`. Once you are happy with your changes go to step 3.
 
-# Header 1
-## Header 2
-### Header 3
+3. Make a pull request. This will send a request to the owner of this site to incorporate your changes in this repository. The process is fairly straighforward. Follow these [instructions](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
-- Bulleted
-- List
+If you are interested in more details and information, please check the [GitHub help page](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests).
 
-1. Numbered
-2. List
+This repository is a [GitHub Pages site](https://help.github.com/en/github/working-with-github-pages/setting-up-a-github-pages-site-with-jekyll) that uses Jekyll. The [markdown](https://help.github.com/en/github/working-with-github-pages/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll) files are converted to HTML files.
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/EricDarve/cme216-spring-2020/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+To copy the files in this repository, you can click the green "Clone or download" button on the top of this page. You can also fork the repository if you have a GitHub account using the fork button on the top right.
