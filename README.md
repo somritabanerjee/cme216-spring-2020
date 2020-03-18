@@ -1,6 +1,6 @@
 GitHub page for CME 216, Spring 2020
 
-You can find the site at https://EricDarve.github.io/cme216-spring2020/.
+You can find the site at https://ericdarve.github.io/cme216-spring-2020/.
 
 If you find errors and want some changes to this material, please use the [Issues](https://github.com/EricDarve/cme216-spring-2020/issues) tab above.
 
