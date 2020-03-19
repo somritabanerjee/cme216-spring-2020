@@ -24,8 +24,8 @@ Week 2
 - Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf)
 
 Week 3
-- [TensorFlow](https://www.tensorflow.org/learn)
-- [Keras](https://www.tensorflow.org/guide/keras); [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
+- [TensorFlow](https://www.tensorflow.org/learn) and [Keras](https://www.tensorflow.org/guide/keras)
+- [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
 - [PyTorch](https://pytorch.org/)
 
 Week 4
@@ -81,6 +81,7 @@ Week 10
 - [Foundations of machine learning](https://cs.nyu.edu/~mohri/mlbook/) by Mehryar Mohri, Afshin Rostamizadeh, and Ameet Talwalkar
 - [Elements of statistical learning](https://searchworks.stanford.edu/view/12458005) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
 - [Neural networks and learning machines](https://searchworks.stanford.edu/view/8631715) by Simon Haykin
+- [The matrix cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) by Kaare Petersen and Michael Pedersen
 
 ### Video tutorials
 
@@ -109,4 +110,5 @@ Week 10
 - [TF2 notebooks](https://github.com/jonkrohn/tf2) by Jon Krohn
 - [Deep learning illustrated notebooks](https://github.com/the-deep-learners/deep-learning-illustrated) by Jon Krohn
 - [TensorFlow playground](http://playground.tensorflow.org/)
+- [MNIST visualization](https://www.cs.ryerson.ca/~aharley/vis/conv/) by Adam Harley
 - [Distill](https://distill.pub/), a journal for machine learning visualizations
