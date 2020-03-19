@@ -3,52 +3,65 @@ layout: page
 title: Stanford cme 216 Lecture notes
 ---
 
-These are lecture note for CME 216 Machine Learning in Computational Engineering. They were written by [Eric Darve](https://me.stanford.edu/people/eric-darve), with the [help](https://github.com/EricDarve/cme216-spring-2020/commits/master) of course staff and students.
+These are lecture notes for CME 216 Machine Learning in Computational Engineering. They were written by [Eric Darve](https://me.stanford.edu/people/eric-darve), with the [help](https://github.com/EricDarve/cme216-spring-2020/commits/master) of course staff and students.
 {% include marginnote.html id='mn-construction' note='The notes are **under construction**! Although we have written up most of the material, you will probably find several typos. If you do, please let us know, or submit a pull request with your fixes to our [GitHub repository](https://github.com/EricDarve/cme216-spring-2020).'%} The Jekyll theme is inspired by the [CS228 lecture notes](https://github.com/ermongroup/cs228-notes) site on GitHub.
 
 ## Content of class
 
-Topics to cover
+Topics to cover and tentative schedule
 
-### Supervised learning and SVM
+**Supervised learning and SVM**
+Week 1
 - Supervised learning
-- SVM with scikit-learn; kernel trick; RBF
+- SVM; [scikit-learn](https://scikit-learn.org/stable/); kernel trick; radial basis functions
 - Overfitting; underfitting; regularization
 
-### Deep learning
-- NN and DNN; layers; weights and biases; activation function; loss functions
-- Universal approximation theorems; Montufar et al. (2014)
-- TensorFlow; [Keras](https://www.tensorflow.org/guide/keras); [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
+**Deep learning**
+Week 2
+- NN and DNN; layers; weights and biases; activation function; loss function
+- Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf)
+
+Week 3
+- [TensorFlow](https://www.tensorflow.org/learn)
+- [Keras](https://www.tensorflow.org/guide/keras); [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
 - [PyTorch](https://pytorch.org/)
+
+Week 4
 - Forward and back-propagation
 - Regularization; test and validation sets; hyperparameter optimization; capacity
+
+Week 5
 - Regularization strategies; bagging, dropout
 - Stochastic gradient methods; SGD, momentum; adaptive algorithms; AdaGrad, RMSProp, Adam; 2nd order methods, BFGS (Broyden–Fletcher–Goldfarb–Shanno)
+
+Week 6
 - Batch normalization
 - Weight initialization
-- Convolution nets; pooling; fully-connected nets; DNN architectures; LeNet-5, AlexNet, GoogLeNet/Inception, VGGNet, ResNet
+- Convolution nets; pooling; fully-connected nets
+- DNN and convnet architectures; LeNet-5, AlexNet, GoogLeNet/Inception, VGGNet, ResNet
 
-### Physics-informed learning
-
+**Physics-informed learning**
+Week 7
 - Physics-based ML; PhysML
-- Gradient of DNN
-- Examples of numerical PDE solutions
 - DNN and numerical PDE solvers
 - Automatic differentiation; forward and reverse mode AD; computational graph; chain rule
 - Examples of numerical PDE solutions with ADCME
 
-### Generative deep networks
-
+**Generative deep networks**
+Week 8
 - Autoencoders and variational autoencoders
 - GAN to model stochastic variables
 - Discriminator network
+
+Week 9
 - WGANs
 - PhysGAN
 
-### Reinforcement learning
-- Reinforcement learning; Sutton and Barto; Mnih 2013
+**Reinforcement learning**
+Week 10
+- Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
-- Policy gradients and the actor-critic algorithm
+- Policy gradients and actor-critic algorithms
 
 ## Reading material
 
@@ -59,8 +72,8 @@ Topics to cover
 - [Machine learning: a probabilistic perspective]() by Kevin Murphy
 - [Deep learning with Python](https://searchworks.stanford.edu/view/13216992) by Fran&#231;ois Cholet
 - [Deep learning illustrated: a visual, interactive guide to artificial intelligence](https://searchworks.stanford.edu/view/13463749) by Jon Krohn
-- [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen
-- [Foundations of Machine Learning](https://cs.nyu.edu/~mohri/mlbook/) by Mehryar Mohri, Afshin Rostamizadeh, and Ameet Talwalkar
+- [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen
+- [Foundations of machine learning](https://cs.nyu.edu/~mohri/mlbook/) by Mehryar Mohri, Afshin Rostamizadeh, and Ameet Talwalkar
 - [Elements of statistical learning](https://searchworks.stanford.edu/view/12458005) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
 - [Neural networks and learning machines](https://searchworks.stanford.edu/view/8631715) by Simon Haykin
 
@@ -72,17 +85,16 @@ Topics to cover
 
 ### Review papers
 
-- LeCun, Bengio and Hinton, Deep Learning, Nature, 521:436-444, 2015
-- Schmidhuber, Deep learning in Neural Networks: An overview, Neural networks, 61:85-117, 2015
+- LeCun, Bengio and Hinton, Deep learning, _Nature,_ 521:436-444, 2015
+- Schmidhuber, Deep learning in neural networks: an overview, _Neural Networks,_ 61:85-117, 2015
 - [Automatic differentiation in machine learning: a survey](https://arxiv.org/pdf/1502.05767.pdf) by At&#305;l&#305;m G&uuml;nes Baydin, Barak Pearlmutter, Alexey Andreyevich Radul, and Jeffrey Mark Siskind
 - [A review of the adjoint-state method for computing the gradient of a functional with geophysical applications](https://academic.oup.com/gji/article/167/2/495/559970) by R.-E. Plessix
 
-### Online course
+### Online classes and tutorials
 
 - [Introduction to Deep Learning](http://introtodeeplearning.com/), MIT
 - [fast.ai](https://course.fast.ai/)
-- [Machine Learning 2014-2015](https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/), Oxford, 	
-by Nando de Freitas
+- [Machine Learning 2014-2015](https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/), Oxford, by Nando de Freitas
 
 ### Links
 
