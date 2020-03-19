@@ -74,6 +74,8 @@ Topics to cover
 
 - LeCun, Bengio and Hinton, Deep Learning, Nature, 521:436-444, 2015
 - Schmidhuber, Deep learning in Neural Networks: An overview, Neural networks, 61:85-117, 2015
+- [Automatic differentiation in machine learning: a survey](https://arxiv.org/pdf/1502.05767.pdf) by At&#305;l&#305;m G&uuml;nes Baydin, Barak Pearlmutter, Alexey Andreyevich Radul, and Jeffrey Mark Siskind
+- [A review of the adjoint-state method for computing the gradient of a functional with geophysical applications](https://academic.oup.com/gji/article/167/2/495/559970) by R.-E. Plessix
 
 ### Online course
 
