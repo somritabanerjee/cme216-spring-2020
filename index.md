@@ -4,19 +4,21 @@ title: Stanford cme 216 Lecture notes
 ---
 
 These are lecture notes for CME 216 Machine Learning in Computational Engineering. They were written by [Eric Darve](https://me.stanford.edu/people/eric-darve), with the [help](https://github.com/EricDarve/cme216-spring-2020/commits/master) of course staff and students.
-{% include marginnote.html id='mn-construction' note='The notes are **under construction**! Although we have written up most of the material, you will probably find several typos. If you do, please let us know, or submit a pull request with your fixes to our [GitHub repository](https://github.com/EricDarve/cme216-spring-2020).'%} The Jekyll theme is inspired by the [CS228 lecture notes](https://github.com/ermongroup/cs228-notes) site on GitHub.
+{% include marginnote.html id='mn-construction' note='The notes are **under construction**! Although we have written up most of the material, you will probably find several typos. If you do, please let us know, or submit a pull request with your fixes to our [GitHub repository](https://github.com/EricDarve/cme216-spring-2020).'%} The Jekyll theme is inspired by the [CS228 course notes](https://github.com/ermongroup/cs228-notes) site on GitHub.
 
 ## Content of class
 
 Topics to cover and tentative schedule
 
 **Supervised learning and SVM**
+
 Week 1
 - Supervised learning
 - SVM; [scikit-learn](https://scikit-learn.org/stable/); kernel trick; radial basis functions
 - Overfitting; underfitting; regularization
 
 **Deep learning**
+
 Week 2
 - NN and DNN; layers; weights and biases; activation function; loss function
 - Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf)
@@ -41,6 +43,7 @@ Week 6
 - DNN and convnet architectures; LeNet-5, AlexNet, GoogLeNet/Inception, VGGNet, ResNet
 
 **Physics-informed learning**
+
 Week 7
 - Physics-based ML; PhysML
 - DNN and numerical PDE solvers
@@ -48,6 +51,7 @@ Week 7
 - Examples of numerical PDE solutions with ADCME
 
 **Generative deep networks**
+
 Week 8
 - Autoencoders and variational autoencoders
 - GAN to model stochastic variables
@@ -58,6 +62,7 @@ Week 9
 - PhysGAN
 
 **Reinforcement learning**
+
 Week 10
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
