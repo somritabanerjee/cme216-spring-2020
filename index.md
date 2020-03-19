@@ -8,11 +8,14 @@ These are lecture note for CME 216 Machine Learning in Computational Engineering
 
 ## Content of class
 
-Topics to cover:
+Topics to cover
 
+### Supervised learning and SVM
 - Supervised learning
 - SVM with scikit-learn; kernel trick; RBF
 - Overfitting; underfitting; regularization
+
+### Deep learning
 - NN and DNN; layers; weights and biases; activation function; loss functions
 - Universal approximation theorems; Montufar et al. (2014)
 - TensorFlow; [Keras](https://www.tensorflow.org/guide/keras); [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
@@ -24,19 +27,27 @@ Topics to cover:
 - Batch normalization
 - Weight initialization
 - Convolution nets; pooling; fully-connected nets; DNN architectures; LeNet-5, AlexNet, GoogLeNet/Inception, VGGNet, ResNet
+
+### Physics-informed learning
+
 - Physics-based ML; PhysML
 - Gradient of DNN
 - Examples of numerical PDE solutions
 - DNN and numerical PDE solvers
 - Automatic differentiation; forward and reverse mode AD; computational graph; chain rule
 - Examples of numerical PDE solutions with ADCME
+
+### Generative deep networks
+
 - Autoencoders and variational autoencoders
 - GAN to model stochastic variables
 - Discriminator network
 - WGANs
 - PhysGAN
+
+### Reinforcement learning
 - Reinforcement learning; Sutton and Barto; Mnih 2013
-- Deep Q-learning networks
+- Temporal difference learning; deep Q-learning networks
 - Policy gradients and the actor-critic algorithm
 
 ## Reading material
