@@ -8,7 +8,14 @@ name: cme216-spring-2020
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 timezone: America/Los_Angeles
 excerpt_separator: <!--more-->  # you can specify your own separator, of course.
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+exclude:
+   - README.md
+   - .sass-cache/
+   - .jekyll-cache/
+   - gemfiles/
+   - Gemfile
+   - Gemfile.lock
+   - node_modules/
 post:
   template: _post.txt
   extension: md
