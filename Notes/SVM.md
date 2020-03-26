@@ -17,7 +17,9 @@ However, if the training data that we are given are only the colored dots, we ca
 
 The hyperplane is defined by a normal vector $$w$$ and a bias $$b$$:
 
-$$ w^T x + b $$
+$$ w^T x + b = 0 $$
+
+Once the hyperplane is found, the classification is given as follows. If $$ w^T x + b > 0 $$ then we predict that the label is $$1$$, otherwise the label is $$-1$$.
 
 In SVM, the best hyperplane is defined as the one that has the largest **margin,** that is the one which the points are the farthest from. This makes the classifier more robust and accurate.
 
@@ -45,6 +47,8 @@ To normalize, we choose $$w$$ and $$b$$ such that
 
 - $$y_i (w^T x_i + b) \ge 1$$ for all $$i$$, and
 - there must be some $$i$$ for which $$y_i (w^T x_i + b) = 1$$. This happens for the point(s) that is closest to the plane. This point is the one used for normalization.
+
+The condition $$y_i (w^T x_i + b) = 1$$ may look strange. But recall that when the label $$y_i = -1$$ we expect $$w^T x_i + b < 0$$, and when $$y_i = 1$$, we expect $$w^T x_i + b > 0$$. So at least in terms of the signs, this equation makes sense.
 
 Let's denote by $$\rho$$ the distance of the point **closest** to the hyperplane. Then:
 
@@ -76,7 +80,7 @@ In our figure above, the red and blue dots lying on the dashed lines are the sup
 
 To demonstrate how SVM works we are going to use [scikit-learn](https://scikit-learn.org/). This library can perform many important computations in machine learning including supervised and unsupervised learning. {% include marginnote.html note='See [scikit supervised learning](https://scikit-learn.org/stable/supervised_learning.html) for more details about the functionalities that are supported.'%}
 
-We are going to demonstrate our concept through a simple example. Let's generate 8 random points in the 2D plane. Points in the top left are assigned the label $$-1$$ and points in the bottom right are assigned a label $$-1$$.
+We are going to demonstrate our concept through a simple example. Let's generate 8 random points in the 2D plane. Points in the top left are assigned the label $$-1$$ ($$y > x$$) and points in the bottom right are assigned a label $$-1$$ ($$y < x$$).
 
 In Python, we set up two arrays X (coordinates) and y (labels) with the data:
 
@@ -175,25 +179,39 @@ Here is the final plot:
 
 The blue line is the "farthest" away from the red and blue dots. All the support vectors are at the same distance from the blue line.
 
+The decision function, equal to $$w^T x + b$$ in our notations, can be computed using
+
+```python
+clf.decision_function(X)
+```
+
+where `X` contains the coordinates of the points where the function is to be evaluated. This can be used to draw filled contours as shown below.
+
+![labels](2020-03-22-14-54-15.png){:width="400px"}
+
+Please read [A tutorial on support vector regression](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=5973545F3482D02CFAF0C9DBA1CD7714?doi=10.1.1.114.4288&rep=rep1&type=pdf) by Smola and Sch&ouml;lkopf for more advanced information about these methods.
+
 ### Soft-margin
 
-For many problems, though, because of noise and complex data it is not possible to have a hyperplane that exactly separates the data. In that case, there is no solution to our optimization problem.
+For many problems, though, because of noise and complex data, it is not possible to have a hyperplane that exactly separates the data. In that case, there is no solution to the optimization problem above.
 
 The figure below shows an example where there is no line that divides the red dots from the blue dots. The optimization problem from the previous section has no solution in that case.
 
 ![](2020-03-22-18-23-41.png){:width="400px"}
 
-So we need to introduce slack variables so that some constraints can be violated but in a minimal way
+One solution is to introduce slack variables so that some constraints can be violated but in a minimal way
 
 $$ y_i (w^T x_i + b) \ge 1 - \xi_i $$
 
-with $$\xi_i \ge 0$$. If the constraints $$y_i (w^T x_i + b) \ge 1$$ can be satisfied then $$\xi_i = 0$$.
+with $$\xi_i \ge 0$$. 
 
-If $$\xi_i > 0$$, then the constraint is weakly violated but the classification is still correct. The sign of $$w^T x_i + b$$ is still the same as $$y_i$$. 
+If the constraint $$y_i (w^T x_i + b) \ge 1$$ can be satisfied then $$\xi_i = 0$$.
+
+If $$1 > \xi_i > 0$$, then the constraint is weakly violated but the classification is still correct. The sign of $$w^T x_i + b$$ (which is used to predict the label) is still the same as $$y_i$$. 
 
 But, if $$\xi_i > 1$$ then the data is **misclassified.** The sign of $$w^T x_i + b$$ is now different from the sign of $$y_i$$. Hopefully this only happens for very few points.
 
-New optimization problem:
+The new optimization problem becomes:
  
 $$ (w,b,\xi) = \text{argmin}_{w,b,\xi} \frac{1}{2} \|w\|_2^2 + C \sum_{i=1}^n \xi_i $$
 
@@ -203,235 +221,142 @@ $$ \xi_i \ge 0 $$
 
 $$C$$ is set by the user and determines how much slack we are allowing. 
 
-Large $$C$$ means little violation. Very few points are allowed to violate. The hyperplane is strongly determined by the points nearest to the hyperplane. The hyperplane is very sensitive to points that violate.
+A large $$C$$ means little violation is tolerated. Very few points are allowed to violate the condition. The hyperplane is strongly determined by the points nearest to the hyperplane. The hyperplane is very sensitive to points that violate the condition.
 
-Small $$C$$ means a lot of violation are possible. Small $$C$$ is required when data has a lot of noise that needs to be filtered out. In that case, many violations will be accepted as long as this leads to a large separation $$1/\|w\|$$.
+A small $$C$$ means a lot of violations are possible. Small $$C$$ is required when data has a lot of noise that needs to be filtered out. In that case, many violations will be accepted as long as this leads to a large separation $$1/\|w\|_2$$.
 
-![](2019-01-09-11-05-55.png){width=50%}
+![](2020-03-26-10-41-42.png){:width="400px"}
 
-### Optimization
+Now we see that points are allowed to lie between the orange and green lines. There are even a few red points below the blue line and a few blue points above. But this cannot be avoided since no line perfectly separates the red points from the blue points.
 
-We need to take a small detour through optimization methods to solve our problem.
+### Overfitting and underfitting
 
-We will just recall the main results without justifications in the interest of time.
+The value of `C` can be optimized in different ways. This is a broad topic and we will only cover the main ideas.
 
-$$ \text{min}_x f(X) $$
+`C` must be tuned based on how we trust the data. Generally speaking, if the data is very accurate (and a separating hyperplane exists) then `C` must be chosen very large. But if the data is noisy (we do not trust it) then `C` must be small.
 
-$$ g_i(x) \le 0 \qquad h_i(x) = 0 $$
+Let's start by illustrating the effect of varying `C` in our method. We consider the problem below.
 
-Introduce Lagrangian
+![](2020-03-26-10-56-51.png){:width="400px"}
 
-$$ L(x;\lambda,\nu) = f(x) + \sum_i \lambda_i g_i(x) + \sum_i \nu_i h_i(x) $$
+We created two well-separated clusters with labels $$-1$$ and $$+1$$. Then we added a blue point on the left and a red point on the right.
 
-Then we look for the solution in the form:
+The real line of separation is $$y = x$$ as before. So the outlier points can be considered as incorrect data here. Either this data was entered incorrectly in our database, or there was some large error in the measurements.
 
-$$ \min_x \max_{\lambda, \nu; \lambda_i \ge 0} L(x;\lambda,\nu) $$
+Let's pick a large value of `C`
 
-This is called the primal formulation of the optimization problem.
+```python
+# fit the model
+clf = svm.SVC(kernel="linear", C = 10^4)
+clf.fit(X, y)
+```
 
-Note that if $$x$$ does not satisfy the constraints, then 
+The SVM decision line has a negative slope as shown below.
 
-$$ \max_{\lambda, \nu; \lambda_i \ge 0} L(x;\lambda,\nu) = +\infty $$
+![](2020-03-26-14-23-08.png){:width="400px"}
 
-So certainly when computing $$\min_x$$ we are not going to select those points. However, the min max formulation is important to connect this problem to the dual problem.
+The red point on the right is classified with a label $$-1$$ (red-orange region). And similarly for the blue point. However, we know that these points are erronenous and therefore the classification is actually wrong here.
 
-## Dual formulation
+This is a problem of _overfitting_. We trust too much the data which leads to a large error.
 
-It turns out that we can formulate this problem not in terms of the primal variables $$x$$ but in terms of the Lagrange multipliers $$\lambda$$, $$\nu$$ (the dual variables). This leads to a dual formulation of the problem:
+We can try again using a very small `C`. However, now the model believes that there is a large error in all the data. As a result the prediction is quite bad.
 
-$$ \max_{\lambda, \nu; \lambda_i \ge 0} \min_x L(x;\lambda,\nu) $$
+```python
+clf = svm.SVC(kernel="linear", C = 0.2)
+clf.fit(X, y)
+```
 
-This is the formulation we will be using later on.
+![](2020-03-26-14-28-44.png){:width="400px"}
 
-### Karush-Kuhn-Tucker (KKT) conditions
+This case corresponds to a situation of _underfitting_. That is we apply too much regularization by reducing `C` and do not trust enough the data.
 
-For our classification problem with slack the solution satisfies KKT conditions. They are:
+If we pick `C=0.3`, we get a better fit in this case.
 
-$$ \partial_x L = \partial_{\nu_i} L = 0 $$
+```python
+clf = svm.SVC(kernel="linear", C = 0.3)
+clf.fit(X, y)
+```
 
-This means
+This gives us the following plot:
 
-$$ \partial_x f + \sum_i \lambda_i \partial_x g_i(x) + \sum_i \nu_i \partial_x h_i(x) = 0 $$
+![](2020-03-26-14-31-17.png){:width="400px"}
 
-$$ h_i(x) = 0 $$
-
-For $$\lambda_i$$ it's a bit more complicated. Either the optimal solution satisfies
-
-$$ g_i(x) < 0 $$
-
-in which case $$\lambda_i = 0$$. But if $$g_i(x) = 0$$ then the Lagrange multiplier must be "activated" and $$\lambda_i > 0$$ (the sign of $$\lambda_i$$ is determined by the sign of the constraint $$g_i \le 0$$).
-
-So the final conditions are:
-
-$$ g_i \le 0 \qquad \lambda_i \ge 0 \qquad \lambda_i g_i = 0 $$
-
-### SVM primal optimization
-
-We want to solve
-
-$$ (w,b,\xi) = \text{argmin}_{w,b,\xi} \frac{1}{2} \|w\|_2^2 + C \sum_{i=1}^n \xi_i $$
-
-$$ y_i (w^T x_i + b) \ge 1 - \xi_i $$
-
-$$ \xi_i \ge 0 $$
-
-With the Lagrange multipliers:
-
-$$ L = \frac{1}{2} w^T w + C \sum_{i=1}^n \xi_i$$
-
-$$ + \sum_i \lambda_i (
-    1 - \xi_i - y_i (w^T x_i + b)) - \sum_i \nu_i \xi_i $$
-
-### Solution 
-
-We use the dual formulation for this. First step is taking the minimum over $$w$$, $$b$$ and $$\xi_i$$. Then we will take the maximum over the Lagrange multipliers.
-
-Let's find equations satisfied by the solution.
-
-- $$\partial_w$$: $$w - \sum_i \lambda_i y_i x_i = 0$$
-- $$\partial_b$$: $$\sum_i \lambda_i y_i = 0$$
-- $$\partial_{\xi_i}$$: $$C - \lambda_i - \nu_i = 0$$
-
-After taking the minimum, the Lagrangian is
-
-$$ L = \frac{1}{2} \sum_{ij} \lambda_i \lambda_j y_i y_j x_i^T x_j + \sum_i \lambda_i (1 - y_i (\sum_j \lambda_j y_j x_j^T) x_i) $$
-
-$$ L = - \frac{1}{2} \sum_{ij} \lambda_i \lambda_j y_i y_j x_i^T x_j + \sum_i \lambda_i $$
-
-$$ \max_{\lambda_i \ge 0, \nu_i \ge 0} L $$
-
-$$ \sum_i \lambda_i y_i = 0, \qquad
-\lambda_i + \nu_i = C $$
-
-which can be further simplified to just
-
-$$ \max_{0 \le \lambda_i \le C} - \frac{1}{2} \sum_{ij} \lambda_i \lambda_j y_i y_j x_i^T x_j + \sum_i \lambda_i $$
-
-$$ \sum_i \lambda_i y_i = 0 $$
-
-<!-- $$ y_i (w^T x_i + b) \ge 1 - \xi_i \qquad \xi_i \ge 0 $$ -->
-<!-- $$ \lambda_i (1 - \xi_i - y_i (w^T x_i + b)) = 0 $$ -->
-<!-- $$ \nu_i \xi_i = 0 $$ -->
-
-*End of lecture 4*
+which is intermediate between the previous plots. We trust the outliers points but only to a moderate extent. The solid red line is the line $$y = x$$ but because of the outlier points, it is not possible in this case to recover that answer. The SVC model is always biased by the outliers to some extent.
 
 ### Training, validation, and testing set
 
-![](2019-01-18-11-54-23.png){width=50%}
+This leads us to the general question of how we should pick $$C$$. This is a problem that we will explore again in the future for other methods.
 
-Hypothesis set: set of all models that can be used to explain the data.
+In machine learning, there are usually errors that arise either from:
 
-$$\hat{R}(h^\star)$$: best model best on observing a sample of the data.
+- Error in the model; that is, the model cannot possibly reproduce the data because it is too simple. For example, there may not exist a line that separates the blue dots from the red dots.
+- Error in the data; noise in the data may prevent us from finding an exact answer.
 
-$$R(h^\sharp)$$: assuming a prior distribution and computing posterior probabilities based on given observations. Optimal if the prior is known.
+Because of this, it is therefore common to use a regularization strategy. In our case, this was done by varying $$C$$. A small $$C$$ corresponds to a lot of regularization. This leads to a small vector $$w$$ and if $$C$$ is too small, the vector $$w$$ and scalar $$b$$ may become significantly wrong. A large $$C$$ corresponds to minimal regularization. In that case, we assume the data is accurate and look for a hyperplane that optimally separates the data (e.g., the hyperplane maximizes the distance to all points).
 
-$$R(h^\star)$$: error from generalization
+A typical strategy consists in the following. We define two sets of points, called the _training_ set and the _test_ set.
 
-In our case, we can vary $$C$$ to change the "richness". Small $$C$$ = poor hypothesis set. Large $$C$$ = overfitting, violations are minimal. $$R(h^\star)$$ is large.
+- Training set: this set is used to fit the model. In our case, this is used to calculate $$(w,b,\xi)$$.
+- Test set: the set is used to tune some of the model parameters, in our case $$C$$. It is usually used to control over or under fitting.
 
-Goal is to vary $$C$$ until $$R(h^\star)$$ starts increasing.
-
-The optimization has essentially two phases:
+The optimization may be based on an iterative loop where we perform in turn
 
 - $$(w,b,\xi)$$: optimized based on training set
-- $$C$$: optimized based on validation set
+- parameter $$C$$: optimized based on test set
 
-Definitions:
+Let's give an example to illustrate how this may work in practice. We consider our previous test case where the input data is randomly perturbed.
 
-- training set: The sample of data used to fit the model. This is used to calculate $$(w,b,\xi)$$. If we do data fitting using a polynomial of order $$n$$, we use the training set to calculate the coefficients of the polynomial.
-
-- Validation set: The sample of data used to provide an unbiased evaluation of a model fit on the training dataset, while tuning model hyperparameters. The evaluation becomes more biased as the error feedback from the validation dataset is incorporated into the model hyper-parameters. This corresponds to tuning $$C$$ or the polynomial order $$n$$.
-
-- Test set: The sample of data used to provide an unbiased evaluation of a final model fit on the training dataset. No more optimization is done at this stage. This is performed outside of the optimization loop.
-
-Pseudo-code:
-
-```Python
-# split data
-data = ...
-train, validation, test = split(data)
-
-# tune model hyperparameters
-parameters = ...
-for params in parameters:
-    model = fit(train, params)
-    # optimize the model based on train
-    error = evaluate(model, validation)
-    # evaluate the model on validation
-    # use error to optimize the hyperparameters
-
-# evaluate final model using test
-error = evaluate(model, test)
+```python
+# randomly perturb the points X
+for i in range(0,X.shape[0]):
+  X[i,:] = X[i,:] + ( 2*np.random.rand(1, 2) - 1 ) / 2
 ```
 
-### Approximation-generalization tradeoff
+![](2020-03-22-18-23-41.png){:width="400px"}
 
-Another terminology that describes something very similar.
+scikitlearn provides a few functionalities that can be used to simplify the process. Let's start by splitting the input data into a testing and validation set.
 
-Say we want to approximate $$\sin(x)$$. We are given some samples and we fit a polynomial, for example a constant, linear or higher order.
+```python
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, 
+    random_state=0)
+```
 
-![](2019-01-18-12-25-37.png){width=50%}
+`random_state` is used to initialize the random number generator that is used to randomly generate the sets; `test_size` is the fraction of the input data that will be used for the test set.
 
-Left: approximation by a constant. Right: approximation by a linear function based on 2 samples.
+We can verify that the sets have the correct sizes (60% and 40%):
 
-![](2019-01-18-12-37-58.png){width=50%}
+```python
+print('Size of X_train: ',X_train.shape[0])
+print('Size of X_test: ',X_test.shape[0])
+Size of X_train:  19
+Size of X_test:  13
+```
 
-$$\bar{g}(x)$$: average prediction. Gray region: variance of prediction depending on the training set. Bias: difference between $$\bar{g}$$ and truth. Variance: variance in prediction due to random training set. Left: constant polynomials. Right: linear polynomials.
+The `clf.score()` function can be used to evaluate the accuracy of our SVM prediction using the test set. The goal is then to find the value of $$C$$ that gives us the highest score.
 
-**Approximation:** how accurately can your model approximate $$f$$? That is considering polynomials of order $$n$$, how closely can they approximate $$\sin(x)$$?
+We obtain the following results in this case:
 
-Typically you want a large $$n$$ to get a better approximation.
+```python
+C=1
+clf = svm.SVC(kernel='linear', C=C).fit(X_train, y_train)
+print("C = {0:g}; score = {1:g}".format(C,clf.score(X_test, y_test)))
 
-**Generalization:** the problem is you only see a few sample points, not the entire function. This leads to two errors: $$E_{in}$$ errors for the sample points you have seen. $$E_{out}$$: errors for other sample points that you have not seen. This is basically the training and validation sets. We say that a model generalizes well if $$E_{in} \sim E_{out}$$.
+C=.1
+clf = svm.SVC(kernel='linear', C=C).fit(X_train, y_train)
+print("C = {0:g}; score = {1:g}".format(C,clf.score(X_test, y_test)))
 
-Typically you want a small $$n$$ for the model to generalize.
+C=10
+clf = svm.SVC(kernel='linear', C=C).fit(X_train, y_train)
+print("C = {0:g}; score = {1:g}".format(C,clf.score(X_test, y_test)))
+```
 
-You need to find the right trade-off. The optimal $$n$$ depends on how many sample points you are allowed to see. The more sample points the larger $$n$$ should be.
+The output is
 
-![](2019-01-18-12-30-00.png){width=50%}
+```python
+C = 1; score = 0.846154
+C = 0.1; score = 0.769231
+C = 10; score = 0.769231
+```
 
-### Kernel trick
-
-A genius idea. You can see that the Lagrangian is based on dot products with $$x_i$$: $$x_i^T x_j$$. The prediction requires
-
-$$ w^T x + b = \sum_i (\lambda_i y_i) \; x_i^T x + b $$
-
-and similarly in the definition of $$L(\lambda,\nu)$$.
-
-The vectors $$x_i$$ only show up through dot products.
-
-This suggests several extensions.
-
-Instead of considering $$x$$, we can consider some non-linear function of $$x$$, $$\phi(x)$$, called features. Then the dot products $$x^T x'$$ become
-
-$$ \phi(x)^T \phi(x') = \sum_k \phi_k(x) \phi_k(x')$$
-
-We may decide to use a weighted dot product
-
-$$ \sum_k \sigma_k \phi_k(x) \phi_k(x') $$
-
-The downside of this is that we need to calculate all these $$\phi_k(x)$$. But there is a simple way around this. Define the kernel function
-
-$$ K(x,x') =  \sum_{k=1}^r \sigma_k \phi_k(x) \phi_k(x') $$
-
-This is a simple evaluation; no dot product or function $$\phi_k$$ to evaluate any more.
-
-But in fact, many kernels we are familiar with can be written in this form. It's just an SVD of the kernel. Any kernel that satisfies the assumption for Mercer's theorem ($$K$$ is a continuous symmetric positive semi-definite kernel; we skip the technical details here) can be written as
-
-$$ K(x,x') =  \sum_{k=1}^\infty \sigma_k \phi_k(x) \phi_k(x') $$
-
-The optimization Lagrangian becomes:
-
-$$ L = - \frac{1}{2} \sum_{ij} \lambda_i \lambda_j y_i y_j K(x_i,x_j) + \sum_i \lambda_i $$
-
-To evaluate our classifier, we use
-
-$$ \sum_i (\lambda_i y_i) \; K(x,x_i) + b $$
-
-Observe how this is very close to the Gaussian process regression estimate:
-
-$$ f(x) = \sum_i \alpha_i K(x,x_i) + \mu(x) $$
-
-Although different, kernel machines for SVM and GPR are closely related. In SVM, the parameters are obtained through minimization. In GPR, we are parameter-free and the estimate is obtained through averaging (expectation).
-
-*End of lecture 5*
+This shows that the choice of $$C=1$$ is the best in this case.
