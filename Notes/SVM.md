@@ -283,7 +283,7 @@ This gives us the following plot:
 
 which is intermediate between the previous plots. We trust the outliers points but only to a moderate extent. The solid red line is the line $$y = x$$ but because of the outlier points, it is not possible in this case to recover that answer. The SVC model is always biased by the outliers to some extent.
 
-### Training, validation, and testing set
+### Training and testing set
 
 This leads us to the general question of how we should pick $$C$$. This is a problem that we will explore again in the future for other methods.
 
