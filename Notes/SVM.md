@@ -74,7 +74,7 @@ $$ y_i (w^T x_i + b) = 1 $$
 
 These $$x_i$$s are called **support vectors.** 
 
-In our figure above, the red and blue dots lying on the dashed lines are the support vectors. The black solid line is our best guess $$w^T x + b = 0$$ where $$x$$ is a point in the plane $$x = (x_1,x_2)$$.
+In our figure above, the red and blue dots lying on the dashed lines are the support vectors. The black solid line is our best guess $$w^T x + b = 0$$ where $$x$$ is a point in the plane $$x = (x_1,x_2)$$. {% include marginnote.html note='See Section 5.7.2 in [Deep Learning](https://www.deeplearningbook.org/) '%}
 
 ### scikit-learn
 
