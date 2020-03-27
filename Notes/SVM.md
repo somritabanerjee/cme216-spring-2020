@@ -80,7 +80,7 @@ In our figure above, the red and blue dots lying on the dashed lines are the sup
 
 To demonstrate how SVM works we are going to use [scikit-learn](https://scikit-learn.org/). This library can perform many important computations in machine learning including supervised and unsupervised learning. {% include marginnote.html note='See [scikit supervised learning](https://scikit-learn.org/stable/supervised_learning.html) for more details about the functionalities that are supported.'%}
 
-We are going to demonstrate our concept through a simple example. Let's generate 8 random points in the 2D plane. Points in the top left are assigned the label $$-1$$ ($$y > x$$) and points in the bottom right are assigned a label $$-1$$ ($$y < x$$).
+We are going to demonstrate our concept through a simple example. Let's generate 8 random points in the 2D plane. Points in the top left are assigned the label $$-1$$ ($$y > x$$) and points in the bottom right are assigned a label $$-1$$ ($$y < x$$). {% include marginnote.html note='All the examples in this section can be run using Google colab using this [notebook](https://colab.research.google.com/drive/1dSo81DdqIkzVyssauB7wYi12kZ0XzuVy). '%}
 
 In Python, we set up two arrays X (coordinates) and y (labels) with the data:
 
@@ -360,3 +360,44 @@ C = 10; score = 0.769231
 ```
 
 This shows that the choice of $$C=1$$ is the best in this case.
+
+### Kernel trick
+
+An important extension of this method allows treating decision surfaces (the hyperplane that divides points with different colors) into more general surfaces.
+
+To understand this connection, we start from the form of our prediction model
+
+$$ w^T x + b $$
+
+Given some training points $$x^{(i)}$$ we can find coefficients $$\alpha_i$$ such that
+
+$$ w^T x + b = \sum_i \alpha_i [x^{(i)}]^T x + b $$
+
+So far this is just a change in notation. However, it reveals that we can view $$ w^T x $$ as dot products between $$ x^{(i)} $$ and $$x$$. An important extension is to realize that it is possible to use other coordinates than $$x$$. These are sometimes called features. Imagine now that we have at our disposal a function $$ \phi(x) $$ that is vector valued. This represents a set of "features" representing the data $$x$$. For example, instead of considering $$x = (x_1,x_2)$$ we could define
+
+$$ \phi(x) = (x_1, x_2, x_1^2, x_2^2, x_1 x_2) $$
+
+Then we may use as our model to predict a label
+
+$$ \sum_i \alpha_i \phi(x^{(i)})^T \phi(x) + b $$
+
+When this function is positive, we predict the label $$+1$$ and $$-1$$ otherwise.
+
+However, in many cases, it may be difficult to find an appropriate $$\phi(x)$$, and if $$\phi$$ is very high-dimensional (a lot of features) it may be expensive to compute the dot product 
+
+$$\phi(x^{(i)})^T \phi(x)$$
+
+The kernel trick is an ingenious idea. It replaces the expression above by
+
+$$ \sum_i \alpha_i K(x^{(i)},x) + b $$
+
+Many different types of kernels can be used. For example in scikit-learn, we have
+
+Kernel  | Definition
+---     | ---
+linear  | $$\langle x, x' \rangle$$
+polynomial | $$(\gamma \langle x, x' \rangle + r)^d$$
+radial basis function (rbf) | $$\exp(-\gamma \lVert x - x' \rVert^2)$$
+sigmoid | $$\tanh(\gamma \langle x, x' \rangle + r)$$
+
+To be continued...
