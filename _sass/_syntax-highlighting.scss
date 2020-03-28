@@ -6,6 +6,10 @@ $spacing-unit:     30px;
     margin-bottom: $spacing-unit / 2;
 }
 
+.language-plaintext {
+    font-size: 1.4rem;
+}
+
 .highlight {
     background: #fffff8;
     @extend %vertical-rhythm;

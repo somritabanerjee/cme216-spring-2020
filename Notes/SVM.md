@@ -11,7 +11,7 @@ In SVM, the space $$\mathbb R^n$$ of possible $$x$$ is subdivided into 2 half-sp
 
 In the example below, the line that separates the $$-1$$ labels from $$+1$$ is simply $$y = x$$. The $$-1$$ labels are in the top left and the $$+1$$ in the bottom right.
 
-![labels](2020-03-22-14-54-15.png){:width="400px"}
+![](2020-03-27-14-48-41.png){:width="400px"}
 
 However, if the training data that we are given are only the colored dots, we cannot exactly determine the separating line $$y = x$$. So instead, based on the observed data (the dots), we ask what the best hyperplane we can find is.
 
@@ -130,17 +130,13 @@ print(clf.intercept_)
 [0.63450173]
 ```
 
-We can plot the points and line using
+We can plot the points and line using [Plotly](https://plotly.com/python/) syntax
 
 ```python
-fig, ax = plt.subplots(figsize=(10, 10))
-# points; red = label "-1"; blue = label "+1"
-ax.scatter(X[:, 0], X[:, 1], c=y, s=100, cmap=plt.cm.RdYlBu, edgecolors='black')
-# solid blue line
-x_df = np.linspace(-1, 1, 2)
+x = np.linspace(-1, 1, 2)
 a = -clf.coef_[0,0] / clf.coef_[0,1]
 b = -clf.intercept_ / clf.coef_[0,1]
-ax.plot(x_df,a*x_df + b)
+fig.add_trace(go.Scatter(x=x, y=a*x + b))
 ```
 
 We can also visualize the support vectors.
@@ -165,19 +161,19 @@ $$ w^T x + b = 1 $$
 These lines can be plotted using
 
 ```python
-# orange line
-b = -(1 + clf.intercept_) / clf.coef_[0,1]
-ax.plot(x_df,a*x_df + b, linestyle='dashed')
 # green line
-b = -(-1 + clf.intercept_) / clf.coef_[0,1]
-ax.plot(x_df,a*x_df + b, linestyle='dashed')
+b1 = -(1 + clf.intercept_) / clf.coef_[0,1]
+fig.add_trace(go.Scatter(x=x, y=a*x + b))
+# purple line
+b2 = -(-1 + clf.intercept_) / clf.coef_[0,1]
+fig.add_trace(go.Scatter(x=x, y=a*x + b2))
 ```
 
 Here is the final plot:
 
-![](2020-03-26-10-07-45.png){:width="400px"}
+![](2020-03-27-14-52-07.png){:width="400px"}
 
-The blue line is the "farthest" away from the red and blue dots. All the support vectors are at the same distance from the blue line.
+The orange line is the "farthest" away from the red and blue dots. All the support vectors are at the same distance from the orange line.
 
 The decision function, equal to $$w^T x + b$$ in our notations, can be computed using
 
@@ -187,7 +183,7 @@ clf.decision_function(X)
 
 where `X` contains the coordinates of the points where the function is to be evaluated. This can be used to draw filled contours as shown below.
 
-![labels](2020-03-22-14-54-15.png){:width="400px"}
+![](2020-03-22-18-07-39.png){:width="400px"}
 
 Please read [A tutorial on support vector regression](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=5973545F3482D02CFAF0C9DBA1CD7714?doi=10.1.1.114.4288&rep=rep1&type=pdf) by Smola and Sch&ouml;lkopf for more advanced information about these methods.
 
@@ -195,9 +191,9 @@ Please read [A tutorial on support vector regression](http://citeseerx.ist.psu.e
 
 For many problems, though, because of noise and complex data, it is not possible to have a hyperplane that exactly separates the data. In that case, there is no solution to the optimization problem above.
 
-The figure below shows an example where there is no line that divides the red dots from the blue dots. The optimization problem from the previous section has no solution in that case.
+The figure below shows an example where no line divides the red dots from the blue dots. The optimization problem from the previous section has no solution in that case.
 
-![](2020-03-22-18-23-41.png){:width="400px"}
+![](2020-03-27-15-00-55.png){:width="400px"}
 
 One solution is to introduce slack variables so that some constraints can be violated but in a minimal way
 
@@ -225,9 +221,9 @@ A large $$C$$ means little violation is tolerated. Very few points are allowed t
 
 A small $$C$$ means a lot of violations are possible. Small $$C$$ is required when data has a lot of noise that needs to be filtered out. In that case, many violations will be accepted as long as this leads to a large separation $$1/\|w\|_2$$.
 
-![](2020-03-26-10-41-42.png){:width="400px"}
+![](2020-03-27-15-01-58.png){:width="400px"}
 
-Now we see that points are allowed to lie between the orange and green lines. There are even a few red points below the blue line and a few blue points above. But this cannot be avoided since no line perfectly separates the red points from the blue points.
+Now we see that points are allowed to lie between the orange and green lines. There are even a few red points below the orange line and a few blue points above. But this cannot be avoided since no line perfectly separates the red points from the blue points.
 
 ### Overfitting and underfitting
 
@@ -237,7 +233,7 @@ The value of `C` can be optimized in different ways. This is a broad topic and w
 
 Let's start by illustrating the effect of varying `C` in our method. We consider the problem below.
 
-![](2020-03-26-10-56-51.png){:width="400px"}
+![](2020-03-27-15-02-35.png){:width="400px"}
 
 We created two well-separated clusters with labels $$-1$$ and $$+1$$. Then we added a blue point on the left and a red point on the right.
 
@@ -253,20 +249,20 @@ clf.fit(X, y)
 
 The SVM decision line has a negative slope as shown below.
 
-![](2020-03-26-14-23-08.png){:width="400px"}
+![](2020-03-27-15-03-13.png){:width="400px"}
 
-The red point on the right is classified with a label $$-1$$ (red-orange region). And similarly for the blue point. However, we know that these points are erronenous and therefore the classification is actually wrong here.
+The red point on the right is classified with a label $$-1$$ (red-orange region). And similarly for the blue point. However, we know that these points are erroneous, and therefore the classification is wrong here.
 
 This is a problem of _overfitting_. We trust too much the data which leads to a large error.
 
-We can try again using a very small `C`. However, now the model believes that there is a large error in all the data. As a result the prediction is quite bad.
+We can try again using a small `C`. However, now the model believes that there is a large error in all the data. As a result, the prediction is quite bad.
 
 ```python
 clf = svm.SVC(kernel="linear", C = 0.2)
 clf.fit(X, y)
 ```
 
-![](2020-03-26-14-28-44.png){:width="400px"}
+![](2020-03-27-15-03-51.png){:width="400px"}
 
 This case corresponds to a situation of _underfitting_. That is we apply too much regularization by reducing `C` and do not trust enough the data.
 
@@ -279,30 +275,30 @@ clf.fit(X, y)
 
 This gives us the following plot:
 
-![](2020-03-26-14-31-17.png){:width="400px"}
+![](2020-03-27-15-05-43.png){:width="400px"}
 
-which is intermediate between the previous plots. We trust the outliers points but only to a moderate extent. The solid red line is the line $$y = x$$ but because of the outlier points, it is not possible in this case to recover that answer. The SVC model is always biased by the outliers to some extent.
+which is intermediate between the previous plots. We trust the outlier points but only to a moderate extent. The solid red line is the line $$y = x$$ but because of the outlier points, it is not possible in this case to recover that answer. The SVC model is always biased by the outliers to some extent.
 
-### Training and testing set
+### Training and validation sets
 
 This leads us to the general question of how we should pick $$C$$. This is a problem that we will explore again in the future for other methods.
 
 In machine learning, there are usually errors that arise either from:
 
-- Error in the model; that is, the model cannot possibly reproduce the data because it is too simple. For example, there may not exist a line that separates the blue dots from the red dots.
 - Error in the data; noise in the data may prevent us from finding an exact answer.
+- Error in the model; that is, the model cannot possibly reproduce the data because it is too simple. For example, there may not exist a line that separates the blue dots from the red dots.
 
 Because of this, it is therefore common to use a regularization strategy. In our case, this was done by varying $$C$$. A small $$C$$ corresponds to a lot of regularization. This leads to a small vector $$w$$ and if $$C$$ is too small, the vector $$w$$ and scalar $$b$$ may become significantly wrong. A large $$C$$ corresponds to minimal regularization. In that case, we assume the data is accurate and look for a hyperplane that optimally separates the data (e.g., the hyperplane maximizes the distance to all points).
 
-A typical strategy consists in the following. We define two sets of points, called the _training_ set and the _test_ set.
+A typical strategy consists of the following. We define two sets of points, called the _training_ set and the _validation_ set.
 
 - Training set: this set is used to fit the model. In our case, this is used to calculate $$(w,b,\xi)$$.
-- Test set: the set is used to tune some of the model parameters, in our case $$C$$. It is usually used to control over or under fitting.
+- Validation set: the set is used to tune some of the model parameters, in our case $$C$$. It is usually used to control over- or under-fitting.
 
 The optimization may be based on an iterative loop where we perform in turn
 
 - $$(w,b,\xi)$$: optimized based on training set
-- parameter $$C$$: optimized based on test set
+- parameter $$C$$: optimized based on validation set
 
 Let's give an example to illustrate how this may work in practice. We consider our previous test case where the input data is randomly perturbed.
 
@@ -312,54 +308,49 @@ for i in range(0,X.shape[0]):
   X[i,:] = X[i,:] + ( 2*np.random.rand(1, 2) - 1 ) / 2
 ```
 
-![](2020-03-22-18-23-41.png){:width="400px"}
+![](2020-03-27-15-09-41.png){:width="400px"}
 
-scikitlearn provides a few functionalities that can be used to simplify the process. Let's start by splitting the input data into a testing and validation set.
+scikitlearn provides a few functionalities that can be used to simplify the process. Let's start by splitting the input data into a training and validation set.
 
 ```python
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, 
-    random_state=0)
+X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.4)
 ```
 
-`random_state` is used to initialize the random number generator that is used to randomly generate the sets; `test_size` is the fraction of the input data that will be used for the test set.
+`random_state` is used to initialize the random number generator that is used to randomly generate the sets; `test_size` is the fraction of the input data that will be used for the validation set. The word `test` is used because this function is usually used to split the data into a training set and a test set but for our application we will use the same function to split the data into a training set and a validation set to control over-fitting.
 
 We can verify that the sets have the correct sizes (60% and 40%):
 
 ```python
 print('Size of X_train: ',X_train.shape[0])
-print('Size of X_test: ',X_test.shape[0])
+print('Size of X_test: ',X_valid.shape[0])
 Size of X_train:  19
-Size of X_test:  13
+Size of X_valid:  13
 ```
 
 The `clf.score()` function can be used to evaluate the accuracy of our SVM prediction using the test set. The goal is then to find the value of $$C$$ that gives us the highest score.
 
-We obtain the following results in this case:
+We obtain the following results in this case.
 
-```python
-C=1
-clf = svm.SVC(kernel='linear', C=C).fit(X_train, y_train)
-print("C = {0:g}; score = {1:g}".format(C,clf.score(X_test, y_test)))
+![](2020-03-27-15-26-29.png){:width="800px"}
 
-C=.1
-clf = svm.SVC(kernel='linear', C=C).fit(X_train, y_train)
-print("C = {0:g}; score = {1:g}".format(C,clf.score(X_test, y_test)))
+$$a$$ is the slope of the predicted decision line. The exact solution is $$y=x$$ and so $$a=1$$. $$b$$ is the predicted intercept. The exact solution is $$b=0$$.
 
-C=10
-clf = svm.SVC(kernel='linear', C=C).fit(X_train, y_train)
-print("C = {0:g}; score = {1:g}".format(C,clf.score(X_test, y_test)))
-```
+We see that values of $$C$$ below 0.1 leads to under-fitting. Larger values give consistently good results. Between $$1 \le C \le 10$$ the accuracy is relatively insensitive to the value of $$C$$.
 
-The output is
+### Cross-validation
 
-```python
-C = 1; score = 0.846154
-C = 0.1; score = 0.769231
-C = 10; score = 0.769231
-```
+We have seen a simple way to decompose the set into a training set and validation set. However, this may lead to some issues. In particular, if we make a unique choice of training and validation set it is quite possible that our prediction becomes biased by our choice of validation set. Indeed, only the validation set is used to estimate how good $$C$$ is and whether it should be adjusted. So to overcome this, it is preferable to optimize our model for many training sets and evaluate its performance on many validation sets. But how can this be done? This would require a tremendous amount of data. In our plot above for example, we had the luxury of generating entirely new sets for each evaluating of $$C$$.
 
-This shows that the choice of $$C=1$$ is the best in this case.
+In practice, the method of cross-validation is used. The dataset at our disposal is split into $$K$$ groups. Then we run a series of experiments in which we use $$K-1$$ groups of data for optimizing the model, and the remaining group for validation (i.e., to score our model). By "reusing" our dataset in this fashion, we are able to generate many scores with limited data. These scores can then be averaged to estimate how good $$C$$ is. Based on this result $$C$$ can be optimized. The advantage of this approach is that we minimize a possible bias due to our selection of training and validation sets.
+
+For more information on this, please see [scikit-learn cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html). There are many variants on this idea.
+
+The [cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html) section in scikit-learn and the [wikipedia page](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets) on training and validation sets introduce as well the concept of test set. Here is a summary of what each one of these sets is used for
+
+1. Training set: this set is used to opimize the model, in our case $$w$$ and $$b$$.
+2. Validation set (also called development set) is used to optimize hyper-parameters in the method, for example the parameter $$C$$ in our example. This can be used to control overfitting and for other optimization of parameters that is not part of step 1 with the training set.
+3. Once the model has been computed and that all parameters have been optimized based on the available data, we use a yet-unseen dataset, the test set, to evaluate the accuracy of our model. By definition, the test set is applied to the final model. No further changes are made to the model during that stage. {% include marginnote.html note='See [scikit-learn cross_validation](https://scikit-learn.org/stable/modules/cross_validation.html) and [training, validation, and test sets](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets).'%}
 
 ### Kernel trick
 
@@ -373,7 +364,7 @@ Given some training points $$x^{(i)}$$ we can find coefficients $$\alpha_i$$ suc
 
 $$ w^T x + b = \sum_i \alpha_i [x^{(i)}]^T x + b $$
 
-So far this is just a change in notation. However, it reveals that we can view $$ w^T x $$ as dot products between $$ x^{(i)} $$ and $$x$$. An important extension is to realize that it is possible to use other coordinates than $$x$$. These are sometimes called features. Imagine now that we have at our disposal a function $$ \phi(x) $$ that is vector valued. This represents a set of "features" representing the data $$x$$. For example, instead of considering $$x = (x_1,x_2)$$ we could define
+So far this is just a change in notation. However, it reveals that we can view $$ w^T x $$ as dot products between $$ x^{(i)} $$ and $$x$$. An important extension is to realize that it is possible to use other coordinates than $$x$$. These are sometimes called features. Imagine now that we have at our disposal a function $$ \phi(x) $$ that is vector-valued. This represents a set of "features" representing the data $$x$$. For example, instead of considering $$x = (x_1,x_2)$$ we could define
 
 $$ \phi(x) = (x_1, x_2, x_1^2, x_2^2, x_1 x_2) $$
 
@@ -391,13 +382,33 @@ The kernel trick is an ingenious idea. It replaces the expression above by
 
 $$ \sum_i \alpha_i K(x^{(i)},x) + b $$
 
+There are several theoretical justifications and explanations for this approach but here we will simply demonstrate this approach through examples. {% include marginnote.html note='Please read [Kernel methods in machine learning](https://projecteuclid.org/download/pdfview_1/euclid.aos/1211819561) by Hofman, Sch&ouml;lkopf and Smola for mathematical details on this method.'%}
+
 Many different types of kernels can be used. For example in scikit-learn, we have
 
 Kernel  | Definition
 ---     | ---
-linear  | $$\langle x, x' \rangle$$
-polynomial | $$(\gamma \langle x, x' \rangle + r)^d$$
-radial basis function (rbf) | $$\exp(-\gamma \lVert x - x' \rVert^2)$$
-sigmoid | $$\tanh(\gamma \langle x, x' \rangle + r)$$
+Linear  | $$\langle x, x' \rangle$$
+Polynomial | $$(\gamma \langle x, x' \rangle + r)^d$$
+Radial basis function (RBF) | $$\exp(-\gamma \lVert x - x' \rVert^2)$$
+Sigmoid | $$\tanh(\gamma \langle x, x' \rangle + r)$$
 
-To be continued...
+We now demonstrate this method on a simple example.
+
+We consider a situation where the blue points on top are separated from the red points on the bottom by a sine function. Since a linear SVM uses a line to separate these points it cannot make a good prediction.
+
+![](2020-03-27-15-40-33.png){:width="400px"}
+
+When we use an RBF, the results are much more accurate.{% include marginnote.html note='See Section 5.7.2 in [Deep Learning](https://www.deeplearningbook.org/) for more details on the kernel trick. '%}
+
+![](2020-03-27-15-41-58.png){:width="400px"}
+
+This is done using
+
+```python
+# fit the model
+clf = svm.SVC(kernel="rbf", gamma = 10)
+clf.fit(X, y)
+```
+
+As before, we can tune the regularization parameter `C` to improve the fit; the parameter `gamma` controls the width of the Gaussian function $$\exp(-\gamma \lVert x - x' \rVert^2)$$.
