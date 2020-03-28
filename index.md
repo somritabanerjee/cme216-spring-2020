@@ -11,7 +11,7 @@ These are lecture notes for CME 216 Machine Learning in Computational Engineerin
 - [Brief Introduction to Machine Learning](Notes/Introduction)
 - [Support Vector Machines](Notes/SVM)
 
-## Content of class
+## Contents of class
 
 Topics to cover and tentative schedule
 
@@ -30,8 +30,8 @@ Week 2
 
 Week 3
 - [TensorFlow](https://www.tensorflow.org/learn) and [Keras](https://www.tensorflow.org/guide/keras)
-- [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
-- [PyTorch](https://pytorch.org/)
+- Brief mention of [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
+- Brief mention of [PyTorch](https://pytorch.org/)
 
 Week 4
 - Forward and back-propagation
@@ -39,20 +39,20 @@ Week 4
 
 Week 5
 - Regularization strategies; bagging, dropout
-- Stochastic gradient methods; SGD, momentum; adaptive algorithms; AdaGrad, RMSProp, Adam; 2nd order methods, BFGS (Broyden–Fletcher–Goldfarb–Shanno)
+- Stochastic gradient methods; SGD, momentum; adaptive algorithms; AdaGrad, RMSProp, Adam; 2nd order methods, BFGS (Broyden–Fletcher–Goldfarb–Shanno) (not all methods will be covered in details)
 
 Week 6
 - Batch normalization
 - Weight initialization
 - Convolution nets; pooling; fully-connected nets
-- DNN and convnet architectures; LeNet-5, AlexNet, GoogLeNet/Inception, VGGNet, ResNet
+- DNN and convnet architectures; overview of some well-known architectures; LeNet-5, AlexNet, GoogLeNet/Inception, VGGNet, ResNet
 
 **Physics-informed learning**
 
 Week 7
 - Physics-based ML; PhysML
 - DNN and numerical PDE solvers
-- Automatic differentiation; forward and reverse mode AD; computational graph; chain rule
+- Automatic differentiation; forward and reverse mode AD; chain rule; computational graph
 - Examples of numerical PDE solutions with ADCME
 
 **Generative deep networks**
