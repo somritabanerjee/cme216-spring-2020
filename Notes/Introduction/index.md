@@ -38,7 +38,7 @@ We are going to start with the problem of regression for simplicity.
 
 In the figure below, the points on the top left in red have a label $$+1$$ and the ones in the bottom right in blue have a label $$-1$$. In this case, $$x = (x_1,x_2)$$ is a vector in $$\mathbb R^2$$.
 
-![labels](2020-03-22-14-54-15.png){:width="400px"}
+![](../SVM/2020-03-27-14-48-41.png){:width="400px"}
 
 This is an example of a **supervised** learning task. That is we are given some data points $$x_i$$ in 2D along with their labels, $$+1$$ or $$-1$$.
 

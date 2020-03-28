@@ -78,7 +78,7 @@ In our figure above, the red and blue dots lying on the dashed lines are the sup
 
 ### scikit-learn
 
-To demonstrate how SVM works we are going to use [scikit-learn](https://scikit-learn.org/). This library can perform many important computations in machine learning including supervised and unsupervised learning. {% include marginnote.html note='See [scikit supervised learning](https://scikit-learn.org/stable/supervised_learning.html) for more details about the functionalities that are supported.'%}
+To demonstrate how SVM works we are going to use [scikit-learn](https://scikit-learn.org/). The results in this section can be reproduced using this shared [notebook](https://colab.research.google.com/drive/1dSo81DdqIkzVyssauB7wYi12kZ0XzuVy). The scikit-learn library can perform many important computations in machine learning including supervised and unsupervised learning. {% include marginnote.html note='See [scikit supervised learning](https://scikit-learn.org/stable/supervised_learning.html) for more details about the functionalities that are supported.'%}
 
 We are going to demonstrate our concept through a simple example. Let's generate 8 random points in the 2D plane. Points in the top left are assigned the label $$-1$$ ($$y > x$$) and points in the bottom right are assigned a label $$-1$$ ($$y < x$$). {% include marginnote.html note='All the examples in this section can be run using Google colab using this [notebook](https://colab.research.google.com/drive/1dSo81DdqIkzVyssauB7wYi12kZ0XzuVy). '%}
 
