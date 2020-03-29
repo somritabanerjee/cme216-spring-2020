@@ -310,7 +310,7 @@ for i in range(0,X.shape[0]):
   X[i,:] = X[i,:] + ( 2*np.random.rand(1, 2) - 1 ) / 2
 ```
  
-![](2020-03-27-15-09-41.png){:width="400px"}
+{% include svm3.html %}
 
 scikitlearn provides a few functionalities that can be used to simplify the process. Let's start by splitting the input data into a training and validation set.
 

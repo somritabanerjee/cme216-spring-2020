@@ -41,8 +41,8 @@ html, body { height: 100%; }
 }
 
 // MathJax styling
-.mathblock, .MJXc-display {
-    font-size: 1.5rem !important;
+.mathblock, .mjx-math {
+    font-size: 1.3rem;
     clear: left;
 }
 
@@ -114,7 +114,7 @@ article {
  * ============================== */
 
 p, ol, ul {
-    font-size: 1.4rem;
+    font-size: $font-size;
     line-height: 2rem;
     margin: 1.4rem 0;
 }
