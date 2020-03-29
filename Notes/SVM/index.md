@@ -3,6 +3,8 @@ layout: page
 title: Support vector machines
 ---
 
+<!-- <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~chris/1638.embed" height="525" width="100%"></iframe> -->
+
 Support vector machine (SVM) is one of the simplest methods for classification. In some sense, it forms a stepping block to neural networks and deep learning.
 
 SVM is a method for binary classification. That is, we are given a point $$x \in \mathbb R^n$$, and we want to predict a label with possible values $$+1$$ or $$-1$$.
@@ -11,7 +13,7 @@ In SVM, the space $$\mathbb R^n$$ of possible $$x$$ is subdivided into 2 half-sp
 
 In the example below, the line that separates the $$-1$$ labels from $$+1$$ is simply $$y = x$$. The $$-1$$ labels are in the top left and the $$+1$$ in the bottom right.
 
-![](2020-03-27-14-48-41.png){:width="400px"}
+{% include svm2.html %}
 
 However, if the training data that we are given are only the colored dots, we cannot exactly determine the separating line $$y = x$$. So instead, based on the observed data (the dots), we ask what the best hyperplane we can find is.
 
@@ -171,9 +173,9 @@ fig.add_trace(go.Scatter(x=x, y=a*x + b2))
 
 Here is the final plot:
 
-![](2020-03-27-14-52-07.png){:width="400px"}
+{% include svm1.html %} 
 
-The orange line is the "farthest" away from the red and blue dots. All the support vectors are at the same distance from the orange line.
+The orange line is the "farthest" away from the red and blue dots. All t  he support vectors are at the same distance from the orange line.
 
 The decision function, equal to $$w^T x + b$$ in our notations, can be computed using
 
@@ -193,7 +195,7 @@ For many problems, though, because of noise and complex data, it is not possible
 
 The figure below shows an example where no line divides the red dots from the blue dots. The optimization problem from the previous section has no solution in that case.
 
-![](2020-03-27-15-00-55.png){:width="400px"}
+{% include svm3.html %}
 
 One solution is to introduce slack variables so that some constraints can be violated but in a minimal way
 
@@ -221,7 +223,7 @@ A large $$C$$ means little violation is tolerated. Very few points are allowed t
 
 A small $$C$$ means a lot of violations are possible. Small $$C$$ is required when data has a lot of noise that needs to be filtered out. In that case, many violations will be accepted as long as this leads to a large separation $$1/\|w\|_2$$.
 
-![](2020-03-27-15-01-58.png){:width="400px"}
+{% include svm4.html %}
 
 Now we see that points are allowed to lie between the orange and green lines. There are even a few red points below the orange line and a few blue points above. But this cannot be avoided since no line perfectly separates the red points from the blue points.
 
@@ -233,7 +235,7 @@ The value of `C` can be optimized in different ways. This is a broad topic and w
 
 Let's start by illustrating the effect of varying `C` in our method. We consider the problem below.
 
-![](2020-03-27-15-02-35.png){:width="400px"}
+{% include svm5.html %}
 
 We created two well-separated clusters with labels $$-1$$ and $$+1$$. Then we added a blue point on the left and a red point on the right.
 
@@ -249,7 +251,7 @@ clf.fit(X, y)
 
 The SVM decision line has a negative slope as shown below.
 
-![](2020-03-27-15-03-13.png){:width="400px"}
+{% include svm6.html %}
 
 The red point on the right is classified with a label $$-1$$ (red-orange region). And similarly for the blue point. However, we know that these points are erroneous, and therefore the classification is wrong here.
 
@@ -262,7 +264,7 @@ clf = svm.SVC(kernel="linear", C = 0.2)
 clf.fit(X, y)
 ```
 
-![](2020-03-27-15-03-51.png){:width="400px"}
+{% include svm7.html %}
 
 This case corresponds to a situation of _underfitting_. That is we apply too much regularization by reducing `C` and do not trust enough the data.
 
@@ -275,7 +277,7 @@ clf.fit(X, y)
 
 This gives us the following plot:
 
-![](2020-03-27-15-05-43.png){:width="400px"}
+{% include svm8.html %}
 
 which is intermediate between the previous plots. We trust the outlier points but only to a moderate extent. The solid red line is the line $$y = x$$ but because of the outlier points, it is not possible in this case to recover that answer. The SVC model is always biased by the outliers to some extent.
 
@@ -307,7 +309,7 @@ Let's give an example to illustrate how this may work in practice. We consider o
 for i in range(0,X.shape[0]):
   X[i,:] = X[i,:] + ( 2*np.random.rand(1, 2) - 1 ) / 2
 ```
-
+ 
 ![](2020-03-27-15-09-41.png){:width="400px"}
 
 scikitlearn provides a few functionalities that can be used to simplify the process. Let's start by splitting the input data into a training and validation set.
@@ -332,7 +334,7 @@ The `clf.score()` function can be used to evaluate the accuracy of our SVM predi
 
 We obtain the following results in this case.
 
-![](2020-03-27-15-26-29.png){:width="800px"}
+{% include svm9.html %}
 
 $$a$$ is the slope of the predicted decision line. The exact solution is $$y=x$$ and so $$a=1$$. $$b$$ is the predicted intercept. The exact solution is $$b=0$$.
 
@@ -397,11 +399,11 @@ We now demonstrate this method on a simple example.
 
 We consider a situation where the blue points on top are separated from the red points on the bottom by a sine function. Since a linear SVM uses a line to separate these points it cannot make a good prediction.
 
-![](2020-03-27-15-40-33.png){:width="400px"}
+{% include svm10.html %}
 
 When we use an RBF, the results are much more accurate.{% include marginnote.html note='See Section 5.7.2 in [Deep Learning](https://www.deeplearningbook.org/) for more details on the kernel trick. '%}
 
-![](2020-03-27-15-41-58.png){:width="400px"}
+{% include svm11.html %}
 
 This is done using
 
