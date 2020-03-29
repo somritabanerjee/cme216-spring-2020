@@ -38,14 +38,13 @@ We are going to start with the problem of regression for simplicity.
 
 In the figure below, the points on the top left in red have a label $$+1$$ and the ones in the bottom right in blue have a label $$-1$$. In this case, $$x = (x_1,x_2)$$ is a vector in $$\mathbb R^2$$.
 
-![](../SVM/2020-03-27-14-48-41.png){:width="400px"}
+{% include svm2.html %}
 
 This is an example of a **supervised** learning task. That is we are given some data points $$x_i$$ in 2D along with their labels, $$+1$$ or $$-1$$.
 
 **Unsupervised** learning is concerned with a different set of tasks. For example, given a set of points $$x_i$$ (without any label), unsupervised learning may attempt to cluster these points into sets or clusters that are "well-separated" from each other.
 
 {% include marginnote.html note='See Section 5.1.3 in [Deep Learning](https://www.deeplearningbook.org/) for more details about supervised vs unsupervised learning.'%}
-
 
 ## Machine learning in computational engineering
 
