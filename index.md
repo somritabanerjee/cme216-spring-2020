@@ -13,7 +13,7 @@ These are lecture notes for CME 216 Machine Learning in Computational Engineerin
 
 ## Contents of class
 
-Topics to cover and tentative schedule
+Highlight of topics to cover and tentative schedule
 
 **Supervised learning and SVM**
 
@@ -30,22 +30,20 @@ Week 2
 
 Week 3
 - [TensorFlow](https://www.tensorflow.org/learn) and [Keras](https://www.tensorflow.org/guide/keras)
-- Brief mention of [TFLearn](http://tflearn.org/); [TFSlim](https://github.com/google-research/tf-slim); [OpenAI Gym](https://gym.openai.com/)
-- Brief mention of [PyTorch](https://pytorch.org/)
 
 Week 4
 - Forward and back-propagation
-- Regularization; test and validation sets; hyperparameter optimization; capacity
+- Regularization; test and validation sets; hyperparameter optimization
 
 Week 5
-- Regularization strategies; bagging, dropout
-- Stochastic gradient methods; SGD, momentum; adaptive algorithms; AdaGrad, RMSProp, Adam; 2nd order methods, BFGS (Broyden–Fletcher–Goldfarb–Shanno) (not all methods will be covered in details)
+- Regularization strategies
+- Stochastic gradient methods; SGD, momentum; adaptive algorithms
 
 Week 6
 - Batch normalization
 - Weight initialization
 - Convolution nets; pooling; fully-connected nets
-- DNN and convnet architectures; overview of some well-known architectures; LeNet-5, AlexNet, GoogLeNet/Inception, VGGNet, ResNet
+- DNN and convnet architectures
 
 **Physics-informed learning**
 
