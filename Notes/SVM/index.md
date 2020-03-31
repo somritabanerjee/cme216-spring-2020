@@ -211,6 +211,8 @@ The new optimization problem becomes:
  
 $$ (w,b,\xi) = \text{argmin}_{w,b,\xi} \frac{1}{2} \|w\|_2^2 + C \sum_{i=1}^n \xi_i $$
 
+with the following constraints:
+
 $$ y_i (w^T x_i + b) \ge 1 - \xi_i $$
 
 $$ \xi_i \ge 0 $$
