@@ -3,8 +3,6 @@ layout: page
 title: Support vector machines
 ---
 
-<!-- <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~chris/1638.embed" height="525" width="100%"></iframe> -->
-
 Support vector machine (SVM) is one of the simplest methods for classification. In some sense, it forms a stepping block to neural networks and deep learning.
 
 SVM is a method for binary classification. That is, we are given a point $$x \in \mathbb R^n$$, and we want to predict a label with possible values $$+1$$ or $$-1$$.
@@ -175,7 +173,7 @@ Here is the final plot:
 
 {% include svm1.html %} 
 
-The orange line is the "farthest" away from the red and blue dots. All t  he support vectors are at the same distance from the orange line.
+The orange line is the "farthest" away from the red and blue dots. All the support vectors are at the same distance from the orange line.
 
 The decision function, equal to $$w^T x + b$$ in our notations, can be computed using
 
@@ -185,7 +183,7 @@ clf.decision_function(X)
 
 where `X` contains the coordinates of the points where the function is to be evaluated. This can be used to draw filled contours as shown below.
 
-![](2020-03-22-18-07-39.png){:width="400px"}
+{% include svm2_div.html %}
 
 Please read [A tutorial on support vector regression](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=5973545F3482D02CFAF0C9DBA1CD7714?doi=10.1.1.114.4288&rep=rep1&type=pdf) by Smola and Sch&ouml;lkopf for more advanced information about these methods.
 
@@ -285,12 +283,12 @@ which is intermediate between the previous plots. We trust the outlier points bu
 
 This leads us to the general question of how we should pick $$C$$. This is a problem that we will explore again in the future for other methods.
 
-In machine learning, there are usually errors that arise either from:
+In machine learning, errors may arise from:
 
 - Error in the data; noise in the data may prevent us from finding an exact answer.
-- Error in the model; that is, the model cannot possibly reproduce the data because it is too simple. For example, there may not exist a line that separates the blue dots from the red dots.
+- The model may be overly sensitive to small changes in the data (e.g., large conditioning) and needs to be "stabilized."
 
-Because of this, it is therefore common to use a regularization strategy. In our case, this was done by varying $$C$$. A small $$C$$ corresponds to a lot of regularization. This leads to a small vector $$w$$ and if $$C$$ is too small, the vector $$w$$ and scalar $$b$$ may become significantly wrong. A large $$C$$ corresponds to minimal regularization. In that case, we assume the data is accurate and look for a hyperplane that optimally separates the data (e.g., the hyperplane maximizes the distance to all points).
+Because of this, it is common to use a regularization strategy. In our case, this was done by varying $$C$$. A small $$C$$ corresponds to a lot of regularization. This leads to a small vector $$w$$ and if $$C$$ is too small, the vector $$w$$ and scalar $$b$$ may become significantly wrong. A large $$C$$ corresponds to minimal regularization. In that case, we assume the data is accurate and look for a hyperplane that optimally separates the data (e.g., the hyperplane maximizes the distance to all points).
 
 A typical strategy consists of the following. We define two sets of points, called the _training_ set and the _validation_ set.
 
@@ -319,7 +317,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.4)
 ```
 
-`random_state` is used to initialize the random number generator that is used to randomly generate the sets; `test_size` is the fraction of the input data that will be used for the validation set. The word `test` is used because this function is usually used to split the data into a training set and a test set but for our application we will use the same function to split the data into a training set and a validation set to control over-fitting.
+`test_size` is the fraction of the input data that will be used for the validation set. The word `test` is used because this function is usually used to split the data into a training set and a test set but, for our application, we will use the same function to split the data into a training set and a validation set to control over-fitting.
 
 We can verify that the sets have the correct sizes (60% and 40%):
 
@@ -336,13 +334,13 @@ We obtain the following results in this case.
 
 {% include svm9.html %}
 
-$$a$$ is the slope of the predicted decision line. The exact solution is $$y=x$$ and so $$a=1$$. $$b$$ is the predicted intercept. The exact solution is $$b=0$$.
+$$a$$ is the slope of the predicted decision line. The exact solution is $$y=x$$ and so $$a=1$$ is the exact solution. $$b$$ is the predicted intercept. The exact solution is $$b=0$$.
 
-We see that values of $$C$$ below 0.1 leads to under-fitting. Larger values give consistently good results. Between $$1 \le C \le 10$$ the accuracy is relatively insensitive to the value of $$C$$.
+We see that values of $$C$$ below 1 lead to under-fitting (too much regularization). Larger values, with $$C>5$$, give consistently good results.
 
 ### Cross-validation
 
-We have seen a simple way to decompose the set into a training set and validation set. However, this may lead to some issues. In particular, if we make a unique choice of training and validation set it is quite possible that our prediction becomes biased by our choice of validation set. Indeed, only the validation set is used to estimate how good $$C$$ is and whether it should be adjusted. So to overcome this, it is preferable to optimize our model for many training sets and evaluate its performance on many validation sets. But how can this be done? This would require a tremendous amount of data. In our plot above for example, we had the luxury of generating entirely new sets for each evaluating of $$C$$.
+We have seen a simple way to decompose the set into a training set and validation set. However, this may lead to some issues. In particular, if we make a unique choice of training and validation set it is quite possible that our prediction becomes biased by our choice of validation set. Indeed, only the validation set is used to estimate how good $$C$$ is and whether it should be adjusted. So to overcome this, it is preferable to optimize our model for many training sets and evaluate its performance on many validation sets. But how can this be done? This would require a tremendous amount of data.
 
 In practice, the method of cross-validation is used. The dataset at our disposal is split into $$K$$ groups. Then we run a series of experiments in which we use $$K-1$$ groups of data for optimizing the model, and the remaining group for validation (i.e., to score our model). By "reusing" our dataset in this fashion, we are able to generate many scores with limited data. These scores can then be averaged to estimate how good $$C$$ is. Based on this result $$C$$ can be optimized. The advantage of this approach is that we minimize a possible bias due to our selection of training and validation sets.
 
