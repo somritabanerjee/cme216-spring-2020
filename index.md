@@ -8,8 +8,8 @@ These are lecture notes for CME 216 Machine Learning in Computational Engineerin
 
 ## Lecture notes
 
-- [Brief Introduction to Machine Learning](Notes/Introduction)
-- [Support Vector Machines](Notes/SVM)
+- [Introduction to SVM](Slides/SVM_introduction/)
+- [scikit-learn](Slides/scikitlearn/)
 
 ## Contents of class
 
