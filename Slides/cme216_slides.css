@@ -8,6 +8,11 @@ body {
     font-family: 'Open Sans';
 }
 
+strong {
+  color: rgb(140,21,21);
+  font-weight: 700;
+}
+
 .remark-slide-content {
     font-size: 1.75rem;
 }

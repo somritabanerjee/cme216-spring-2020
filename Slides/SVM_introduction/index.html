@@ -10,7 +10,7 @@
     <textarea id="source">
 class: center, middle
 
-# CME 216, ME 343 - Winter 2020
+# CME 216, ME 343 - Spring 2020
 
 ## Eric Darve, ICME
 
@@ -33,9 +33,16 @@ That is, we are given a point $x \in \mathbb R^n$, and we want to predict a labe
 ---
 class: middle
 
-In SVM, the space $\mathbb R^n$ of possible $x$ is subdivided into 2 half-space by a hyperplane: a line in 2D or a plane in 3D. On one side of the hyperplane, the label is $1$ and is $-1$ on the other.
+In SVM, the space $\mathbb R^n$ of possible $x$ is subdivided into 2 half-space by a hyperplane: a line in 2D or a plane in 3D. 
 
-Example: the line that separates the $-1$ labels from $+1$ is simply $y = x$. The $-1$ labels are in the top left and the $+1$ in the bottom right.
+On one side of the hyperplane, the label is $1$ and is $-1$ on the other.
+
+---
+class: middle
+
+ Example: the line that separates the $-1$ labels from $+1$ is simply $y = x$. 
+
+The $-1$ labels are in the top left and the $+1$ in the bottom right.
 
 ---
 class: center, middle
@@ -104,7 +111,7 @@ This hyperplane will be defined by the equation $ w^T x + b = 0 $
 
  $w$: vector in $\mathbb R^n$
  
-$b$: scalar.
+$b$: scalar
 
 ---
 class: middle
@@ -130,6 +137,13 @@ The division by $\|w\|$ indicates that there is a scaling invariance in this pro
 We can multiply $w$ and $b$ by any constant $C$ and the hyperplane/classifier is the same.
 
 ---
+class: center, middle
+
+$$ \text{maximize } \delta = \frac{|w^T x + b|}{\|w\|} $$
+
+ is simplified to
+
+---
 class: middle
 
 To normalize, we choose $w$ and $b$ such that
@@ -146,13 +160,17 @@ class: middle
 
 The condition $y_i (w^T x_i + b) = 1$ may look strange. 
 
-But recall that:
+But, recall that:
 
-- when the label $y_i = -1$, we expect $w^T
-x_i + b < 0$, and 
-- when $y_i=1$, we expect $w^T x_i + b> 0$. 
+- when the label $y_i = -1$, we expect $w^T x_i + b < 0,$ and 
+- when $y_i=1$, we expect $w^T x_i + b> 0.$
 
 So at least in terms of the signs, this equation makes sense.
+
+---
+class: center, middle
+
+![:width 400px](2020-03-22-18-07-39.png)
 
 ---
 class: middle
@@ -173,7 +191,12 @@ since $ \| w^T x_i + b \| = 1 $ for the nearest point.
 ---
 class: middle
 
-We now want to find $w$ such that $\rho$ is maximum. 
+We search for $w$ such that $\rho$ is maximum.
+
+Equivalently $\|w\|$ minimum with $ \| w^T x_i + b \| = 1 $.
+
+---
+class: middle
 
 To solve this problem, we can re-write it as a quadratic programming problem. 
 
@@ -183,8 +206,7 @@ methods to solve this type of problem.
 ---
 class: middle
 
-Since we want to maximize the distance of the nearest point $\rho$, we can
-as well minimize $\| w \|_2$. 
+Since we want to maximize the distance of the nearest point $\rho$, we minimize $\| w \|_2$. 
 
 ---
 class: middle
