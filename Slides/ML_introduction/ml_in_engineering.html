@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../cme216_slides.css">
+</head>
+
+<body>
+    <textarea id="source">
+class: center, middle
+
+# CME 216, ME 343 - Winter 2020
+
+## Eric Darve, ICME
+
+![:width 40%](../Stanford.jpg)
+
+---
+class: center, middle
+
+## Machine learning in computational engineering
+
+Computational engineering has unique requirements, which are different from image and signal processing, or computer vision.
+
+---
+class: center, middle
+
+**Regression** is a much more common application than classification. 
+
+In most cases, we are interested in computing a pressure, velocity, or strain field.
+
+---
+class: center, middle
+
+The required **accuracy** is typically high. 
+
+For example, we often expect errors in the range $10^{-4}$&ndash;$10^{-3}$ or less to have confidence in the prediction.
+
+---
+class: center, middle
+
+## Data is more limited.
+
+---
+class: middle
+
+Data in computational engineering is typically obtained either through 
+
+- experiments, which may be expensive and typically do not generate large amounts of data, or 
+- high-fidelity computer simulations. 
+
+The advent of automated sensors and large-scale parallel computers is changing this landscape.
+
+---
+class: center, middle
+
+We are often interested in quantifying the **uncertainty** in the prediction and deriving confidence of intervals for our prediction.
+
+---
+class: center, middle
+
+We can **leverage equations from physics,** conservation laws, physical principles, which can inform our learning algorithms. 
+
+This is different from other applications in computer science for example where most of the learning is
+restricted to learning from data.
+
+---
+class: middle
+
+See for example [recent research papers](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=physics+informed+deep+learning&btnG=) on this topic.
+</textarea>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']]
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script type="text/javascript">
+        remark.macros.width = function (percentage) {
+            var url = this;
+            return '<img src="' + url + '" style="width:' + percentage + '" />';
+        };
+        remark.macros.height = function (percentage) {
+            var url = this;
+            return '<img src="' + url + '" style="height:' + percentage + '" />';
+        };
+
+        var slideshow = remark.create({
+            ratio: '16:9',
+            highlightLanguage: 'c++',
+            highlightStyle: 'atom-one-light'
+        });
+    </script>
+</body>
+
+</html>

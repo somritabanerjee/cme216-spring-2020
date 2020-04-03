@@ -3,51 +3,60 @@ layout: page
 title: Stanford cme 216 Lecture notes
 ---
 
-These are lecture notes for CME 216 Machine Learning in Computational Engineering. They were written by [Eric Darve](https://me.stanford.edu/people/eric-darve), with the [help](https://github.com/EricDarve/cme216-spring-2020/commits/master) of course staff and students.
-{% include marginnote.html id='mn-construction' note='The notes are **under construction**! If you find errors or feel that some parts need clarification, please let us know, or submit a pull request with your fixes to our [GitHub repository](https://github.com/EricDarve/cme216-spring-2020).'%} The Jekyll theme is inspired by the [CS228 course notes](https://github.com/ermongroup/cs228-notes) site on GitHub.
+These is the web site for CME 216 Machine Learning in Computational Engineering. This material was created by [Eric Darve](https://me.stanford.edu/people/eric-darve), with the [help](https://github.com/EricDarve/cme216-spring-2020/commits/master) of course staff and students.
+{% include marginnote.html id='mn-construction' note='The site is **under construction**! If you find errors or feel that some parts need clarification, please let us know, or submit a pull request with your fixes to our [GitHub repository](https://github.com/EricDarve/cme216-spring-2020).'%} The Jekyll theme is inspired by the [CS228 course notes](https://github.com/ermongroup/cs228-notes) site on GitHub.
 
-## Lecture slides
+## Lecture slides and videos
 
+Module 1
+
+- [Brief introduction to machine learning](Slides/ML_introduction/brief_intro); [video](https://youtu.be/_2GR_9B-2i4)
+- [A few examples of machine learning](Slides/ML_introduction/examples_ML); [video](https://youtu.be/qlDI0x4RWvw)
+- [Supervised learning](Slides/ML_introduction/supervised_learning); [video](https://youtu.be/POq15h1viEc)
+- [Machine learning in engineering](Slides/ML_introduction/ml_in_engineering); [video](https://youtu.be/EJD-f7E7iM4)
 - [Introduction to SVM](Slides/SVM_introduction/)
 - [scikit-learn](Slides/scikitlearn/)
 
 ## Contents of class
 
-Highlight of topics to cover and tentative schedule
+Highlight of topics to cover
 
 **Supervised learning and SVM**
 
-Week 1
+Module 1
+
 - Supervised learning
 - SVM; [scikit-learn](https://scikit-learn.org/stable/); kernel trick; radial basis functions
 - Overfitting; underfitting; regularization
 
 **Deep learning**
 
-Week 2
+Module 2
+
 - NN and DNN; layers; weights and biases; activation function; loss function
 - Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf)
-
-Week 3
 - [TensorFlow](https://www.tensorflow.org/learn) and [Keras](https://www.tensorflow.org/guide/keras)
 
 Week 4
+
+Module 3
+
 - Forward and back-propagation
 - Regularization; test and validation sets; hyperparameter optimization
-
-Week 5
 - Regularization strategies
 - Stochastic gradient methods; SGD, momentum; adaptive algorithms
-
-Week 6
 - Batch normalization
 - Weight initialization
+
+Module 4
+
 - Convolution nets; pooling; fully-connected nets
 - DNN and convnet architectures
 
 **Physics-informed learning**
 
-Week 7
+Module 5
+
 - Physics-based ML; PhysML
 - DNN and numerical PDE solvers
 - Automatic differentiation; forward and reverse mode AD; chain rule; computational graph
@@ -55,18 +64,18 @@ Week 7
 
 **Generative deep networks**
 
-Week 8
+Module 6
+
 - Autoencoders and variational autoencoders
 - GAN to model stochastic variables
 - Discriminator network
-
-Week 9
 - WGANs
 - PhysGAN
 
 **Reinforcement learning**
 
-Week 10
+Module 7
+
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
