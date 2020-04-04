@@ -21,7 +21,7 @@ class: middle
 
 # Kernel trick
 
-An important extension of this method allows treating decision surfaces (the hyperplane that divides points with different colors) into more general surfaces.
+An important extension of this method allows turning decision surfaces (the hyperplane that divides points with different colors) into more general surfaces.
 
 ---
 class: middle
@@ -78,7 +78,7 @@ $$\phi(x^{(i)})^T \phi(x)$$
 ---
 class: middle
 
-The kernel trick is an ingenious idea. 
+The **kernel trick** is an ingenious idea. 
 
 It replaces the expression above by
 
@@ -98,10 +98,10 @@ Many different types of kernels can be used. For example in **scikit-learn,** we
 
 Kernel  | Definition
 ---     | ---
-Linear  | $\langle x, x' \rangle$ 
-Polynomial | $(\gamma \langle x, x' \rangle + r)^d$ 
-Radial basis function (RBF) | $\exp(-\gamma \lVert x - x' \rVert^2)$ 
-Sigmoid | $\tanh(\gamma \langle x, x' \rangle + r)$ 
+Linear  | $x^T x'$ 
+Polynomial | $(\gamma \; x^T x' + r)^d$ 
+Radial basis function (RBF) | $\exp(-\gamma \; \lVert x - x' \rVert^2)$ 
+Sigmoid | $\tanh(\gamma \; x^T x' + r)$ 
 
 ---
 class: middle
@@ -139,7 +139,7 @@ This is done using
 
 ```python 
 # fit the model 
-clf=svm.SVC(kernel="rbf" , gamma=10)
+clf=svm.SVC(kernel="rbf", gamma=10)
 clf.fit(X, y) 
 ```
 
@@ -148,7 +148,8 @@ class: middle
 
 As before, we can tune the regularization parameter `C` to improve the fit
 
-The parameter `gamma` controls the width of the Gaussian function $\exp(-\gamma \lVert x - x' \rVert^2)$.
+The parameter `gamma` controls the width of the Gaussian function 
+$\exp(-\gamma \; \lVert x - x' \rVert^2)$.
 </textarea>
     <script>
         MathJax = {

@@ -83,14 +83,17 @@ We consider our previous test case where the input data is randomly perturbed.
 
 ```python 
 # randomly perturb the points X 
-for i in range(0,X.shape[0]): 
-    X[i,:] = X[i,:] + (2*np.random.rand(1, 2) - 1 ) / 2 
+X0 = 0.5 * np.random.randn(16, 2) + 0.8 * np.array([-1., 1.])
+X1 = 0.5 * np.random.randn(16, 2) + 0.8 * np.array([1., -1.])
+X = np.vstack((X0, X1))
+for i in range(0,X.shape[0]):
+    X[i,:] = X[i,:] + np.random.randn(1, 2) / 6
 ``` 
 
 ---
 class: center, middle
 
-<iframe src="svm3.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="svm9_1.html" width="800" height="600" frameborder="0"></iframe>
 
 ---
 class: center, middle
@@ -140,7 +143,7 @@ We obtain the following results.
 ---
 class: middle
 
-<iframe src="svm9.html" width="1000" height="800" frameborder="0"></iframe>
+<iframe src="svm9_2.html" width="1000" height="800" frameborder="0"></iframe>
 
 ---
 class: middle
@@ -194,7 +197,7 @@ By "reusing" our dataset in this fashion, we are able to generate many scores wi
 
 These scores can then be averaged to estimate how good $C$ is. 
 
-Based on this result $C$ can be optimized. 
+Based on this result, $C$ can be optimized. 
 
 ---
 class: middle
@@ -227,7 +230,7 @@ class: middle
 ---
 class: middle
 
-- Once the model has been computed and that all parameters have been optimized based on the available data, we use a yet-unseen dataset, the **test set,** to evaluate the accuracy of our model.
+- Once the model has been computed and all parameters have been optimized based on the available data, we use a yet-unseen dataset, the **test set,** to evaluate the accuracy of our model.
 
 By definition, the test set is applied to the final model. 
 

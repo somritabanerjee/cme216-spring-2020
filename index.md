@@ -6,14 +6,16 @@ title: Stanford cme 216 Lecture notes
 These is the web site for CME 216 Machine Learning in Computational Engineering. This material was created by [Eric Darve](https://me.stanford.edu/people/eric-darve), with the [help](https://github.com/EricDarve/cme216-spring-2020/commits/master) of course staff and students.
 {% include marginnote.html id='mn-construction' note='The site is **under construction**! If you find errors or feel that some parts need clarification, please let us know, or submit a pull request with your fixes to our [GitHub repository](https://github.com/EricDarve/cme216-spring-2020).'%} The Jekyll theme is inspired by the [CS228 course notes](https://github.com/ermongroup/cs228-notes) site on GitHub.
 
-## Lecture slides and videos
+## Lecture slides
+
+The videos accompanying these lectures can be found on canvas under ["Course Videos."](https://canvas.stanford.edu/courses/118944/external_tools/3367)
 
 Module 1
 
-- [Brief introduction to machine learning](Slides/ML_introduction/brief_intro); [video](https://youtu.be/_2GR_9B-2i4)
-- [A few examples of machine learning](Slides/ML_introduction/examples_ML); [video](https://youtu.be/qlDI0x4RWvw)
-- [Supervised learning](Slides/ML_introduction/supervised_learning); [video](https://youtu.be/POq15h1viEc)
-- [Machine learning in engineering](Slides/ML_introduction/ml_in_engineering); [video](https://youtu.be/EJD-f7E7iM4)
+- [1.1 Brief introduction to machine learning](Slides/ML_introduction/brief_intro)
+- [1.2 A few examples of machine learning](Slides/ML_introduction/examples_ML)
+- [1.3 Supervised learning](Slides/ML_introduction/supervised_learning)
+- [1.4 Machine learning in engineering](Slides/ML_introduction/ml_in_engineering)
 - [Introduction to SVM](Slides/SVM_introduction/)
 - [Scikit-learn](Slides/scikitlearn/scikit)
 - [Soft-margin](Slides/scikitlearn/softmargin)
