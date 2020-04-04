@@ -15,7 +15,11 @@ Module 1
 - [Supervised learning](Slides/ML_introduction/supervised_learning); [video](https://youtu.be/POq15h1viEc)
 - [Machine learning in engineering](Slides/ML_introduction/ml_in_engineering); [video](https://youtu.be/EJD-f7E7iM4)
 - [Introduction to SVM](Slides/SVM_introduction/)
-- [scikit-learn](Slides/scikitlearn/)
+- [Scikit-learn](Slides/scikitlearn/scikit)
+- [Soft-margin](Slides/scikitlearn/softmargin)
+- [Overfitting](Slides/scikitlearn/overfitting)
+- [Training and validation sets](Slides/scikitlearn/training_validation)
+- [Kernel trick](Slides/scikitlearn/kernel_trick)
 
 ## Contents of class
 
