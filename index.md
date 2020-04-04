@@ -16,12 +16,12 @@ Module 1
 - [1.2 A few examples of machine learning](Slides/ML_introduction/examples_ML)
 - [1.3 Supervised learning](Slides/ML_introduction/supervised_learning)
 - [1.4 Machine learning in engineering](Slides/ML_introduction/ml_in_engineering)
-- [Introduction to SVM](Slides/SVM_introduction/)
-- [Scikit-learn](Slides/scikitlearn/scikit)
-- [Soft-margin](Slides/scikitlearn/softmargin)
-- [Overfitting](Slides/scikitlearn/overfitting)
-- [Training and validation sets](Slides/scikitlearn/training_validation)
-- [Kernel trick](Slides/scikitlearn/kernel_trick)
+- [1.5 Introduction to SVM](Slides/SVM_introduction/)
+- [1.6 Scikit-learn](Slides/scikitlearn/scikit)
+- [1.7 Soft-margin](Slides/scikitlearn/softmargin)
+- [1.8 Overfitting](Slides/scikitlearn/overfitting)
+- [1.9 Training and validation sets](Slides/scikitlearn/training_validation)
+- [1.10 Kernel trick](Slides/scikitlearn/kernel_trick)
 
 ## Contents of class
 
