@@ -77,7 +77,7 @@ This class can be taken for CR/NC only. The grading will be done as follows:
 
 An overall score of 70% is required in order to receive a CR score in the course. Assignments will be accepted up to 1-day late for 80% of their original value (unless there is an OAE accommodation).
 
-We will use [gradescope](https://www.gradescope.com/courses/102338) for homework submission and grading. Search for CME 216 Spring 2020. You should be automatically enrolled in you are listed on canvas.
+We will use [gradescope](https://www.gradescope.com/courses/102338) for homework submission and grading. Search for CME 216 Spring 2020. You should be automatically enrolled if you are listed on canvas.
 
 The final project will be determined by each student. It should be based on one of the topics covered during the quarter, such as TensorFlow, physics-informed learning, or reinforcement learning. You will have to prepare a 5-page report. For the project you will have to 
 
@@ -94,7 +94,7 @@ The tentative contents of the class is shown below. Adjustments will be made dep
 - Introduction to machine learning; support vector machines
 - Deep learning; this will be the bulk of this quarter. We will learn how to use TensorFlow. Although very popular as well, we will not cover PyTorch.
 - Physics-informed learning. We will discuss how deep neural networks can be used to solve partial differential equations.
-- Generative deep networks; this has been a very useful tool in engineering to model stochastic variables. We will also briefly discuss physics-informed GANs.
+- Generative deep networks; this has been a very useful tool in engineering to model stochastic variables. We will briefly discuss physics-informed GANs.
 - Reinforcement learning and optimal control.
 
 Although TensorFlow can be used with many languages, we will focus on the standard interface using Python. Knowing Python is a pre-requisite for this class.
