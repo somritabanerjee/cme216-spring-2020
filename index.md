@@ -10,6 +10,14 @@ These is the web site for CME 216 Machine Learning in Computational Engineering.
 
 [Syllabus](syllabus)
 
+## Reading questions
+
+Module 1
+
+- [Introduction to ML and SVM](Reading Questions/intro_svm)
+- [Soft-margins in SVM](Reading Questions/svm_softmargin)
+- [Kernel trick](Reading Questions/kernel_trick)
+
 ## Lecture slides
 
 The videos accompanying these lectures can be found on canvas under ["Course Videos."](https://canvas.stanford.edu/courses/118944/external_tools/3367)
