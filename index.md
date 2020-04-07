@@ -10,7 +10,7 @@ These is the web site for CME 216 Machine Learning in Computational Engineering.
 
 [Syllabus](syllabus)
 
-## Reading questions
+## Reading assignments
 
 Module 1
 
