@@ -98,6 +98,9 @@ Module 7
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
 
+## Tutorials
+ - [Python Setup Guide](Python Setup Guide)
+
 ## Reading material
 
 ###  Books
