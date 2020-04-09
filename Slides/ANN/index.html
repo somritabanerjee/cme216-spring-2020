@@ -63,12 +63,15 @@ There are many different choices for $\phi$ but most choices are associated with
 class: middle
 
 - **Activation:** the neuron is either on or off.
-- **Threshold:** the neuron is off below a certain value and on when above.
+- **Threshold:** the neuron is off below a certain value and on above.
 
 ---
 class: middle
 
-Mathematically, $\phi(z)$ may be close to 0 when $z < 0$ and increase rapidly to 1 when $z > 0$.
+Mathematically, $\phi(z)$ is 
+
+- close to 0 when $z < 0$, and 
+- increases rapidly to 1 when $z > 0$.
 
 ---
 class: middle
@@ -139,7 +142,7 @@ We can minimize the error by using a gradient descent method:
 $$ \Delta w = - \alpha \; \frac{\partial L}{\partial w}, 
 \hspace{2em} \Delta b = - \alpha \; \frac{\partial L}{\partial b} $$
 
-$\alpha$ = learning rate
+$\alpha$ = learning rate; $\Delta w$ and $\Delta b$ are increments in $w$ and $b$.
 
 ---
 class: middle
@@ -152,9 +155,9 @@ class: middle
 ---
 class: middle
 
-$$ L(w,b) = \sum_{i=1}^m ( y_i - \phi(w^T x_i + b) )^2 $$
+$$ L(w,b) = \sum\_{i=1}^m ( y\_i - \phi(w^T x\_i + b) )^2 = \sum\_{i=1}^m ( y\_i - \hat{y}\_i )^2 $$
 
-Gradient with respect to $w$:
+Derivative with respect to $w$:
 
 $$ \frac{\partial L}{\partial w} = 2 \sum_{i=1}^m ( \hat{y}_i - y_i ) \; \phi'(w^T x_i + b) \; x_i
 $$
@@ -164,7 +167,7 @@ class: middle
 
 $$ L(w,b) = \sum_{i=1}^m ( y_i - \phi(w^T x_i + b) )^2 $$
 
-Gradient with respect to $b$:
+Derivative with respect to $b$:
 
 $$ \frac{\partial L}{\partial b} = 2 \sum_{i=1}^m ( \hat{y}_i - y_i ) \; \phi'(w^T x_i + b) $$
 
@@ -202,7 +205,7 @@ Unfortunately, this is **not possible.**
 ---
 class: middle
 
-This has led to the idea of stacking perceptrons together to create multilayered perceptron or MLP.
+This has led to the idea of stacking perceptrons together to create multilayered perceptrons or MLP.
 
 ---
 class: center, middle
@@ -216,7 +219,7 @@ class: middle
 
 The $\sum$ symbol corresponds to the linear matrix-vector multiplication $W^{(i+1)} x^{(i)}$.
 
-$x^{(i)}$ are the activation values from layer $i$.
+$x^{(i)}$ are the activation values for layer $i$.
 
 It's a vector. The size of $x^{(i)}$ is the number of nodes in layer $i$.
 
@@ -282,7 +285,7 @@ class: center, middle
 ---
 class: middle
 
-In most cases, ANNs are organized in layers as we have seen previously.
+But in most cases, ANNs are organized in layers as we have seen previously.
 
 ---
 class: center, middle
@@ -315,7 +318,7 @@ class: middle
 
 As more layers are added, the ANN is capable of performing more and more complex tasks.
 
-At this point, this is a somewhat empirical observation although there are now several research papers that have investigated.
+At this point, this is a somewhat empirical observation although there are now several research papers that have investigated this question.
 
 ---
 class: middle
