@@ -18,6 +18,10 @@ Module 1
 - [Soft-margins in SVM](Reading Questions/svm_softmargin)
 - [Kernel trick](Reading Questions/kernel_trick)
 
+## Programming Homework
+
+- [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
+
 ## Lecture slides
 
 The videos accompanying these lectures can be found on canvas under ["Course Videos."](https://canvas.stanford.edu/courses/118944/external_tools/3367)
