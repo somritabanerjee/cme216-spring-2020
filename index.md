@@ -20,6 +20,7 @@ Module 1
 
 ## Programming Homework
 
+- [Python setup guide](Python Setup Guide)
 - [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
 
 ## Lecture slides
