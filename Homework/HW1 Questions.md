@@ -1,8 +1,7 @@
 ---
 layout: page
 ---
-
-# Programming Homework 1 - SVM
+This homework is due Friday Apr 17 at 11 pm. Late day policy: 1 late day with a 20% grade penalty.
 
 If you need help setting up python on your local machine, please follow the python setup guide posted separately. We recommend that you set up a virtual environment for this class. The python dependencies required for this homework are listed in **requirements.txt**. If you are using Anaconda, you can install them by running `conda install --file=requirements.txt`.
 
