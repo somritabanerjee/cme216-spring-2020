@@ -18,6 +18,11 @@ Module 1
 - [Soft-margins in SVM](Reading Questions/svm_softmargin)
 - [Kernel trick](Reading Questions/kernel_trick)
 
+## Programming Homework
+
+- [Python setup guide](Python Setup Guide)
+- [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
+
 ## Lecture slides
 
 The videos accompanying these lectures can be found on canvas under ["Course Videos."](https://canvas.stanford.edu/courses/118944/external_tools/3367)
@@ -101,6 +106,9 @@ Module 7
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
+
+## Tutorials
+ - [Python Setup Guide](Python Setup Guide)
 
 ## Reading material
 
