@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Programming Homework 1
 ---
 This homework is due Friday Apr 17 at 11 pm. Late day policy: 1 late day with a 20% grade penalty.
 
