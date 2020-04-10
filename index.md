@@ -40,6 +40,10 @@ Module 1
 - [1.9 Training and validation sets](Slides/scikitlearn/training_validation)
 - [1.10 Kernel trick](Slides/scikitlearn/kernel_trick)
 
+Module 2
+
+- [2.1 Artificial Neural Networks](Slides/ANN/)
+
 ## Contents of class
 
 Highlight of topics to cover
