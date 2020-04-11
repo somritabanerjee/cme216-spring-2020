@@ -43,6 +43,7 @@ Module 1
 Module 2
 
 - [2.1 Artificial Neural Networks](Slides/ANN/)
+- [2.2 TensorFlow/Keras](Slides/TF_Keras/index.html)
 
 ## Contents of class
 
