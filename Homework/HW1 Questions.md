@@ -7,7 +7,7 @@ Late day policy: 1 late day with a 20% grade penalty.
 
 If you need help setting up python on your local machine, please follow the python setup guide posted separately. We recommend that you set up a virtual environment for this class. The python dependencies required for this homework are listed in **requirements.txt**. If you are using Anaconda, you can install them by running `conda install --file=requirements.txt`.
 
-In this homework, we will practice SVM using scikit-learn and build some intuition. The file you will modify is **svm.ipynb**, you can launch the notebook by running `jupyter notebook svm.ipynb`. The parts you need to implement are marked with TODO. You will submit the implemented **svm.ipynb** file and a pdf file with answers to non-coding questions to gradescope.
+In this homework, we will practice SVM using scikit-learn and build some intuition. The file you will modify is **svm.ipynb**, you can launch the notebook by running `jupyter notebook svm.ipynb`. The parts you need to implement are marked with TODO. You will submit the implemented **svm.ipynb** as a pdf file and another pdf file with answers to non-coding questions to gradescope.
 
 1. Fill in the **linear_SVM** function by creating and training a linear SVM. `data` is a dictionary with strings as keys, the next cell shows how it's populated.
 
@@ -34,3 +34,5 @@ In this homework, we will practice SVM using scikit-learn and build some intuiti
 12. What is the optimal gamma value you found? It's OK if you got slightly worse accuracy than above, the default gamma value is quite good. Describe and explain how the mean accuracy changed as you vary gamma.
 
 We asked you to tune C and gamma sequentially to show the effect of each hyperparameter. In practice, it makes more sense to tune them together. Take a look at this [example](https://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html#sphx-glr-auto-examples-svm-plot-rbf-parameters-py) to see how it can be done. You don't need to implement anything.
+
+To convert your **svm.ipynb** into a pdf file, on the menu bar, go to `File` -> `Download as` -> `pdf`. Alternatively, print the notebook in your browser and select `Save As PDF`.
