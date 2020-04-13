@@ -44,7 +44,10 @@ Module 2
 
 - [2.1 Perceptron](Slides/ANN/perceptron)
 - [2.2 Artificial Neural Networks](Slides/ANN/MLP) (multilayer perceptron)
-- [2.3 TensorFlow/Keras](Slides/TF_Keras)
+- [2.3 TensorFlow/Keras](Slides/TF_Keras/TF_Pytorch)
+- [2.4 Sequential API](Slides/TF_Keras/TF_sequential)
+- [2.5 Functional API](Slides/TF_Keras/TF_functional)
+- [2.6 Subclassing](Slides/TF_Keras/subclassing)
 
 ## Contents of class
 
