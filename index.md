@@ -30,8 +30,8 @@ The videos accompanying these lectures can be found on canvas under ["Course Vid
 Python tutorial
 
 - [Tutorial code](https://github.com/EricDarve/cme216-spring-2020/tree/master/Code/Python)
-- [Python introduction](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Python/Python%20basics.ipynb)
-- [Numpy](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Python/Numpy%20tutorial.ipynb)
+- [Python introduction notebook](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Python/Python%20basics.ipynb)
+- [Numpy notebook](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Python/Numpy%20tutorial.ipynb)
 
 Module 1
 
