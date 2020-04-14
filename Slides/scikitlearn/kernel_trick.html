@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
+---
+layout: slides
+---
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../cme216_slides.css">
-</head>
-
-<body>
-    <textarea id="source">
 class: center, middle
 
 # CME 216, ME 343 - Winter 2020
@@ -115,7 +109,7 @@ Since a linear SVM uses a line to separate these points it cannot make a good pr
 ---
 class: center, middle
 
-<iframe src="svm10.html" width="800" height="600" frameborder="0"></iframe>
+![](svm10.svg)
 
 ---
 class: center, middle
@@ -125,7 +119,7 @@ When we use an RBF, the results are much more accurate.
 ---
 class: center, middle
 
-<iframe src="svm11.html" width="800" height="600" frameborder="0"></iframe>
+![](svm11.svg)
 
 ---
 class: center, middle
@@ -150,35 +144,3 @@ As before, we can tune the regularization parameter `C` to improve the fit
 
 The parameter `gamma` controls the width of the Gaussian function 
 $\exp(-\gamma \; \lVert x - x' \rVert^2)$.
-</textarea>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-        </script>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script type="text/javascript">
-        remark.macros.width = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="width: ' + percentage + '" />';
-        };
-        remark.macros.height = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="height: ' + percentage + '" />';
-        };
-
-        var slideshow = remark.create({
-            ratio: '16:9',
-            highlightLanguage: 'c++',
-            highlightStyle: 'atom-one-light'
-        });
-    </script>
-</body>
-
-</html>
