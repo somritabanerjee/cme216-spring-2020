@@ -23,12 +23,19 @@ Module 1
 - [Python setup guide](Python Setup Guide)
 - [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
 
-## Lecture slides
+## Lecture slides and code
 
 The videos accompanying these lectures can be found on canvas under ["Course Videos."](https://canvas.stanford.edu/courses/118944/external_tools/3367)
 
+Python tutorial
+
+- [Tutorial code](https://github.com/EricDarve/cme216-spring-2020/tree/master/Code/Python)
+- [Python introduction](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Python/Python%20basics.ipynb)
+- [Numpy](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Python/Numpy%20tutorial.ipynb)
+
 Module 1
 
+- [SVM code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/svm.ipynb)
 - [1.1 Brief introduction to machine learning](Slides/ML_introduction/brief_intro)
 - [1.2 A few examples of machine learning](Slides/ML_introduction/examples_ML)
 - [1.3 Supervised learning](Slides/ML_introduction/supervised_learning)
@@ -48,6 +55,8 @@ Module 2
 - [2.4 Sequential API](Slides/TF_Keras/TF_sequential)
 - [2.5 Functional API](Slides/TF_Keras/TF_functional)
 - [2.6 Subclassing](Slides/TF_Keras/subclassing)
+- [DNN TensorFlow code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regression.ipynb)
+- [Python inheritance example](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Inheritance%20demo.ipynb)
 
 ## Contents of class
 
