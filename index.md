@@ -56,7 +56,7 @@ Module 2
 - [2.5 Functional API](Slides/TF_Keras/TF_functional)
 - [2.6 Subclassing](Slides/TF_Keras/subclassing)
 - [DNN TensorFlow code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regression.ipynb)
-- [Python inheritance example](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Inheritance%20demo.ipynb)
+- [Python inheritance example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Inheritance%20demo.ipynb)
 
 ## Contents of class
 
