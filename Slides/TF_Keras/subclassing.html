@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
+---
+layout: slides
+---
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../cme216_slides.css">
-</head>
-
-<body>
-    <textarea id="source">
 class: center, middle
 
 # CME 216, ME 343 - Spring 2020
@@ -28,14 +22,15 @@ class: middle
 
 The Sequential API and the Functional API are declarative.
 
-A declarative programming style is one where the user expresses the _logic_ of a computation without describing its _control flow._
+A declarative programming style is one where the user expresses the _logic_ of a computation without describing its
+_control flow._
 
 Said otherwise, the user describes what the object should do but not directly how.
 
 ---
 class: middle
 
-The subclassing method is a type of imperative programming. 
+The subclassing method is a type of imperative programming.
 
 That is, this is an approach where the user describes _how_ the program operates.
 
@@ -60,14 +55,15 @@ You enter a restaurant and you say:
 ---
 class: middle
 
-More information about the [declarative (or symbolic) and imperative](https://blog.tensorflow.org/2019/01/what-are-symbolic-and-imperative-apis.html) APIs in TF.
+More information about the [declarative (or symbolic) and
+imperative](https://blog.tensorflow.org/2019/01/what-are-symbolic-and-imperative-apis.html) APIs in TF.
 
 ---
 class: middle
 
 Subclassing requires to use Python inheritance.
 
-You do not really need to know the details of this. 
+You do not really need to know the details of this.
 
 If you know how to use the proper syntax, it is probably good enough.
 
@@ -96,12 +92,12 @@ Here is the basic syntax:
 
 ```Python
 class MyModel(keras.Model):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs) # handles standard args (e.g., name)
-        [...]
+def __init__(self, **kwargs):
+super().__init__(**kwargs) # handles standard args (e.g., name)
+[...]
 
-    def call(self, input_):
-       [...]
+def call(self, input_):
+[...]
 ```
 
 ---
@@ -166,11 +162,12 @@ this [blog](https://rhettinger.wordpress.com/2011/05/26/super-considered-super/)
 ---
 class: middle
 
-`super()` is closely connected to the concept of the [method resolution order](https://docs.python.org/3/glossary.html#term-method-resolution-order).
+`super()` is closely connected to the concept of the [method resolution
+order](https://docs.python.org/3/glossary.html#term-method-resolution-order).
 
 See the `__mro__` attribute.
 
-`super()` is great to call a function defined by a parent class. 
+`super()` is great to call a function defined by a parent class.
 
 But it is most useful in cases of multiple inheritance.
 
@@ -181,11 +178,11 @@ class: middle
 
 ```Python
 def __init__(self, **kwargs):
-    super().__init__(**kwargs) # handles standard args (e.g., name)
-    self.hidden1 = keras.layers.Dense(4, activation="relu")
-    self.hidden2 = keras.layers.Dense(4, activation="relu")
-    self.hidden3 = keras.layers.Dense(4, activation="relu")        
-    self.out = keras.layers.Dense(1, activation="linear")
+super().__init__(**kwargs) # handles standard args (e.g., name)
+self.hidden1 = keras.layers.Dense(4, activation="relu")
+self.hidden2 = keras.layers.Dense(4, activation="relu")
+self.hidden3 = keras.layers.Dense(4, activation="relu")
+self.out = keras.layers.Dense(1, activation="linear")
 ```
 
 ---
@@ -198,7 +195,8 @@ Then we build the three hidden layers and the output `self.out`.
 ---
 class: middle
 
-Note how, although we are defining 3 hidden layers and 1 output layer, we are not specifying how they are going to be used.
+Note how, although we are defining 3 hidden layers and 1 output layer, we are not specifying how they are going to be
+used.
 
 This will be done in `call()`.
 
@@ -214,11 +212,11 @@ class: middle
 
 ```Python
 def call(self, input_):
-    hidden1 = self.hidden1(input_)
-    hidden2 = self.hidden2(hidden1)
-    hidden3 = self.hidden3(hidden2)        
-    concat = layers.Concatenate()([input_, hidden3])
-    return self.out(concat)
+hidden1 = self.hidden1(input_)
+hidden2 = self.hidden2(hidden1)
+hidden3 = self.hidden3(hidden2)
+concat = layers.Concatenate()([input_, hidden3])
+return self.out(concat)
 ```
 
 ---
@@ -253,10 +251,10 @@ The rest of the code is the same as what we had before.
 
 ```Python
 model.compile(loss='mse',
-              optimizer=sgd,
-              metrics=['mse','mae'])
+optimizer=sgd,
+metrics=['mse','mae'])
 history = model.fit(X_train, y_train, epochs=n_epochs,
-                    validation_data=(X_valid, y_valid))
+validation_data=(X_valid, y_valid))
 ```
 
 ---
@@ -330,36 +328,3 @@ class: middle
 Note how difficult it is to train these models to get high accuracy.
 
 The convergence is rather slow.
-
-    </textarea>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-        </script>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script type="text/javascript">
-        remark.macros.width = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="width: ' + percentage + '" />';
-        };
-        remark.macros.height = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="height: ' + percentage + '" />';
-        };
-
-        var slideshow = remark.create({
-            ratio: '16:9',
-            highlightLanguage: 'c++',
-            highlightStyle: 'atom-one-light'
-        });
-    </script>
-</body>
-
-</html>

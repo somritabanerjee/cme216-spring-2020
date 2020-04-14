@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
+---
+layout: slides
+---
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../cme216_slides.css">
-</head>
-
-<body>
-    <textarea id="source">
 class: center, middle
 
 # CME 216, ME 343 - Spring 2020
@@ -26,7 +20,7 @@ class: center, middle
 ---
 class: middle
 
-TF can do many things. 
+TF can do many things.
 
 It's free and open source.
 
@@ -37,17 +31,19 @@ class: middle
 
 But at its base, it allows to express computations as a graph.
 
-Then this graph can be differentiated, e.g., we can calculate gradients and solve optimization problems using gradient descent methods.
+Then this graph can be differentiated, e.g., we can calculate gradients and solve optimization problems using gradient
+descent methods.
 
 ---
 class: middle
 
-For now, we will skip these general features of TF and focus on DNN but we will come back to that when discussing physics-informed machine learning or PhysML.
+For now, we will skip these general features of TF and focus on DNN but we will come back to that when discussing
+physics-informed machine learning or PhysML.
 
 ---
 class: middle
 
-TensorFlow was developed by the [Google Brain](https://research.google/teams/brain/) team for internal use at Google. 
+TensorFlow was developed by the [Google Brain](https://research.google/teams/brain/) team for internal use at Google.
 
 Then it was made open source in November 2015.
 
@@ -86,14 +82,15 @@ class: middle
 
 Compared to TF, Keras is focused on easy and fast prototyping, through
 
-- user friendliness, 
-- modularity, and 
+- user friendliness,
+- modularity, and
 - extensibility
 
 ---
 class: middle
 
-Although TF can be used as a backend for Keras, it is recommended to use `tf.keras`, which is the implementation of Keras in TF.
+Although TF can be used as a backend for Keras, it is recommended to use `tf.keras`, which is the implementation of
+Keras in TF.
 
 This is what we will do in this class.
 
@@ -169,7 +166,7 @@ class: middle
 
 We will not cover PyTorch in this class but this is also an excellent library.
 
-It's very easy to use. 
+It's very easy to use.
 
 Contrary to TF1, PyTorch had "eager" execution from the beginning.
 
@@ -179,36 +176,3 @@ class: middle
 For now, it's unclear what the best tool is...
 
 It's still a heated discussion.
-
-    </textarea>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-        </script>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script type="text/javascript">
-        remark.macros.width = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="width: ' + percentage + '" />';
-        };
-        remark.macros.height = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="height: ' + percentage + '" />';
-        };
-
-        var slideshow = remark.create({
-            ratio: '16:9',
-            highlightLanguage: 'c++',
-            highlightStyle: 'atom-one-light'
-        });
-    </script>
-</body>
-
-</html>
