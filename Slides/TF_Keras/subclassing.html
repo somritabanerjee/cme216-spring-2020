@@ -25,7 +25,7 @@ The Sequential API and the Functional API are declarative.
 A declarative programming style is one where the user expresses the _logic_ of a computation without describing its
 _control flow._
 
-Said otherwise, the user describes what the object should do but not directly how.
+Said otherwise, the user describes _what_ the object should do but not directly _how_.
 
 ---
 class: middle
@@ -55,17 +55,19 @@ You enter a restaurant and you say:
 ---
 class: middle
 
+The subclassing approach uses the imperative style of programming. 
+
 More information about the [declarative (or symbolic) and
 imperative](https://blog.tensorflow.org/2019/01/what-are-symbolic-and-imperative-apis.html) APIs in TF.
 
 ---
 class: middle
 
-Subclassing requires to use Python inheritance.
+Subclassing requires using Python inheritance.
 
 You do not really need to know the details of this.
 
-If you know how to use the proper syntax, it is probably good enough.
+If you know how to use the proper syntax, it is good enough for most situations.
 
 But let us do a little more and explain what subclassing is and how it works in Python.
 
@@ -92,12 +94,12 @@ Here is the basic syntax:
 
 ```Python
 class MyModel(keras.Model):
-def __init__(self, **kwargs):
-super().__init__(**kwargs) # handles standard args (e.g., name)
-[...]
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs) # handles standard args (e.g., name)
+        [...]
 
-def call(self, input_):
-[...]
+    def call(self, input_):
+        [...]
 ```
 
 ---
@@ -121,7 +123,7 @@ class: middle
 
 The class `MyModel` derives from the class `keras.Model`.
 
-Derived classes in Python inherit all the methods and properties from their parent classes.
+Derived classes in Python inherit the methods and class attributes from their parent classes.
 
 In our case, `MyModel` inherits from `keras.Model`.
 
@@ -131,6 +133,19 @@ class: middle
 Because we are subclassing, all the methods from `keras.Model` are available.
 
 In particular, we can call the methods `compile`, `fit`, `predict`, and `evaluate` from `keras.Model`.
+
+---
+class: middle
+
+```Python
+class MyModel(keras.Model):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs) # handles standard args (e.g., name)
+        [...]
+
+    def call(self, input_):
+        [...]
+```
 
 ---
 class: middle
@@ -149,7 +164,19 @@ To simplify the discuss, we will say that `super()` is referring to the parent c
 ---
 class: middle
 
-See this demo Python code for details and examples using `super()`.
+`super()` is closely connected to the concept of the [method resolution
+order](https://docs.python.org/3/glossary.html#term-method-resolution-order).
+
+See the [`__mro__`](https://docs.python.org/3.8/library/stdtypes.html?highlight=__mro__#class.__mro__) attribute.
+
+`super()` is great to call a function defined by a parent class.
+
+But it is most useful in cases of multiple inheritance.
+
+---
+class: middle
+
+See this [demo Python code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Inheritance%20demo.ipynb) for details and examples using `super()`.
 
 ---
 class: middle
@@ -162,27 +189,15 @@ this [blog](https://rhettinger.wordpress.com/2011/05/26/super-considered-super/)
 ---
 class: middle
 
-`super()` is closely connected to the concept of the [method resolution
-order](https://docs.python.org/3/glossary.html#term-method-resolution-order).
-
-See the `__mro__` attribute.
-
-`super()` is great to call a function defined by a parent class.
-
-But it is most useful in cases of multiple inheritance.
-
----
-class: middle
-
 `__init__()`
 
 ```Python
 def __init__(self, **kwargs):
-super().__init__(**kwargs) # handles standard args (e.g., name)
-self.hidden1 = keras.layers.Dense(4, activation="relu")
-self.hidden2 = keras.layers.Dense(4, activation="relu")
-self.hidden3 = keras.layers.Dense(4, activation="relu")
-self.out = keras.layers.Dense(1, activation="linear")
+    super().__init__(**kwargs) # handles standard args (e.g., name)
+    self.hidden1 = keras.layers.Dense(4, activation="relu")
+    self.hidden2 = keras.layers.Dense(4, activation="relu")
+    self.hidden3 = keras.layers.Dense(4, activation="relu")
+    self.out = keras.layers.Dense(1, activation="linear")
 ```
 
 ---
@@ -212,11 +227,11 @@ class: middle
 
 ```Python
 def call(self, input_):
-hidden1 = self.hidden1(input_)
-hidden2 = self.hidden2(hidden1)
-hidden3 = self.hidden3(hidden2)
-concat = layers.Concatenate()([input_, hidden3])
-return self.out(concat)
+    hidden1 = self.hidden1(input_)
+    hidden2 = self.hidden2(hidden1)
+    hidden3 = self.hidden3(hidden2)
+    concat = layers.Concatenate()([input_, hidden3])
+    return self.out(concat)
 ```
 
 ---
@@ -250,11 +265,9 @@ class: middle
 The rest of the code is the same as what we had before.
 
 ```Python
-model.compile(loss='mse',
-optimizer=sgd,
-metrics=['mse','mae'])
+model.compile(loss='mse', optimizer=sgd, metrics=['mse','mae'])
 history = model.fit(X_train, y_train, epochs=n_epochs,
-validation_data=(X_valid, y_valid))
+                    validation_data=(X_valid, y_valid))
 ```
 
 ---
@@ -277,7 +290,7 @@ The `relu` activation is doing a little worse in this case.
 ---
 class: middle
 
-For more details on these topics, please see these two videos from the TF team.
+For more details on the different APIs and subclassing, please see these two videos from the TF team.
 
 [Part 1](https://www.youtube.com/watch?v=UYRBHFAvLSs)
 
@@ -301,7 +314,7 @@ Let's try
 
 $$(2 x^2 - 1, 8 x^4 - 8 x^2 + 1)$$
 
-These are even Chebyshev polynomials of order 2 and 4.
+These are the first even Chebyshev polynomials of order 2 and 4.
 
 ---
 class: middle
