@@ -47,9 +47,23 @@ class: middle
 The functional API allows writing more general models.
 
 ---
+class: center, middle
+
+Let's consider an example. Let's say we want to approximate this function.
+
+![](fig1.svg)
+
+---
 class: middle
 
-Let's consider the following model:
+Our function has 1 input and 1 output.
+
+We are going to build a DNN that takes the same input $x$ and tries to approximate our function.
+
+---
+class: middle
+
+Let's consider the following DNN model:
 
 - Input has size 1
 - The model has 3 hidden layers of size 4. The activation function is tanh.
@@ -162,7 +176,7 @@ This is basically the parameter $\alpha$ we previously had.
 ---
 class: middle
 
-`loss` is the function that the optimize will try to minimize.
+`loss` is the function that the optimizer will try to minimize.
 
 Common options are `mean_absolute_error`, `mean_squared_error`.
 
@@ -190,9 +204,9 @@ history = model.fit(X_train, y_train, epochs=n_epochs,
 ---
 class: middle
 
-An epoch is DNN corresponds to 1 iteration of the gradient descent method.
+An epoch in deep learning corresponds to 1 iteration of the gradient descent method.
 
-The parameter `epochs` controls how many iterations we should perform.
+The parameter `n_epochs` controls how many iterations we should perform.
 
 ---
 class: middle
@@ -218,13 +232,6 @@ can be used to predict the output using our DNN model.
 class: middle
 
 Please see the [Keras guide](https://www.tensorflow.org/guide/keras/overview) for additional examples.
-
----
-class: center, middle
-
-Let's consider an example. Let's say we want to approximate this function.
-
-![](fig1.svg)
 
 ---
 class: center, middle
