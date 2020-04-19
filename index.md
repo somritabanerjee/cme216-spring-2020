@@ -18,6 +18,13 @@ Module 1
 - [Soft-margins in SVM](Reading Questions/svm_softmargin)
 - [Kernel trick](Reading Questions/kernel_trick)
 
+Module 2
+
+- [Perceptron](Reading Questions/perceptron)
+- [MLP](Reading Questions/MLP) (multi-layer perceptron)
+- [TensorFlow](Reading Questions/TF)
+- [Subclassing](Reading Questions/subclassing)
+
 ## Programming Homework
 
 - [Python setup guide](Python Setup Guide)
