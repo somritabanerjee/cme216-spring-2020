@@ -29,6 +29,7 @@ Module 2
 
 - [Python setup guide](Python Setup Guide)
 - [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
+- [Homework 2](Homework/HW1 Questions) and [starter code](Homework/hw2_starter_code.zip)
 
 ## Lecture slides and code
 
@@ -127,9 +128,6 @@ Module 7
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
-
-## Tutorials
- - [Python Setup Guide](Python Setup Guide)
 
 ## Reading material
 
