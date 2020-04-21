@@ -65,6 +65,10 @@ Module 2
 - [DNN TensorFlow code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regression.ipynb)
 - [Python inheritance example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Inheritance%20demo.ipynb)
 
+Module 3
+
+- [3.1 Loss function for regression and classification](Slides/Deep_Learning/Loss)
+
 ## Contents of class
 
 Highlight of topics to cover
