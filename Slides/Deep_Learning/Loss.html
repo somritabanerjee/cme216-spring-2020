@@ -1,0 +1,486 @@
+---
+layout: slides
+---
+
+class: center, middle
+
+# CME 216, ME 343 - Spring 2020
+
+## Eric Darve, ICME
+
+![:width 40%](../Stanford.jpg)
+
+---
+class: middle
+
+As we have seen previously, supervised machine learning is often concerned with two different tasks:
+
+- classification: the output is a category or integer value
+- regression: the output is a real number or a real-valued vector.
+
+---
+class: middle
+
+For DNN, there are common architectures that are used for each case.
+
+---
+class: middle
+
+Regression will be mostly our focus.
+
+---
+class: middle
+
+Generally the last layer does not have a non-linear function applied to it.
+
+That is $\phi(x) = x$.
+
+---
+class: middle
+
+Depending on the situation, various "tricks" can be used to enforce certain conditions.
+
+---
+class: middle
+
+For example if you want the output to be positive it is common to apply a `softplus` activation for the last layer:
+
+$$ \text{softplus}(z) = \log(1 + \exp(z)) $$
+
+---
+class: center, middle
+
+![](fig1.svg)
+
+---
+class: middle
+
+$$ \text{softplus}(z) = \log(1 + \exp(z)) $$
+
+You can see that when $z$ is negative, softplus is close to 0.
+
+When $z$ is positive and large, softplus is close to $z$.
+
+---
+class: middle
+
+The sigmoid and tanh functions can be used if you know that the output is bounded.
+
+In that case, you can shift and rescale your data so that it falls in the [0,1] interval (sigmoid), or [-1,1] interval for tanh.
+
+---
+class: middle
+
+The typical loss function for regression is the mean squared error.
+
+---
+class: middle
+
+Another option is the mean absolute error, but this loss function is more difficult to train with since it is not differentiable at 0.
+
+The mean squared error tends to emphasize training points where the error is large.
+
+Mean absolute error gives about equal weight to all training points.
+
+---
+class: middle
+
+A compromise is the Huber loss defined as
+
+$ x^2 / 2 $, if $|x| \le \delta$
+
+$ \delta ( |x| - \delta/2) $ otherwise
+
+---
+class: center, middle
+
+![](fig2.svg)
+
+---
+class: middle
+
+The second task is classification.
+
+---
+class: middle
+
+Let us assume that for example we are trying to classify images and label them with the object depicted.
+
+Categories may be: car, horse, boat, truck, person.
+
+---
+class: middle
+
+We have 5 categories that are going to be represented by an integer between 0 and 4.
+
+---
+class: middle
+
+The way to represent this is to apply the softmax function to the output.
+
+Given a vector of output $z_i$, the softmax function is
+
+$$ \frac{\exp(z\_i)}{\sum\_{j=1}^{n\_\text{categories}} \exp(z\_j)} $$
+
+$n_\text{categories}$ is the number of categories or labels.
+
+---
+class: middle
+
+The vector softmax sums up to 1 and all its entries are positive.
+
+So this can be interpreted as a probability vector.
+
+---
+class: center, middle
+
+$$ a_i = \frac{\exp(z_i)}{\sum_j \exp(z_j)} $$
+
+$ \sum_i a_i = 1 $ and $ a_i \ge 0 $
+
+---
+class: middle
+
+$$ a_i = \frac{\exp(z_i)}{\sum_j \exp(z_j)} $$
+
+The index $i$ for which $a_i$ is the largest is interpreted as the category guessed by the DNN.
+
+---
+class: middle
+
+In the tensorflow jargon, $z_i$ are called logits while $a_i$ are the probabilities for the categories.
+
+---
+class: middle
+
+To calculate the loss function, we need to define cross-entropy, which can be used to measure the distance between two probability distributions.
+
+---
+class: middle
+
+Take a distribution $p_i$, which is assumed to be the true distribution.
+
+Take an approximation $q_i$. Then the cross-entropy $H(p,q)$ is 
+
+$$ H(p,q) = - \sum_i p_i \log q_i $$
+
+---
+class: middle
+
+What's the interpretation of cross-entropy?
+
+The name entropy comes from the definition of the entropy of $p$
+
+$$ H(p) = - \sum_i p_i \log p_i $$
+
+---
+class: middle
+
+To understand these concepts, we need to run the following thought experiment.
+
+Assume that we generate random samples $i_k$ drawn from the probability $p$. 
+
+---
+class: middle
+
+If we number of samples $N$ is really large, the probability of observing the sequence $i_k$ is given by
+
+$$ \prod_i (p_i)^{N p_i} $$
+
+---
+class: middle
+
+## Explanation
+
+The probability of seeing a sample $i = i_k$ is $p_i$ and the number of times the sample $i$ is going to appear is $N p_i$.
+
+So, the associated probability is
+
+$$ (p_i)^{Np_i} $$
+
+---
+class: middle
+
+The product of these probabilities is the probability of seeing the entire sequence.
+
+---
+class: middle
+
+The entropy is then equal to the negative log of 
+
+$$ P_X(\{x_i}) = \prod_i (p_i)^{N p_i} $$
+
+$$ H(p) = -\frac{1}{N} \log P_X(\{x_i}) = - \sum_i p_i \log p_i $$
+
+---
+class: middle
+
+If we have a system where only one state is possible (very low entropy), then
+
+$$ - \sum_i p_i \log p_i = - \log 1 = 0 $$
+
+---
+class: middle
+
+If we have a system where all states have equal probability, the entropy is high:
+
+$$ - \sum_i p_i \log p_i = -\log n^{-1} = \log n $$
+
+where $n$ is the total number of states in the system.
+
+---
+class: middle
+
+What is now the cross-entropy?
+
+---
+class: middle
+
+We can repeat the same thought experiment with a slightly different setup.
+
+Assume we generate the sequence $i_k$ using probability $p_i$.
+
+---
+class: middle
+
+But $p_i$ is unknown, and we only have some approximation $q_i$.
+
+Then our approximation of the probability of seeing the sequence $\\{ i\_k \\}$ is
+
+$$ P_X^q(\\{x\_i\\}) = \prod_i (q_i)^{N p_i} $$
+
+---
+class: middle
+
+The log of $P_X^q(\{x_i})$ is the cross-entropy:
+
+$$ -\frac{1}{N} \log P_X^q(\{x_i}) = - \sum_i p_i \log q_i $$
+
+---
+class: middle
+
+If our guess of $p_i$ is correct, we have $q_i = p_i$ and the cross-entropy will be small.
+
+Our estimated probability $P_X^q(\{x_i})$ is large.
+
+---
+class: middle
+
+Note that the cross-entropy $H(p,q)$ is always greater than $H(p)$.
+
+---
+class: middle
+
+If $q_i = p_i$, we get
+
+$$ H(p,q) = - \sum_i p_i \log q_i = - \sum_i p_i \log p_i = H(p) $$
+
+The cross-entropy is minimal.
+
+---
+class: middle
+
+If our guess is wildly off, then the probability we estimate for the sequence $\\{i\_k\\}$ will be very low.
+
+In that case, $H(p,q)$ will be very large.
+
+---
+class: middle
+
+Let's take a simple example. Let's consider a dice that has written 6 on all its faces.
+
+---
+class: middle
+
+In that scenario, the only sequence we can generate is
+
+$$(6,6,6,\cdots)$$
+
+---
+class: middle
+
+If we believe that the dice is a normal one, we will assign a low-probability to the sequence we are seeing.
+
+We get:
+
+$$H(p,q) = -\sum_i p_i \log q_i = -\log 1/6 = \log 6$$
+
+---
+class: middle
+
+If instead, we know that only 6 can show up, we will use
+
+$ q_i = 0$, when $i \neq 6$
+
+$ q_i = 1$, when $i = 6$.
+
+---
+class: middle
+
+This gives us
+
+$$H(p,q) = - \sum_i p_i \log q_i = \log 1 = 0$$
+
+The cross-entropy is much lower.
+
+---
+class: middle
+
+For our deep learning problem, the cross-entropy can be used for the loss function.
+
+---
+class: middle
+
+Using softmax, we get some output probabilities $\hat{y}_i$.
+
+---
+class: middle
+
+We use the notation $y_i$ and $\hat{y}_i$ because this is the convention for the output variable although it represents a probability in this case.
+
+---
+class: middle
+
+The true probability in this case is often the one-hot vector. That is, the vector
+
+$y_i = 0$, if $i \neq t$
+
+$y_i = 1$, if $i = t$
+
+where $i$ is a label and $t$ is the true label associated with the input $x$.
+
+---
+class: middle
+
+If our DNN guesses $\hat{y}_i$, the cross-entropy is
+
+$$ - \sum_i y_i \log \hat{y}_i = - \log \hat{y}_t $$
+
+---
+class: middle
+
+If $\hat{y}_t = 1$, the DNN has correctly guessed the label and its certainty is maximum.
+
+---
+class: middle
+
+If $\hat{y}_t \approx 0$, the loss function (cross-entropy) is very large. 
+
+This is what we should expect.
+
+---
+class: middle
+
+TensorFlow offers a few other loss functions.
+
+We review these briefly.
+
+---
+class: middle
+
+See [Keras loss documentation](https://www.tensorflow.org/api_docs/python/tf/keras/losses) for the complete list.
+
+---
+class: middle
+
+`BinaryCrossentropy`
+
+Cross entropy when only two labels (0 and 1) are possible.
+
+---
+class: middle
+
+`CategoricalCrossentropy`
+
+Cross entropy with more than 2 labels.
+
+This is the case we explained.
+
+---
+class: middle
+
+`Hinge`
+
+This is a variant which applies when the labels are either -1 or 1.
+
+The formula is
+
+loss = maximum(1 - y\_true * y\_pred, 0)
+
+where y\_true and y\_pred are the labels.
+
+---
+class: middle
+
+`CategoricalHinge`
+
+This is the hinge loss for the case where more than 2 labels are possible.
+
+---
+class: middle
+
+The formula is
+
+loss = $\max(1 - \text{pos} + \text{neg}, 0)$
+
+where:</br>
+pos = $\sum\_i [y\_\text{true}]\_i \; [y\_\text{pred}]\_i$</br>
+neg = $\max\_i ((1-[y\_\text{true}]\_i) [y\_\text{pred}]\_i)$
+
+---
+class: middle
+
+This applies when y is a probability.
+
+---
+class: middle
+
+Let's assume that $y\_\text{true}$ is a one-hot vector.
+
+---
+class: middle
+
+Then
+
+pos = $\sum\_i [y\_\text{true}]\_i \; [y\_\text{pred}]\_i = [y\_\text{pred}]\_t$
+
+is the value of $y\_\text{pred}$ for the true label $t$.
+
+---
+class: middle
+
+neg = $\max\_{i \neq t} [y\_\text{pred}]\_i$
+
+is the maximum of $y\_\text{pred}$ for all labels different from the true one $t$.
+
+---
+class: middle
+
+So, using compact notations
+
+loss = $\max ( 1 - [y\_\text{pred}]\_t + \max\_i [y\_\text{pred}]\_{i \neq t}, 0 )$
+
+---
+class: middle
+
+For a good model:
+
+$[y\_\text{pred}]\_t \approx 1$
+
+$\max\_i [y\_\text{pred}]\_{i \neq t} \ll 1$
+
+So the loss will be small.
+
+---
+class: middle
+
+Note that the [documentation](https://www.tensorflow.org/api_docs/python/tf/keras/losses/CategoricalHinge) for CategoricalHinge has a rather mistifying error.
+
+Can you find it?
+
+---
+class: middle
+
+The formula for `neg` and `pos` is not correct for some reason.
+
+Fortunately, the [code](https://github.com/tensorflow/tensorflow/blob/b3c65cd1820d598e8b5f399b4f542f6d24712023/tensorflow/python/keras/losses.py#L856) is correct.
