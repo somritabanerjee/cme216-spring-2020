@@ -140,7 +140,7 @@ Module 7 (week 9-10)
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
 
-- Short homework 5 in RL (June 11)
+- Short homework 5 on RL (June 11)
 
 ## Reading material
 
