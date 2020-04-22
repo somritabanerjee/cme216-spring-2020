@@ -2,3 +2,4 @@ _site/
 .jekyll-cache/
 .ipynb_checkpoints/
 .jekyll-metadata
+*.DS_Store
