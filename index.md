@@ -69,6 +69,7 @@ Module 2
 Module 3
 
 - [3.1 Loss function for regression and classification](Slides/Deep_Learning/Loss)
+- [3.2 Backpropagation](Slides/Deep_Learning/Backprop)
 
 ## Contents of class
 
