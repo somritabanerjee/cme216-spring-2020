@@ -298,7 +298,7 @@ class: middle
 
 Equation for gradient with respect to matrix $W^{(k)}$
 
-$$ \frac{\partial y}{\partial [W^{(k)}]} = \delta^{(k+1)} \, [a^{(k-1)}]^T $$
+$$ \frac{\partial y}{\partial W^{(k)}} = \delta^{(k+1)} \, [a^{(k-1)}]^T $$
 
 ---
 class: middle
@@ -314,7 +314,7 @@ class: middle
 
 ## Gradient with respect to the bias
 
-$$ \frac{\partial y}{\partial [b^{(k)}]} = \delta^{(k+1)} $$
+$$ \frac{\partial y}{\partial b^{(k)}} = \delta^{(k+1)} $$
 
 ---
 class: middle
@@ -327,15 +327,22 @@ class: middle
 In the following, for completeness we reintroduce the biases.
 
 ---
-class: middle
+class: center, middle
 
 ## Forward pass
 
-We compute all the activations: $k$ goes from 1 to $n$.
+We compute all the activations.
+
+---
+class: middle
+
+$k$ goes from 1 to $n-1$.
 
 $$a^{(k)} = \phi \odot ( W^{(k)} a^{(k-1)} + b^{(k)} )$$
 
 $$a^{(0)} = x$$
+
+$\phi \; \odot$ means that $\phi$ is applied element-wise to $W^{(k)} a^{(k-1)} + b^{(k)}$.
 
 ---
 class: middle
@@ -344,12 +351,14 @@ We also need to save the values of the derivative:
 
 $$[\psi^{(k)}]\_{ii} = [ \phi' \odot ( W^{(k)} a^{(k-1)} + b^{(k)} ) ]\_i$$
 
+$\psi^{(k)}$ is a diagonal matrix.
+
 ---
 class: middle
 
 ## Backward pass
 
-For $k$ going from $n$ to $1$:
+For $k$ going from $n$ to $2$:
 
 $$ \delta^{(k)} = \psi^{(k-1)} \, [W^{(k)}]^T \, \delta^{(k+1)} $$
 
@@ -358,8 +367,8 @@ $$ \delta^{(n+1)} = 1 $$
 ---
 class: middle
 
- Derivatives:
+ Derivatives: $1 \le k \le n$
 
-$$ \frac{\partial y}{\partial [W^{(k)}]} = \delta^{(k+1)} \, [a^{(k-1)}]^T $$
+$$ \frac{\partial y}{\partial W^{(k)}} = \delta^{(k+1)} \, [a^{(k-1)}]^T $$
 
-$$ \frac{\partial y}{\partial [b^{(k)}]} = \delta^{(k+1)} $$
+$$ \frac{\partial y}{\partial b^{(k)}} = \delta^{(k+1)} $$
