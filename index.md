@@ -77,48 +77,52 @@ Highlight of topics to cover
 
 **Supervised learning and SVM**
 
-Module 1
+Module 1 (week 1 and 2)
 
 - Supervised learning
 - SVM; [scikit-learn](https://scikit-learn.org/stable/); kernel trick; radial basis functions
 - Overfitting; underfitting; regularization
 
+- Homework 1 due; April 16
+
 **Deep learning**
 
-Module 2
+Module 2 (week 3)
 
 - NN and DNN; layers; weights and biases; activation function; loss function
-- Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf)
+<!-- - Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf) -->
 - [TensorFlow](https://www.tensorflow.org/learn) and [Keras](https://www.tensorflow.org/guide/keras)
 
-Week 4
-
-Module 3
+Module 3 (week 4)
 
 - Forward and back-propagation
+- Weight initialization
 - Regularization; test and validation sets; hyperparameter optimization
 - Regularization strategies
+<!-- - Batch normalization -->
+
+- Homework 2 due; April 30
+
+Module 4 (week 5-6)
+
 - Stochastic gradient methods; SGD, momentum; adaptive algorithms
-- Batch normalization
-- Weight initialization
-
-Module 4
-
 - Convolution nets; pooling; fully-connected nets
 - DNN and convnet architectures
 
 **Physics-informed learning**
 
-Module 5
+Module 5 (week 6-7)
 
 - Physics-based ML; PhysML
 - DNN and numerical PDE solvers
 - Automatic differentiation; forward and reverse mode AD; chain rule; computational graph
 - Examples of numerical PDE solutions with ADCME
 
+- Homework 3 due on May 14 (week 6)
+
 **Generative deep networks**
 
-Module 6
+Module 6 (week 8-9)
 
 - Autoencoders and variational autoencoders
 - GAN to model stochastic variables
@@ -126,13 +130,17 @@ Module 6
 - WGANs
 - PhysGAN
 
+- Homework 4 due on May 28 (week 8)
+
 **Reinforcement learning**
 
-Module 7
+Module 7 (week 9-10)
 
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
+
+- Short homework 5 in RL (June 11)
 
 ## Reading material
 
