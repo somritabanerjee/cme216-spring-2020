@@ -148,6 +148,8 @@ Module 7 (week 9-10)
 ###  Books
 
 - [Deep learning](http://www.deeplearningbook.org/) by Ian Goodfellow and Yoshua Bengio and Aaron Courville
+- [Deep learning with Python](https://searchworks.stanford.edu/view/13216992) by Fran&ccedil;ois Chollet
+- [Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow : concepts, tools, and techniques to build intelligent systems](https://searchworks.stanford.edu/view/13489354) by Aur&eacute;lien G&eacute;ron
 - [Deep learning: an introduction for applied mathematicians](https://epubs.siam.org/doi/pdf/10.1137/18M1165748) by Catherine Higham and Desmond Higham
 - [Machine learning: a probabilistic perspective]() by Kevin Murphy
 - [Deep learning with Python](https://searchworks.stanford.edu/view/13216992) by Fran&#231;ois Cholet
