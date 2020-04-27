@@ -69,7 +69,11 @@ Module 2
 Module 3
 
 - [3.1 Loss function for regression and classification](Slides/Deep_Learning/Loss)
-- [3.2 Backpropagation](Slides/Deep_Learning/Backprop)
+- [3.2 Cross-entropy](Slides/Deep_Learning/Cross_entropy)
+- [3.3 TensorFlow loss functions](Slides/Deep_Learning/TF_loss)
+- [3.4 Backpropagation](Slides/Deep_Learning/Backprop)
+- [3.5 Backpropagation formula](Slides/Deep_Learning/Backprop_formula)
+- [3.6 Training and regularization](Slides/Deep_Learning/Training)
 
 ## Contents of class
 

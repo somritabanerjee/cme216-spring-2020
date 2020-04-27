@@ -1,0 +1,672 @@
+---
+layout: slides
+---
+
+class: center, middle
+
+# CME 216, ME 343 - Spring 2020
+
+## Eric Darve, ICME
+
+![:width 40%](../Stanford.jpg)
+
+---
+class: middle
+
+In this lecture, we are going to cover a few practical techniques to improve the convergence and accuracy of DNNs.
+
+---
+class: middle
+
+DNNs are quite difficult to train.
+
+Deep Learning relies on advanced optimization algorithms to minimize the loss function.
+
+---
+class: middle
+
+The basic strategy to minimize the loss function is to update the weights using
+
+$$ \Delta W = - \alpha \nabla_W L $$
+
+where $L$ is the loss function and $W$ are weights.
+
+---
+class: middle
+
+Choosing the learning rate $\alpha$ is not easy.
+
+Let us take a simple example.
+
+---
+class: middle
+
+Let us assume that $w$ is a scalar (we will use a lower case for convenience) and that $L$ is quadratic
+
+$$ L = a w^2 $$
+
+The solution is trivial. The minimum is achieved at $w = 0$.
+
+---
+class: middle
+ 
+Using gradient descent, the update formula is
+
+$$ \Delta W = - \alpha \nabla_W L = - \alpha 2a w $$
+
+---
+class: middle
+
+The optimal learning rate in this simple example is
+
+$$ \alpha = \frac{1}{2a} $$
+
+---
+class: middle
+
+More generally, assume that $W$ is a vector and that $L$ is quadratic
+
+$$ L = \frac{1}{2} W^T H W $$
+
+$H$ is a matrix.
+
+---
+class: middle
+
+The gradient is
+
+$$ \nabla_W L = H W $$
+
+---
+class: middle
+
+Then the optimal gradient step is
+
+$$ \Delta W = - H^{-1} \nabla_W L = - W$$
+
+---
+class: middle
+
+Let us use an eigendecomposition of the symmetric matrix $H$
+
+$$ H = U \Lambda U^T $$
+
+where $U$ is orthogonal.
+
+---
+class: middle
+
+Define $Z = U^T W$.
+
+The update
+
+$$ \Delta W = - \alpha \nabla_W L $$
+
+is the same as
+
+$$ \Delta Z = - \alpha \Lambda Z $$
+
+---
+class: middle
+
+Thanks to the eigendecomposition, we can now work with the diagonal matrix $\Lambda$.
+
+---
+class: middle
+
+We can now interpret how convergence is happening.
+
+Each "mode" $z_i$ in $Z$ is updated using
+
+$$ \Delta z_i = - \alpha \lambda_i z_i $$
+
+---
+class: middle
+
+Ideally we want to pick $\alpha = \lambda_i^{-1}$ but this is not possible.
+
+Let us assume that the eigenvalues are sorted by their magnitude:
+
+$$\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_n $$
+
+---
+class: middle
+
+If we pick the largest value that corresponds to mode $n$: 
+
+$$\alpha = \lambda_n^{-1}$$
+
+we get a very large step.
+
+---
+class: middle
+
+But this choice is unstable because the mode 1 will be updated using
+
+$$ \Delta z_1 = - \frac{\lambda_1}{\lambda_n} z_1 $$
+
+with $\lambda_1 / \lambda_n \gg 1$. This mode is going to diverge.
+
+---
+class: middle
+
+So we are forced to choose the smallest learning rate
+
+$$\alpha = \lambda_1^{-1}$$
+
+Now mode 1 converges very fast. Mode $n$ is going to converge very slowly.
+
+---
+class: middle
+
+So we have a choice between divergence and slow convergence.
+
+The only practical option is to take a small learning rate and iterate for many steps.
+
+---
+class: middle
+
+We can also see that with this method the number of steps to take is roughly on the order of
+
+$$ \frac{\lambda_1}{\lambda_n} $$
+
+Unfortunately, for most learning problems this is a large number. This means that many iterations are typically required to reach convergence.
+
+---
+class: middle
+
+In practice, it is difficult to estimate a priori what the learning rate should be.
+
+The Hessian is typically difficult to estimate and the quadratic approximation we used is only valid locally.
+
+---
+class: middle
+
+Instead, we are going to find a good learning rate empirically.
+
+---
+class: middle
+
+For this, we need to be able to vary the learning rate in a specific manner.
+
+We use a formula where the rate is in increased geometrically at every epoch:
+
+`rate = initial_rate * growth_rate^(epoch / growth_step)`
+
+---
+class: middle
+
+This is implemented in TF using a callback .
+
+We first implement our formula for the learning rate.
+
+---
+class: middle
+
+```Python
+def lr_exponential_decay(epoch, lr):
+  growth_rate = final_learning_rate / initial_learning_rate
+  lr_ = initial_learning_rate * growth_rate**(epoch / (n_epochs-1.))
+  metric_lr[epoch] = lr_  
+  return lr_
+```
+
+---
+class: middle
+
+`metric_lr[epoch]` is used to store the value of the learning rate for analysis later on.
+
+---
+class: middle
+
+Then we create a learning rate callback in Keras:
+
+```Python
+lr_callback = keras.callbacks.LearningRateScheduler(lr_exponential_decay)
+```
+
+---
+class: middle
+
+Finally, we register the callback function:
+
+```Python
+history = dnn.fit(x_t, y_t,           
+        validation_data=(x_v,y_v),         
+        epochs=n_epochs,
+        batch_size=int(x_t.size),
+        callbacks = [lr_callback])
+```
+
+---
+class: middle
+
+We plot the decay of the loss and the learning rate
+
+![:width 35vw](fig3.png) ![:width 30vw](fig4.png)
+
+---
+class: middle
+
+We see that the loss decays rapidly around epoch 6 which corresponds to a learning rate of 0.1
+
+---
+class: middle
+
+We can restart this analysis with a smaller range for the learning rate interval.
+
+![:width 35vw](fig5.png) ![:width 30vw](fig6.png)
+
+---
+class: middle
+
+Again the loss decays rapidly around epoch 4, which corresponds to a learning rate of 0.3.
+
+So the final learning rate we choose is around 0.3.
+
+---
+class: middle
+
+As we have mentioned before, training a neural network is a difficult and in general the solution may depend on the initial guess.
+
+In some cases, we may get a DNN that fits the training set very well but still have very poor accuracy on the validation set.
+
+---
+class: middle
+
+This problem is also known as generalization. That is we do well on the data we are given but fail on unseen data (the "generalization").
+
+---
+class: middle
+
+This behavior is typically caused when the neural network tends to oscillate wildly as we move away from the training point.
+
+This problem is called "overfitting".
+
+---
+class: middle
+
+This is similar to the problem of fitting a polynomial of order $n$ to points $(x_i,y_i)$, $1 \le i \le n$, where $x_i$ are uniformly distributed.
+
+The polynomial will go through each $(x_i,y_i)$ but will have wild oscillations in between.
+
+---
+class: middle
+
+DNNs suffer from similar problems. There are different techniques that can mitigate overfitting:
+
+- Early training termination
+- Control the size of the DNN
+- Regularization
+
+---
+class: middle
+
+We consider the following example:
+
+![:width 60vw](fig8.png)
+
+---
+class: middle
+
+For reference, the DNN we use is
+
+- fully connected
+- `tanh` activation
+- 1 hidden layer with 8 nodes
+
+---
+class: middle
+
+The exact solution is just the line $y=x$ but we added 10% of noise to the points near $x=0$.
+
+As a result, the DNN is going to make the wrong prediction if we train it until convergence.
+
+---
+class: middle
+
+Initially the convergence is as follows:
+
+![:width 40vw](fig7.png) ![:width 40vw](fig7a.png)
+
+---
+class: middle
+
+The validation error is small initially.
+
+But as we keep iterating, the training error decreases (the DNN gets closer to the data) but the validation error keeps increasing.
+
+---
+class: middle
+
+This is because our initial guess for our DNN is quite good in this case.
+
+So our initial choice gives us good accuracy.
+
+---
+class: middle
+
+But as we train and get closer to the data, our model becomes less accurate.
+
+This is because of the noise we added to the data.
+
+---
+class: middle
+
+Eventually, we fit the data perfectly:
+
+![](fig9.png)
+
+---
+class: middle
+
+But our error on the validation set is very high. 
+
+This is because the true solution is $y=x$.
+
+---
+class: center, middle
+
+![](fig10.png)
+
+---
+class: middle
+
+The data cannot be fully trusted in this example. 
+
+We are overfitting.
+
+---
+class: middle
+
+But if we look at the validation error, there is a minimum.
+
+The solution is quite accurate at that point.
+
+---
+class: middle
+
+In this run, the minimum is around 290.
+
+![:width 40vw](fig11.png)![:width 40vw](fig12.png)
+
+---
+class: middle
+
+So a simple learning strategy is to train until the validation error starts increasing. 
+
+Then we stop the iteration, and use the solution we have obtained at that point.
+
+---
+class: middle
+
+The way we initialize the DNN weights is also quite important.
+
+---
+class: middle
+
+There is a big danger in DNN.
+
+When we stack several layers one after the oher we need to make sure that the outputs at each layer do not keep increasing.
+
+---
+class: middle
+
+Assume for example that all weights are equal to 1.
+
+After applying the linear transformation:
+
+$$ z\_i = \sum\_{j=1}^n w\_{ij} a\_j $$
+
+$a\_j$: activation at previous layer; $w\_{ij}$: weights of current layer.
+
+---
+class: middle
+
+Assume that the activations are initially somewhat random. 
+
+For our simple analysis we assume that we assume that $a_j$ are independent and identically distributed.
+
+Their mean is 0 and their variance is assumed to be $\sigma$.
+
+---
+class: middle
+
+We have:
+
+$$ z\_i = \sum\_{j=1}^n w\_{ij} a\_j = \sum\_{j=1}^n a\_j $$
+
+if $w_{ij} = 1$.
+
+---
+class: middle
+
+The variance of $z_i$ is $n \sigma^2$.
+
+---
+class: middle
+
+If we consider the function `tanh` we see that it becomes very flat when the argument is large.
+
+---
+class: middle
+
+If all weights are of order 1, the output $z_i$ will tend to be large.
+
+This will push the argument `tanh` to large values, and saturate `tanh`.
+
+---
+class: center, middle
+
+![](fig13.png)
+
+---
+class: middle
+
+The consequence of this is that training becomes very difficult. The gradient becomes very small. 
+
+This is known as the vanishing gradient problem.
+
+In addition, instabilities may creep in the model.
+
+---
+class: middle
+
+So it is important that we making sure that the outputs stay nicely bounded.
+
+This can be done by make sure that the variance of $z_j$ is 1 in our example.
+
+---
+class: middle
+
+This idea has led to different techniques to initialize the weights of DNNs.
+
+A well-known one is the Glorot-Bengio initialization which considers the number of incoming and outgoing edges in the model (in our case it was $n$) and defines
+
+$$\text{fan}\_\text{avg} = \frac{1}{2} (\text{fan}\_\text{in} + \text{fan}\_\text{out})$$
+
+---
+class: middle
+
+Then the weights are initialized with variance
+
+$$\sigma^2 = \frac{1}{\text{fan}\_\text{avg}^2}$$
+
+In our analysis this makes sure that the output of each layer stays of order 1.
+
+---
+class: middle
+
+Many variants have been proposed for this idea.
+
+See the [TF documentation](https://www.tensorflow.org/api_docs/python/tf/keras/initializers) on initializers.
+
+---
+class: middle
+
+Some of the common choices are for different activation functions
+
+Initialization | Choice of activation function | Variance
+--- | --- | ---
+Glorot | default, tanh, logistic, softmax | 1/$\text{fan}_\text{avg}$
+He | ReLU | 2/$\text{fan}_\text{in}$
+LeCun | SELU | 1/$\text{fan}_\text{in}$
+
+---
+class: middle
+
+We can test this in our simple example.
+
+Since the solution is $y=x$, we expect the weights to be order 1 (slope 1).
+
+---
+class: middle
+
+Let's initialize with large weights using a random uniform initialization:
+
+```Python
+dnn_val = keras.models.Sequential()
+dnn_val.add(keras.layers.InputLayer(input_shape=1))
+dnn_val.add(keras.layers.Dense(8, activation='tanh',
+            kernel_initializer=
+              tf.random_uniform_initializer(minval=-10, maxval=10)
+            ))
+dnn_val.add(keras.layers.Dense(1, activation="linear",
+            kernel_initializer=
+              tf.random_uniform_initializer(minval=-10, maxval=10)
+            ))
+```
+
+---
+class: middle
+
+The results are absolutely awful.
+
+---
+class: center, middle
+
+![:width 40vw](fig14.png) ![:width 40vw](fig15.png)
+
+---
+class: middle
+
+This is because we start from a very oscillatory initial guess (large weights).
+
+The training brings it closer to the data but because of the noise in the data we fail to converge to anything reasonable.
+
+---
+class: middle
+
+One simple method to avoid overfitting is to reduce the complexity of the model.
+
+---
+class: middle
+
+We chose a very simple example to illustrate these concepts.
+
+To avoid overfitting in this case, we need to use a single `tanh` function.
+
+---
+class: middle
+
+Then we get:
+
+![:width 40vw](fig16.png) ![:width 40vw](fig17.png)
+
+---
+class: middle
+
+Simplifying the model may reduce the issue of overfitting but this does not imply that we will necessarily get the right solutions.
+
+By restricting the structure of the DNN we are optimizing, we may oversimplify and end up with a DNN that cannot accurately reproduce the solution.
+
+---
+class: middle
+
+Another approach consists is keeping the same DNN but using regularization. This means adding a new term to the loss function that penalizes large weights and biases.
+
+---
+class: middle
+
+Regularization is usually done using either l1 or l2 regularization.
+
+Consider some training data $(x_i,y_i)$ and a mean squared error loss function.
+
+---
+class: middle
+
+With l2 regularization, we define the loss as
+
+$\text{Loss} = \sum\_i (y\_i - \hat{y}\_i)^2 + \lambda\_1 \sum\_{ijl} (w\_{ij}^{(l)})^2$
+
+$\hspace{5em} + \lambda\_2 \sum\_{il} (b\_i^{(l)})^2$
+
+---
+class: middle
+
+$\lambda_1$ and $\lambda_2$ are the regularization factors
+
+$w\_{ij}^{(l)}$ is the weight $(i,j)$ in layer $l$
+
+$b\_i^{(l)}$ is the bias $i$ in layer $l$.
+
+---
+class: middle
+
+In TensorFlow/Keras the [syntax](https://www.tensorflow.org/api_docs/python/tf/keras/regularizers/Regularizer) is:
+
+- `kernel_regularizer`: regularizer to apply a penalty on the layer's weights (kernel)
+- `bias_regularizer`: penalty on the layer's bias
+- `activity_regularizer`: penalty on the layer's output
+
+---
+class: middle
+
+With regularization we ensure that weights are kept small and cannot diverge.
+
+The accuracy is then much improved.
+
+---
+class: middle
+
+After 10,000 iterations, we get
+
+![:width 40vw](fig18.png) ![:width 40vw](fig19.png)
+
+---
+class: middle
+
+Physically we can interpret the l2 regularization as adding a spring to the weights and biases so that they are always pulled back towards 0.
+
+Indeed consider
+
+$$\lambda\_1 \sum\_{ijl} (w\_{ij}^{(l)})^2$$
+
+---
+class: middle
+
+Minus the gradient with respect to $w\_{ij}^{(l)}$ is equal to
+
+$$- 2 \lambda\_1 w\_{ij}^{(l)}$$
+
+This is a spring force where the "displacement" of the spring is $w\_{ij}^{(l)}$.
+
+It prevents $w\_{ij}^{(l)}$ from getting too big.
+
+---
+class: middle
+
+The l1 regularization uses the following formula (with the l1 norm):
+
+$\text{Loss} = \sum\_i (y\_i - \hat{y}\_i)^2 + \lambda\_1 \sum\_{ijl} |w\_{ij}^{(l)}|$
+
+$\hspace{5em} + \lambda\_2 \sum\_{il} |b\_i^{(l)}|$
+
+---
+class: middle
+
+The l1 regularization has a different effect. 
+
+It makes the solution (weights and biases) sparser. 
+
+That is, it tries to reproduce the training data with as few non-zero weights and biases as possible.
