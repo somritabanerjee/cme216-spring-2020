@@ -17,7 +17,6 @@ Module 1
 - [Introduction to ML and SVM](Reading Questions/intro_svm)
 - [Soft-margins in SVM](Reading Questions/svm_softmargin)
 - [Kernel trick](Reading Questions/kernel_trick)
-- [Module 1 Solutions](RA Solutions/RA1-3_solutions)
 
 Module 2
 
