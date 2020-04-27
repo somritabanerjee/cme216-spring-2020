@@ -407,14 +407,12 @@ class: middle
 
 There is a big danger in DNN.
 
-When we stack several layers one after the oher we need to make sure that the outputs at each layer do not keep increasing.
+When we stack several layers one after the other, we need to make sure that the outputs at each layer do not keep increasing.
 
 ---
 class: middle
 
-Assume for example that all weights are equal to 1.
-
-After applying the linear transformation:
+Consider the linear transformation:
 
 $$ z\_i = \sum\_{j=1}^n w\_{ij} a\_j $$
 
@@ -432,11 +430,9 @@ Their mean is 0 and their variance is assumed to be $\sigma$.
 ---
 class: middle
 
-We have:
+Assume that $w_{ij} = 1$ for simplicity. We have:
 
 $$ z\_i = \sum\_{j=1}^n w\_{ij} a\_j = \sum\_{j=1}^n a\_j $$
-
-if $w_{ij} = 1$.
 
 ---
 class: middle
@@ -465,16 +461,16 @@ class: middle
 
 The consequence of this is that training becomes very difficult. The gradient becomes very small. 
 
-This is known as the vanishing gradient problem.
+This is known as the **vanishing gradient problem.**
 
 In addition, instabilities may creep in the model.
 
 ---
 class: middle
 
-So it is important that we making sure that the outputs stay nicely bounded.
+So it is important that we make sure that the outputs stay nicely bounded.
 
-This can be done by make sure that the variance of $z_j$ is 1 in our example.
+This can be done by making sure that the variance of $z_j$ is 1 in our example.
 
 ---
 class: middle
@@ -483,14 +479,14 @@ This idea has led to different techniques to initialize the weights of DNNs.
 
 A well-known one is the Glorot-Bengio initialization which considers the number of incoming and outgoing edges in the model (in our case it was $n$) and defines
 
-$$\text{fan}\_\text{avg} = \frac{1}{2} (\text{fan}\_\text{in} + \text{fan}\_\text{out})$$
+$$\text{fan}\_\text{avg} = \frac{\text{fan}\_\text{in} + \text{fan}\_\text{out}}{2}$$
 
 ---
 class: middle
 
 Then the weights are initialized with variance
 
-$$\sigma^2 = \frac{1}{\text{fan}\_\text{avg}^2}$$
+$$\sigma^2 = \frac{1}{\text{fan}\_\text{avg}}$$
 
 In our analysis this makes sure that the output of each layer stays of order 1.
 
@@ -564,7 +560,7 @@ class: middle
 
 We chose a very simple example to illustrate these concepts.
 
-To avoid overfitting in this case, we need to use a single `tanh` function.
+To avoid overfitting in this case, we need to use a single `tanh` function (one output node in the hidden layer).
 
 ---
 class: middle
@@ -583,7 +579,7 @@ By restricting the structure of the DNN we are optimizing, we may oversimplify a
 ---
 class: middle
 
-Another approach consists is keeping the same DNN but using regularization. This means adding a new term to the loss function that penalizes large weights and biases.
+Another approach consists in keeping the same DNN but using regularization. This means adding a new term to the loss function that penalizes large weights and biases.
 
 ---
 class: middle
@@ -649,7 +645,7 @@ Minus the gradient with respect to $w\_{ij}^{(l)}$ is equal to
 
 $$- 2 \lambda\_1 w\_{ij}^{(l)}$$
 
-This is a spring force where the "displacement" of the spring is $w\_{ij}^{(l)}$.
+This is a spring force where the "displacement" of the spring is $w\_{ij}^{(l)}$, and the stiffness $2 \lambda_1$.
 
 It prevents $w\_{ij}^{(l)}$ from getting too big.
 
