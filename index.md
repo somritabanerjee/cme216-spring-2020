@@ -14,22 +14,24 @@ These is the web site for CME 216 Machine Learning in Computational Engineering.
 
 Module 1
 
-- [Introduction to ML and SVM](Reading Questions/intro_svm)
-- [Soft-margins in SVM](Reading Questions/svm_softmargin)
-- [Kernel trick](Reading Questions/kernel_trick)
-- [Module 1 Solutions](RA Solutions/RA1-3_solutions)
+1. [Introduction to ML and SVM](Reading Questions/intro_svm)
+1. [Soft-margins in SVM](Reading Questions/svm_softmargin)
+1. [Kernel trick](Reading Questions/kernel_trick)
+1. [Module 1 Solutions](RA Solutions/RA1-3_solutions)
 
 Module 2
 
-- [Perceptron](Reading Questions/perceptron)
-- [MLP](Reading Questions/MLP) (multi-layer perceptron)
-- [TensorFlow](Reading Questions/TF)
-- [Subclassing](Reading Questions/subclassing)
+{:start="5"}
+1. [Perceptron](Reading Questions/perceptron)
+1. [MLP](Reading Questions/MLP) (multi-layer perceptron)
+1. [TensorFlow](Reading Questions/TF)
+1. [Subclassing](Reading Questions/subclassing)
 
 Module 3
 
-- [Loss function](Reading Questions/loss)
-- [Cross entropy](Reading Questions/cross-entropy)
+{:start="9"}
+1. [Loss function](Reading Questions/loss)
+1. [Cross entropy](Reading Questions/cross-entropy)
 
 ## Programming Homework
 
@@ -80,6 +82,7 @@ Module 3
 - [3.4 Backpropagation](Slides/Deep_Learning/Backprop)
 - [3.5 Backpropagation formula](Slides/Deep_Learning/Backprop_formula)
 - [3.6 Training and regularization](Slides/Deep_Learning/Training)
+- [Regularization for DNNs example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regularization.ipynb)
 
 ## Contents of class
 

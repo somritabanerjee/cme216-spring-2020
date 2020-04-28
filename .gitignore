@@ -3,3 +3,5 @@ _site/
 .ipynb_checkpoints/
 .jekyll-metadata
 *.DS_Store
+
+Code/DNN_regularization rev0.ipynb
