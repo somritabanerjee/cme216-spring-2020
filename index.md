@@ -26,6 +26,11 @@ Module 2
 - [TensorFlow](Reading Questions/TF)
 - [Subclassing](Reading Questions/subclassing)
 
+Module 3
+
+- [Loss function](Reading Questions/loss)
+- [Cross entropy](Reading Questions/cross-entropy)
+
 ## Programming Homework
 
 - [Python setup guide](Python Setup Guide)
