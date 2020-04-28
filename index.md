@@ -30,8 +30,7 @@ Module 2
 Module 3
 
 {:start="9"}
-1. [Loss function](Reading Questions/loss)
-1. [Cross entropy](Reading Questions/cross-entropy)
+1. [Loss function and cross entropy](Reading Questions/loss)
 
 ## Programming Homework
 
