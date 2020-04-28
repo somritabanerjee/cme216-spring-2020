@@ -81,7 +81,11 @@ Module 3
 - [3.3 TensorFlow loss functions](Slides/Deep_Learning/TF_loss)
 - [3.4 Backpropagation](Slides/Deep_Learning/Backprop)
 - [3.5 Backpropagation formula](Slides/Deep_Learning/Backprop_formula)
-- [3.6 Training and regularization](Slides/Deep_Learning/Training)
+- [3.6 Learning rate for training](Slides/Deep_Learning/Learning_rate)
+- [3.7 Empirical method for learning rate](Slides/Deep_Learning/Learning_rate_empirical)
+- [3.8 Overfitting](Slides/Deep_Learning/Training_overfitting)
+- [3.9 DNN initializers](Slides/Deep_Learning/Training_initializers)
+- [3.10 Regularization](Slides/Deep_Learning/Training_regularization)
 - [Regularization for DNNs example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regularization.ipynb)
 
 ## Contents of class
