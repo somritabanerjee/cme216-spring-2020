@@ -32,6 +32,8 @@ Module 3
 
 {:start="8"}
 1. [Loss function and cross entropy](Reading Questions/loss)
+1. [Loss functions in TF/Keras](Reading Questions/TF_loss)
+1. [The backpropagation algorithm](Reading Questions/Backpropagation)
 
 ## Programming Homework
 
