@@ -13,13 +13,13 @@ Late day policy: 1 late day with a 20% grade penalty.
 
 The maximum of the entropy $$H(p) = - \sum_i p_i \ln p_i$$ is achieved when $$p_i$$ is constant and $$p_i = 1/n$$; $$n$$ is the number of states. Let's prove this result. 
 
-We want to minimize $$H(p)$$ under the constraint that $$\sum_i p_i = 1$$. The constraint $$p_i \ge 0$$ is actually not required to find the solution in this case. 
+We want to maximize $$H(p)$$ under the constraint that $$\sum_i p_i = 1$$. The constraint $$p_i \ge 0$$ is actually not required to find the solution in this case. 
 
 To solve optimization problems under constraints, we can use the method of [Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier). We define
 
 $$ H_1(p,\lambda) = - \sum_i p_i \ln p_i + \lambda (\sum_i p_i - 1) $$
 
-We can now minimize $$H_1(p,\lambda)$$ without having to worry about any constraint.
+We can now maximize $$H_1(p,\lambda)$$ without having to worry about any constraint.
 
 1. Since $$\partial H_1 / \partial \lambda = 0$$ at the optimum, show that this implies that $$\sum_i p_i = 1$$ at the optimum.
 1. Calculate $$\partial H_1 / \partial p_i$$ in terms of $$p_i$$ and $$\lambda$$.
