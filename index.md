@@ -17,11 +17,12 @@ Module 1
 1. [Introduction to ML and SVM](Reading Questions/intro_svm)
 1. [Soft-margins in SVM](Reading Questions/svm_softmargin)
 1. [Kernel trick](Reading Questions/kernel_trick)
-1. [Module 1 Solutions](RA Solutions/RA1-3_solutions)
+
+- [Module 1 Solutions](RA Solutions/RA1-3_solutions)
 
 Module 2
 
-{:start="5"}
+{:start="4"}
 1. [Perceptron](Reading Questions/perceptron)
 1. [MLP](Reading Questions/MLP) (multi-layer perceptron)
 1. [TensorFlow](Reading Questions/TF)
@@ -29,7 +30,7 @@ Module 2
 
 Module 3
 
-{:start="9"}
+{:start="8"}
 1. [Loss function and cross entropy](Reading Questions/loss)
 
 ## Programming Homework
