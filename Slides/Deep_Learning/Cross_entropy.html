@@ -73,9 +73,9 @@ class: middle
 
 The entropy is then equal to the negative log of
 
-$$ P_X(\{x_i}) = \prod_i (p_i)^{N p_i} $$
+$$ P_H(\\{i_k\\}) = \prod_i (p_i)^{N p_i} $$
 
-$$ H(p) = -\frac{1}{N} \log P_X(\{x_i}) = - \sum_i p_i \log p_i $$
+$$ H(p) = -\frac{1}{N} \log P_H(\\{i_k\\}) = - \sum_i p_i \log p_i $$
 
 ---
 class: middle
@@ -112,21 +112,21 @@ But $p_i$ is unknown, and we only have some approximation $q_i$.
 
 Then our approximation of the probability of seeing the sequence $\\{ i\_k \\}$ is
 
-$$ P_X^q(\\{x\_i\\}) = \prod_i (q_i)^{N p_i} $$
+$$ P_H^q(\\{i\_k\\}) = \prod_i (q_i)^{N p_i} $$
 
 ---
 class: middle
 
-The log of $P_X^q(\{x_i})$ is the cross-entropy:
+The log of $P_H^q(\\{i\_k\\})$ is the cross-entropy:
 
-$$ -\frac{1}{N} \log P_X^q(\{x_i}) = - \sum_i p_i \log q_i $$
+$$ -\frac{1}{N} \log P_H^q(\\{i\_k\\}) = - \sum_i p_i \log q_i $$
 
 ---
 class: middle
 
 If our guess of $p_i$ is correct, we have $q_i = p_i$ and the cross-entropy will be small.
 
-Our estimated probability $P_X^q(\{x_i})$ is large.
+Our estimated probability $P_H^q(\\{i\_k\\})$ is large.
 
 ---
 class: middle
