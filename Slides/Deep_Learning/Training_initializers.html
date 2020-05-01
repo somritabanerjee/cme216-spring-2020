@@ -13,7 +13,7 @@ class: center, middle
 ---
 class: middle
 
-The way we initialize the DNN weights is also quite important.
+The way we initialize the DNN weights is important.
 
 ---
 class: middle
@@ -37,7 +37,7 @@ class: middle
 
 Assume that the activations are initially somewhat random.
 
-For our simple analysis we assume that we assume that $a_j$ are independent and identically distributed.
+For our simple analysis we assume that $a_j$ are independent and identically distributed.
 
 Their mean is 0 and their variance is assumed to be $\sigma$.
 
@@ -61,7 +61,7 @@ If we consider the function `tanh` we see that it becomes very flat when the arg
 ---
 class: middle
 
-If all weights are of order 1, the output $z_i$ will tend to be large.
+If all weights are of order 1, the output $z_i$ will tend to be large as $n$ increases.
 
 This will push the argument `tanh` to large values, and saturate `tanh`.
 
@@ -115,7 +115,7 @@ See the [TF documentation](https://www.tensorflow.org/api_docs/python/tf/keras/i
 ---
 class: middle
 
-Some of the common choices are for different activation functions
+Some of the common choices are for different activation functions:
 
 Initialization | Choice of activation function | Variance
 --- | --- | ---
@@ -139,13 +139,13 @@ Let's initialize with large weights using a random uniform initialization:
 dnn_val = keras.models.Sequential()
 dnn_val.add(keras.layers.InputLayer(input_shape=1))
 dnn_val.add(keras.layers.Dense(8, activation='tanh',
-kernel_initializer=
-tf.random_uniform_initializer(minval=-10, maxval=10)
-))
+                kernel_initializer=
+                tf.random_uniform_initializer(minval=-10, maxval=10)
+            ))
 dnn_val.add(keras.layers.Dense(1, activation="linear",
-kernel_initializer=
-tf.random_uniform_initializer(minval=-10, maxval=10)
-))
+                kernel_initializer=
+                tf.random_uniform_initializer(minval=-10, maxval=10)
+            ))
 ```
 
 ---
@@ -163,5 +163,4 @@ class: middle
 
 This is because we start from a very oscillatory initial guess (large weights).
 
-The training brings it closer to the data but because of the noise in the data we fail to converge to anything
-reasonable.
+The training brings it closer to the data but because our model is under-constrained (DNN is too complex for this simple task) we fail to converge to anything reasonable.
