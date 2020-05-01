@@ -34,6 +34,7 @@ Module 3
 1. [Loss function and cross entropy](Reading Questions/loss)
 1. [Loss functions in TF/Keras](Reading Questions/TF_loss)
 1. [The backpropagation algorithm](Reading Questions/Backpropagation)
+1. [Learning rate and overfitting](Reading Questions/LR_overfitting)
 
 ## Programming Homework
 
@@ -125,8 +126,7 @@ Module 3 (week 4)
 Module 4 (week 5-6)
 
 - Stochastic gradient methods; SGD, momentum; adaptive algorithms
-- Convolution nets; pooling; fully-connected nets
-- DNN and convnet architectures
+- If time allows: convolution nets; pooling; fully-connected nets; DNN and convnet architectures
 
 **Physics-informed learning**
 
