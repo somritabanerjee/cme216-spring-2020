@@ -35,6 +35,7 @@ Module 3
 1. [Loss functions in TF/Keras](Reading Questions/TF_loss)
 1. [The backpropagation algorithm](Reading Questions/Backpropagation)
 1. [Learning rate and overfitting](Reading Questions/LR_overfitting)
+1. [Initializers and regularizers](Reading Questions/initializers_regularizers)
 
 ## Programming Homework
 
