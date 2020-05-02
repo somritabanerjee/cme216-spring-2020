@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Learning rate and overfitting
+title: Initializers and regularizers
 --- 
 
 Write your answers in a PDF and upload the document on [gradescope](https://www.gradescope.com/courses/102338) for submission. Each question is worth 10 points. The due date is given on [gradescope](https://www.gradescope.com/courses/102338). Post on [Slack](https://stanford.enterprise.slack.com/) for questions.
