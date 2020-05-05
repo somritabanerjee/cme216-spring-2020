@@ -90,7 +90,9 @@ Module 3
 - [3.8 Overfitting](Slides/Deep_Learning/Training_overfitting)
 - [3.9 DNN initializers](Slides/Deep_Learning/Training_initializers)
 - [3.10 Regularization](Slides/Deep_Learning/Training_regularization)
-- [3.11 Gradient descent methods](Slides/Deep_Learning/Gradient_descent)
+- [3.11 Stochastic Gradient Descent](Slides/Deep_Learning/SGD)
+- [3.12 Saddle points](Slides/Deep_Learning/Saddle_points)
+- [3.13 Momentum](Slides/Deep_Learning/Momentum)
 - [Regularization for DNNs example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regularization.ipynb)
 
 ## Contents of class
