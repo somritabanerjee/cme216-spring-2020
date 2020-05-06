@@ -11,10 +11,6 @@ The python dependencies required for this homework are listed in ***requirements
 
 You will find the starter code and required files [here](https://ericdarve.github.io/cme216-spring-2020/Homework/hw3_starter_code.zip).
 
-[FIXME]
-
-The size of the file is 76 MB.
-
 ## Problem 1: Forward and inverse modeling
 
 ![](ref_bathy.jpg)
