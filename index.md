@@ -42,6 +42,7 @@ Module 3
 - [Python setup guide](Python Setup Guide)
 - [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
 - [Homework 2](Homework/HW2 Questions) and [starter code](Homework/hw2_starter_code.zip)
+- [Homework 3](Homework/HW3 Questions) and [starter code](Homework/hw3_starter_code.zip)
 
 ## Final Project
 
