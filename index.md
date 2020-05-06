@@ -103,7 +103,7 @@ Highlight of topics to cover
 
 **Supervised learning and SVM**
 
-Module 1 (week 1 and 2)
+Module 1 (week 1 and 2, 4/6, 4/13)
 
 - Supervised learning
 - SVM; [scikit-learn](https://scikit-learn.org/stable/); kernel trick; radial basis functions
@@ -113,13 +113,13 @@ Module 1 (week 1 and 2)
 
 **Deep learning**
 
-Module 2 (week 3)
+Module 2 (week 3, 4/20)
 
 - NN and DNN; layers; weights and biases; activation function; loss function
 <!-- - Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf) -->
 - [TensorFlow](https://www.tensorflow.org/learn) and [Keras](https://www.tensorflow.org/guide/keras)
 
-Module 3 (week 4)
+Module 3 (week 4, 4/27)
 
 - Forward and back-propagation
 - Weight initialization
@@ -129,14 +129,14 @@ Module 3 (week 4)
 
 - Homework 2 due; April 30 (covid-19 modeling)
 
-Module 4 (week 5-6)
+Module 4 (week 5-6, 5/4, 5/11)
 
 - Stochastic gradient methods; SGD, momentum; adaptive algorithms
-- If time allows: convolution nets; pooling; fully-connected nets; DNN and convnet architectures
+<!-- - If time allows: convolution nets; pooling; fully-connected nets; DNN and convnet architectures -->
 
 **Physics-informed learning**
 
-Module 5 (week 6-7)
+Module 5 (week 6-7, 5/11, 5/18)
 
 - Physics-based ML; PhysML
 - DNN and numerical PDE solvers
@@ -148,7 +148,7 @@ Module 5 (week 6-7)
 
 **Generative deep networks**
 
-Module 6 (week 8-9)
+Module 6 (week 8-9, 5/25, 6/1)
 
 - Autoencoders and variational autoencoders
 - GAN to model stochastic variables
@@ -160,7 +160,7 @@ Module 6 (week 8-9)
 
 **Reinforcement learning**
 
-Module 7 (week 9-10)
+Module 7 (week 9-10, 6/1, 6/8)
 
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
