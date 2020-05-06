@@ -3,6 +3,8 @@ layout: page
 title: Final Project
 ---
 
+Late day policy: 1 late day with a 20% grade penalty for the preliminary project plan report. The final project report will be due on the final day of the quarter, so there are no late days on the final project report.
+
 At the end of the quarter, you are expected to submit a 5-page report on a final project of your choosing. The report for your project should involve at least the following components:
 
 1. 5 points. Description of the engineering topic you chose; the choice of topics is open but it should be related to an engineering problem, rather than a pure computer science topic, such as image, speech, or vision.
