@@ -36,6 +36,7 @@ Module 3
 1. [The backpropagation algorithm](Reading Questions/Backpropagation)
 1. [Learning rate and overfitting](Reading Questions/LR_overfitting)
 1. [Initializers and regularizers](Reading Questions/initializers_regularizers)
+1. [SGD and saddle points](Reading Questions/SGD)
 
 ## Programming Homework
 
