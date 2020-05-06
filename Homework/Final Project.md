@@ -25,7 +25,9 @@ To help you plan ahead and make sure that you will be on track for the deadline,
 
 There is an option to work in teams on a project. I recommend teams of at most 2 students. 3 students is an option but it is discouraged. 4 or more is not allowed. The amount of work you put into the project must be the same whether or not you are part of a team.
 
-For teams of 2 students, you should submit an 8-page report. Teams of 3 should submit a 10-page report. Each member of the team must submit a PDF of the project on gradescope, separately. This PDF must be **the same** for all team members. The list of all team members should be shown in the PDF, at the beginning.
+For teams of 2 students, you should submit an 8-page report. Teams of 3 should submit a 10-page report.
+
+Gradescope has the option of uploading a single submission, and indicate all the students involved in this group submission. But, in addition, please make sure to include the list of all team members in the PDF, at the beginning. This is required for the final report only. For the proposal plan, each student should submit a plan. You don't need to decide on a team for the project plan.
 
 In addition, each member of the team must submit a short document that contains:
 
