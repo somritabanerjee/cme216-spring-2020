@@ -93,6 +93,8 @@ Module 3
 - [3.11 Stochastic Gradient Descent](Slides/Deep_Learning/SGD)
 - [3.12 Saddle points](Slides/Deep_Learning/Saddle_points)
 - [3.13 Momentum](Slides/Deep_Learning/Momentum)
+- [3.14 Adagrad](Slides/Deep_Learning/Adagrad)
+- [3.15 Adam](Slides/Deep_Learning/Adam)
 - [Regularization for DNNs example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regularization.ipynb)
 
 ## Contents of class

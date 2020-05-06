@@ -44,37 +44,43 @@ $$ - H X $$
 ---
 class: middle
 
-We can assume that initially the entries in $X$ are i.i.d. according to $N(0,1)$.
-
----
-class: middle
-
 There are some situations where the matrix $H$ may not be properly balanced.
 
-Remember that $H$ is the Hessian of a general loss function $L$ so we have not control over its properties.
+Remember that $H$ is the Hessian of a general loss function $L$ so we have no control over its properties.
 
 ---
 class: middle
 
-One way to think of matrix that is not balanced is to define some $0 < \beta < 1$ and
+One way to think of a matrix that is not balanced is to define some $0 < \beta < 1$ and
 
 $$ [D\_\beta]\_{ii} = \beta^i $$
 
 ---
 class: middle
 
-Then assume that
+Then assume that our Hessian is $H\_\beta$ with:
 
 $$ H\_\beta = D\_\beta H D\_\beta $$
 
-$H_\beta$ needs to be symmetric positive definite.
+$H$ is a symmetric positive definite matrix with a condition number close to 1.
 
 ---
 class: middle
 
+$$ H\_\beta = D\_\beta H D\_\beta $$
+
 As $\beta$ goes to 0, the matrix becomes increasingly imbalanced. 
 
 Some of the rows/columns become very small.
+
+---
+class: middle
+
+Gradient methods will typically converge fast with $H.$
+
+However, they will struggle with $H\_\beta$ because it is ill-conditioned due to the scaling matrix $D\_\beta$.
+
+Adagrad is able to overcome some of the difficulties with $H\_\beta$.
 
 ---
 class: middle
@@ -99,10 +105,12 @@ Remember how we said that ideally $\alpha = \lambda_i^{-1}$.
 
 In this case, we can do something close.
 
-We need to use Adagrad adaptive learning rates.
+We will use the adaptive learning rates of Adagrad.
 
 ---
 class: middle
+
+$$ H_\beta = U \Lambda U^T $$
 
 We are not going to prove this, but because of the scaling matrix $D$ we have that:
 
@@ -130,18 +138,18 @@ $$ \Delta X = - \alpha U \Lambda U^T X $$
 ---
 class: middle
 
-What can we do without computing $H$ and its eigendecomposition?
+What can we do without computing $H$ and its eigendecomposition $(U,\Lambda)$?
 
 ---
 class: middle
 
 There is an approximate but simple strategy:
 
-$$ \Big| \frac{\partial L}{\partial x\_i} \Big| = |[HX]\_i| \approx \beta^i \; \lVert X\rVert_2 $$
+$$ \Big| \frac{\partial L}{\partial x\_i} \Big| = |[HX]\_i| \approx \beta^{i-1} \; \lVert X\rVert_2 $$
 
 We could choose as a learning rate for component $i$:
 
-$$ \alpha = \frac{1}{\Big| \frac{\partial L}{\partial x\_i} \Big|} $$
+$$ \alpha \leftarrow \frac{\alpha}{\Big| \frac{\partial L}{\partial x\_i} \Big|} $$
 
 ---
 class: middle
@@ -174,7 +182,7 @@ Although the strategy is simple, it provides a substantial acceleration in our c
 The formula is
 
 $$ \Delta x\_i = - \frac{\alpha}{\sqrt{s_i + \epsilon}} \frac{\partial L}{\partial x\_i}
-= - \frac{\alpha}{\sqrt{s_i + \epsilon}} [H x]\_i
+= - \frac{\alpha}{\sqrt{s_i + \epsilon}} [H X]\_i
 $$
 
 ---
@@ -220,7 +228,7 @@ The largest eigenvalue of $I - \alpha H$ is
 
 $$\approx 1 - \beta^{2(n-1)}$$
 
-while for Adagrad with $I - \alpha D H$, it is 
+while for **Adagrad** with $I - \alpha D H$, it is 
 
 $$\approx 1 - \beta^{n-1}$$
 
@@ -229,7 +237,7 @@ class: middle
 
 This implies that the number of iterations has been reduced by
 
-$$\frac{1}{\beta^{n-1}}$$
+$$\Big( \frac{1}{\beta} \Big)^{n-1}$$
 
 If $\beta = 0.9$ and $n = 100$, that number is close to 30k.
 
@@ -265,10 +273,9 @@ Adagrad will improve convergence in these cases.
 class: middle
 
 ```Python
-def adagrad(W, sqr, lr, batch_size):
+def adagrad(W, s, lr, batch_size):
     eps_stable = 1e-7
     g = W.grad / batch_size
-    sqr += nd.square(g) # element-wise square
-    div = lr * g / nd.sqrt(sqr + eps_stable) # element-wise division
-    W -= div
+    s += square(g) # element-wise square
+    W -= lr * g / sqrt(s + eps_stable) # element-wise division
 ```

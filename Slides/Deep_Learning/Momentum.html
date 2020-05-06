@@ -143,7 +143,7 @@ It's like converging 10 times faster to the solution!
 class: middle
 
 ```Python
-def sgd_momentum(W, v, lr, mom, batch_size):
-    v = mom * v + lr * param.grad / batch_size
-    W -= v
+def sgd_momentum(W, v, lr, beta, batch_size):
+    m = beta * m + lr * param.grad / batch_size
+    W -= m
 ```
