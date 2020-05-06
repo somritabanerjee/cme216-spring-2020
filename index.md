@@ -144,7 +144,7 @@ Module 5 (week 6-7, 5/11, 5/18)
 - Examples of numerical PDE solutions with ADCME
 - Physics constrained learning
 
-- Homework 3 due on May 14 (week 6; bathymetry)
+- Homework 3 due on May 17 (week 6; bathymetry)
 
 **Generative deep networks**
 
@@ -156,7 +156,7 @@ Module 6 (week 8-9, 5/25, 6/1)
 - WGANs
 - PhysGAN
 
-- Homework 4 due on May 28 (week 8; physics informed learning)
+- Homework 4 due on May 31 (week 8; physics informed learning)
 
 **Reinforcement learning**
 
@@ -166,7 +166,7 @@ Module 7 (week 9-10, 6/1, 6/8)
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
 
-- Short homework 5 on RL (June 11)
+- Short homework 5 on RL (June 10)
 
 ## Reading material
 
