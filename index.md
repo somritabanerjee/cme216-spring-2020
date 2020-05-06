@@ -182,13 +182,13 @@ Module 7 (week 9-10, 6/1, 6/8)
 - [Deep learning with Python](https://searchworks.stanford.edu/view/13216992) by Fran&ccedil;ois Chollet
 - [Hands-on machine learning with Scikit-Learn, Keras, and TensorFlow : concepts, tools, and techniques to build intelligent systems](https://searchworks.stanford.edu/view/13489354) by Aur&eacute;lien G&eacute;ron
 - [Fundamentals of deep learning : designing next-generation machine intelligence algorithms](https://searchworks.stanford.edu/view/12112250) by Nikhil Buduma
+- [Elements of statistical learning](https://searchworks.stanford.edu/view/12458005) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
 - [Deep learning: an introduction for applied mathematicians](https://epubs.siam.org/doi/pdf/10.1137/18M1165748) by Catherine Higham and Desmond Higham
 - [Machine learning: a probabilistic perspective](https://www.cs.ubc.ca/~murphyk/MLbook/) by Kevin Murphy (in [searchworks](https://searchworks.stanford.edu/view/13163347))
 - [Deep learning with Python](https://searchworks.stanford.edu/view/13216992) by Fran&#231;ois Cholet
 - [Deep learning illustrated: a visual, interactive guide to artificial intelligence](https://searchworks.stanford.edu/view/13463749) by Jon Krohn
 - [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen
 - [Foundations of machine learning](https://cs.nyu.edu/~mohri/mlbook/) by Mehryar Mohri, Afshin Rostamizadeh, and Ameet Talwalkar
-- [Elements of statistical learning](https://searchworks.stanford.edu/view/12458005) by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
 - [Neural networks and learning machines](https://searchworks.stanford.edu/view/8631715) by Simon Haykin
 - [The matrix cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) by Kaare Petersen and Michael Pedersen
 
