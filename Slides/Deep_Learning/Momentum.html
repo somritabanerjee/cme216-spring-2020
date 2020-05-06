@@ -20,7 +20,7 @@ One of the simplest trick is to use the so-called momentum.
 ---
 class: middle
 
-One way to explain momentum is to go back to ordinary differential equation.
+One way to explain momentum is to go back to ordinary differential equations.
 
 ---
 class: middle
@@ -36,33 +36,37 @@ class: middle
 
 To solve this ODE, introduce $y(t)$ with
 
-$$ x = y(t) e^{-at} $$
+$$ x(t) = y(t) e^{-at} $$
 
-$$ x' = (y'(t) - ay(t)) e^{-at} $$
+$$ x'(t) = (y'(t) - ay(t)) e^{-at} $$
 
 ---
 class: middle
 
+Differential calculus:
+
 $$ x' + ax = (y' - ay) e^{-at} + a y e^{-at} = y' e^{-at} $$
+
+From the ODE:
 
 $$ y' e^{-at} = f(t) $$
 
 ---
 class: middle
 
-$$ y = \int e^{as} f(s) ds $$
+$$ y(t) = \int e^{as} f(s) ds $$
 
-$$ x = x\_0 e^{-at} + \int\_{s=0}^t e^{-a(t-s)} f(s) ds $$
+$$ x(t) = x\_0 e^{-at} + \int\_{s=0}^t e^{-a(t-s)} f(s) ds $$
 
 ---
 class: middle
 
 For long times $t$:
 
-$$ x \approx \int^t e^{-a(t-s)} f(s) ds $$
+$$ x(t) \approx \int^t e^{-a(t-s)} f(s) ds $$
 
 - when $a$ large: only values of $f(s)$ with $s \approx t$ have a significant weight
-- when $a$ is small: $x$ is close to an average $\approx \int^t_{t-\tau} f(s) ds$ of $f$; $x(t)$ varies slowly.
+- when $a$ is small: $x$ is close to $\approx \int^t_{t-\tau} f(s) ds$; $x(t)$ varies slowly.
 
 ---
 class: middle
@@ -91,7 +95,7 @@ $$ x_{n+1} = \beta x_n + f_n $$
 
 Using the same strategy we used to solve the ODE we can find the general solution:
 
-$$ x\_n = x\_0 \beta^n + \sum\_{k=0}^{n-1} \beta^{n-1-k} f\_k $$
+$$ x\_n = x\_0 \beta^n + \sum\_{k=0}^{n-1} \beta^k f\_{n-1-k} $$
 
 ---
 class: middle
