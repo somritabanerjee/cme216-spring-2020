@@ -69,7 +69,7 @@ There are different ways of implementing this.
 ---
 class: middle
 
-Assume that we randomly select a fraction $r$ of the training samples randomly and compute
+Assume that we randomly select a fraction $r$ of the training samples and compute
 
 $$ L\_r(W) = \sum\_{k=1}^{rm} l(X_{i_k};W) $$
 
@@ -83,7 +83,7 @@ class: middle
 
 Then we update the weights using
 
-$$ \Delta W = - \alpha L_r(W) $$
+$$ \Delta W = - \alpha \nabla L_r(W) $$
 
 and repeat this, drawing a new set of $rm$ samples.
 
@@ -148,4 +148,4 @@ Noise actually helps!
 ---
 class: middle
 
-We will discuss convergence and the effect of noise in more details in the next lecture.
+We will discuss convergence and the effect of noise in more details in the next video.
