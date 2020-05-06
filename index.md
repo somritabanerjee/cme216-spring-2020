@@ -96,6 +96,8 @@ Module 3
 - [3.14 Adagrad](Slides/Deep_Learning/Adagrad)
 - [3.15 Adam](Slides/Deep_Learning/Adam)
 - [Regularization for DNNs example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regularization.ipynb)
+- [ADAGRAD benchmark code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Adagrad.ipynb)
+- [Saddle points illustration code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Saddle%20points.ipynb)
 
 ## Contents of class
 
