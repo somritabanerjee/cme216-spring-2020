@@ -43,6 +43,10 @@ Module 3
 - [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
 - [Homework 2](Homework/HW2 Questions) and [starter code](Homework/hw2_starter_code.zip)
 
+## Final Project
+
+[Instructions](Homework/Final Project)
+
 ## Lecture slides and code
 
 The videos accompanying these lectures can be found on canvas under ["Course Videos."](https://canvas.stanford.edu/courses/118944/external_tools/3367)
