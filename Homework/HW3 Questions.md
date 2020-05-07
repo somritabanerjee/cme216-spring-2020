@@ -39,6 +39,8 @@ Note that the data are preprocessed. The matrix $$X$$ in the dataset corresponds
 
 ## Problem 2: Fast low-dimensional solver
 
+The file P2_train.mat is not in the starter code, please download it [here](https://drive.google.com/open?id=1zpZ8T8qq6opAmSz1oapoPBCrwM4WLh5_).
+
 In many real-world applications, we encounter high-dimensional problems (imagine 100,000 dimensions) for which applying a deep neural network directly from their input to output is difficult. This is either due to the large size of the DNNs required to process the input, which that makes them computationally very expensive (or impossible to train!). Or it may be due to the large dataset size that we require to train such large networks in order to guarantee that overfitting does not happen. 
 
 It is therefore useful to reduce the dimension of the input and output of such problems as a pre-processing step and then train a network from low dimensional input to low dimensional output. For these reasons, dimension reduction is an important topic in machine learning, and many different linear and nonlinear methods have been developed in order to reduce the dimension of high dimensional data without losing too much of the information contained in the original dataset. 
