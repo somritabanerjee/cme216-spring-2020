@@ -40,7 +40,9 @@ class: middle
 
 When $\beta$ is small, only recent values of the gradient will contribute.
 
-When $\beta$ is close to 1, the update becomes close to the one from Adagrad.
+When $\beta$ is close to 1, $s_i$ is close to
+
+$$ \approx \frac{1}{k\_0} \sum\_{s=0}^{k\_0} \Big( \frac{\partial L\_{k-s}}{\partial x\_i} \Big)^2$$
 
 ---
 class: middle
