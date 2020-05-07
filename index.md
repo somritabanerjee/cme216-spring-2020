@@ -37,6 +37,7 @@ Module 3
 1. [Learning rate and overfitting](Reading Questions/LR_overfitting)
 1. [Initializers and regularizers](Reading Questions/initializers_regularizers)
 1. [SGD and saddle points](Reading Questions/SGD)
+1. [Momentum and ADAGRAD](Reading Questions/Momentum)
 
 ## Programming Homework
 
