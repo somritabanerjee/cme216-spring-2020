@@ -13,19 +13,21 @@ class: center, middle
 ---
 class: middle
 
-Adagrad is a method which attempts to adaptively change the learning rate.
+Adagrad is a method that attempts to adaptively change the learning rate.
 
 It does so by using a different learning rate per parameter $w_i$.
 
 ---
 class: middle
 
-Adagrad is a heuristic and there is no general justification for this algorithm.
+Adagrad is a heuristic.
+
+It will not yield an acceleration on all problems.
 
 ---
 class: middle
 
-But let's see an example where Adagrad can be derived rigorously.
+But let us see an example where Adagrad will work.
 
 ---
 class: middle
@@ -188,7 +190,16 @@ $$
 ---
 class: middle
 
-Using matrix notation, we can write the iteration as
+Using matrix notation, 
+
+$$ X^{(k+1)} - X^{(k)} = - \alpha D H X^{(k)} $$
+
+$$ X^{(k+1)} = (I - \alpha D H) X^{(k)} $$
+
+---
+class: middle
+
+We can solve for step $k$ in terms of the initial value:
 
 $$ X^{(k)} = (I - \alpha D H)^k X^{(0)} $$
 
