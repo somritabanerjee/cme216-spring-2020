@@ -23,6 +23,6 @@ $$ s_i^{(k+1)} = \beta s_i^{(k)} + (1-\beta) \, G_i^2 $$
 $$ \hat{m}_i \leftarrow \frac{m_i}{1-\beta_1^k} $$
 
 {:start="3"}
-1. Give a heuristic explanation about why the use of momentum in Adam may accelerate convergence near saddle points in some cases?
+1. Give a heuristic explanation about why the use of momentum for the gradient (i.e., $$m$$) in Adam may accelerate convergence near saddle points in some cases?
 1. Look at slide 25, the right figure. What do you observe for Rmsprop (black line) vs Adagrad (blue line) towards the end? Explain.
 1. Look at slide 25, the right figure. Explain the sudden acceleration of Momentum (green line) towards the end.
