@@ -29,7 +29,7 @@ There is an option to work in teams on a project. I recommend teams of at most 2
 
 For teams of 2 students, you should submit an 8-page report. Teams of 3 should submit a 10-page report.
 
-We will enable group submission option on Gradescope, with which one member per group can make the submission and add the rest of the group. The submission process is same as before, and the option to add group members will be available after you upload your files; no additional action is required if you are not adding group members. In addition making group submissions, please make sure to include the list of all team members in the PDF, at the beginning.
+We will enable group submission option on Gradescope, with which one member per group can make the submission and add the rest of the group. The submission process is same as before, and the option to add group members will be available after you upload your files; no additional action is required if you are not adding group members. Besides making group submissions, please make sure to include the list of all team members in the PDF, at the beginning.
 
 In addition, each member of the team must submit a short document that contains:
 
