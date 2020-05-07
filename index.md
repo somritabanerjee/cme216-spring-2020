@@ -38,6 +38,7 @@ Module 3
 1. [Initializers and regularizers](Reading Questions/initializers_regularizers)
 1. [SGD and saddle points](Reading Questions/SGD)
 1. [Momentum and ADAGRAD](Reading Questions/Momentum)
+1. [RMSProp and Adam](Reading Questions/Adam)
 
 ## Programming Homework
 
