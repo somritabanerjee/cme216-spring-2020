@@ -63,6 +63,8 @@ Python tutorial
 
 Module 1
 
+_Introduction to Machine Learning and Support Vector Machines_
+
 - [SVM code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/svm.ipynb)
 - [1.1 Brief introduction to machine learning](Slides/ML_introduction/brief_intro)
 - [1.2 A few examples of machine learning](Slides/ML_introduction/examples_ML)
@@ -77,6 +79,8 @@ Module 1
 
 Module 2
 
+_Deep Neural Networks and TensorFlow_
+
 - [2.1 Perceptron](Slides/ANN/perceptron)
 - [2.2 Artificial Neural Networks](Slides/ANN/MLP) (multilayer perceptron)
 - [2.3 TensorFlow/Keras](Slides/TF_Keras/TF_Pytorch)
@@ -87,6 +91,8 @@ Module 2
 - [Python inheritance example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Inheritance%20demo.ipynb)
 
 Module 3
+
+_Deep Learning_
 
 - [3.1 Loss function for regression and classification](Slides/Deep_Learning/Loss)
 - [3.2 Cross-entropy](Slides/Deep_Learning/Cross_entropy)
@@ -106,6 +112,14 @@ Module 3
 - [Regularization for DNNs example code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/DNN_regularization.ipynb)
 - [Saddle points illustration code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Saddle%20points.ipynb)
 - [ADAGRAD benchmark code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Adagrad.ipynb)
+
+Module 4
+
+_Physics informed learning, automatic differentiation, inverse modeling_
+
+The slides are assembled into a single PDF file. Each lecture will cover one section in that PDF file.
+
+- [4.1 Automatic Differentiation Overview](Slides/AD/AD.pdf)
 
 ## Contents of class
 

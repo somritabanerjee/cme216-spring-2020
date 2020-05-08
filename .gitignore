@@ -4,4 +4,11 @@ _site/
 .jekyll-metadata
 *.DS_Store
 
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+
 Code/DNN_regularization rev0.ipynb
