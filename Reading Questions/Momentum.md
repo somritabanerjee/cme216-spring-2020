@@ -35,7 +35,7 @@ The next questions refer to slide deck "3.14 Adagrad."
 
 {:start="4"}
 1. With $$H_\beta = D_\beta H D_\beta$$, give an expression for $$[H_\beta]_{ij}$$ in terms of $$\beta$$ and $$H_{ij}.$$ Assume that $$[D_\beta]_{ii} = \beta^{i-1}$$.
-1. Show that in ADAGRAD, $$s_{i+1} \ge s_i$$, that is the sequence is monotonically increasing.
+1. Show that in ADAGRAD, $$[s^{(k+1)}]_i \ge [s^{(k)}]_i$$, that is the sequence is monotonically increasing; $$k$$ is the batch index.
 1. Consider $$x_n = A^n x_0$$ for some symmetric matrix $$A$$. Denote $$\lambda$$ the eigenvalue of $$A$$ with the largest magnitude. Denote $$u$$ the corresponding eigenvector with norm 1. Show that 
 
 $$x_n \approx \lambda^n (u^T x_0) u $$
