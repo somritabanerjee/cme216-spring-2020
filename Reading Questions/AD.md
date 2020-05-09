@@ -9,7 +9,7 @@ Late day policy: 1 late day with a 20% grade penalty.
 
 The next questions refer to video "4.1 Automatic Differentiation Overview."
 
-Floating point numbers on a computer are represented using only a finite number of digits. As a result, when representing numbers like $$\pi$$, the result of an operation (addition, subtraction) or even simply $$1/3$$, there is always a small error that is proportional to the unit roundoff $$u$$. Denote fl the floating point representation of a number. Then for example:
+Real numbers on a computer are represented using only a finite number of digits. The format that is used is called the floating point representation. Because of this, when representing numbers like $$\pi$$, the result of an operation (addition, subtraction) or even simply $$1/3$$, there is always a small error that is proportional to the unit roundoff $$u$$. Denote fl the floating point representation of a real number or the result of an operation. Then, for example:
 
 $$ \text{fl}(\pi) \approx \pi + u \pi $$
 
