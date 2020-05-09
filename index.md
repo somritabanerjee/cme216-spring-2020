@@ -174,11 +174,11 @@ Module 5 (week 6-7, 5/11, 5/18)
 
 Module 6 (week 8-9, 5/25, 6/1)
 
-- Autoencoders and variational autoencoders
-- GAN to model stochastic variables
-- Discriminator network
-- WGANs
-- PhysGAN
+<!-- - Autoencoders and variational autoencoders -->
+- GANs to generate samples from a given probability distribution
+- Generator and discriminator networks; WGANs
+- TensorFlow example
+- PhysGAN and ADCME
 
 - Homework 4 due on May 31 (week 8; physics informed learning)
 
