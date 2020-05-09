@@ -40,6 +40,11 @@ Module 3
 1. [Momentum and ADAGRAD](Reading Questions/Momentum)
 1. [RMSProp and Adam](Reading Questions/Adam)
 
+Module 4
+
+{:start="16"}
+1. [Automatic Differentiation Overview](Reading Questions/AD)
+
 ## Programming Homework
 
 - [Python setup guide](Python Setup Guide)
@@ -119,7 +124,7 @@ _Physics informed learning, automatic differentiation, inverse modeling_
 
 The slides are assembled into a single PDF file. Each lecture will cover one section in that PDF file.
 
-- [4.1 Automatic Differentiation Overview](Slides/AD/AD.pdf)
+- [Automatic Differentiation for Computational Engineering](Slides/AD/AD.pdf)
 
 ## Contents of class
 
@@ -143,7 +148,7 @@ Module 2 (week 3, 4/20)
 <!-- - Universal approximation theorems; [Montufar et al. (2014)](http://papers.nips.cc/paper/5422-on-the-number-of-linear-regions-of-deep-neural-networks.pdf) -->
 - [TensorFlow](https://www.tensorflow.org/learn) and [Keras](https://www.tensorflow.org/guide/keras)
 
-Module 3 (week 4, 4/27)
+Module 3 Part 1 (week 4, 4/27)
 
 - Forward and back-propagation
 - Weight initialization
@@ -153,14 +158,14 @@ Module 3 (week 4, 4/27)
 
 - Homework 2 due; April 30 (covid-19 modeling)
 
-Module 4 (week 5-6, 5/4, 5/11)
+Module 3 Part 2 (week 5-6, 5/4, 5/11)
 
 - Stochastic gradient methods; SGD, momentum; adaptive algorithms
 <!-- - If time allows: convolution nets; pooling; fully-connected nets; DNN and convnet architectures -->
 
 **Physics-informed learning**
 
-Module 5 (week 6-7, 5/11, 5/18)
+Module 4 (week 6-7, 5/11, 5/18)
 
 - Physics-based ML; PhysML
 - DNN and numerical PDE solvers
@@ -172,7 +177,7 @@ Module 5 (week 6-7, 5/11, 5/18)
 
 **Generative deep networks**
 
-Module 6 (week 8-9, 5/25, 6/1)
+Module 5 (week 8-9, 5/25, 6/1)
 
 <!-- - Autoencoders and variational autoencoders -->
 - GANs to generate samples from a given probability distribution
@@ -184,7 +189,7 @@ Module 6 (week 8-9, 5/25, 6/1)
 
 **Reinforcement learning**
 
-Module 7 (week 9-10, 6/1, 6/8)
+Module 6 (week 9-10, 6/1, 6/8)
 
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
