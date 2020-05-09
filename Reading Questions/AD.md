@@ -72,7 +72,7 @@ with respect to $$x$$.
 
 In automatic differentiation, we use numerical values and we carry both the value of the variables and their derivatives as we process each operation.
 
-Assume that $$x = 1$$ and $$x' = 2$$.
+Assume that $$x = 1$$ and $$x' = 8$$. This set up is the usual one in automatic differentiation. We don't need to specify the independent variable. From the numerical values of $$x$$ and its derivative $$x'$$, you can compute all the subsequent derivatives using automatic differentiation.
 
 {:start="6"}
 1. Calculate the value of $$x^2 + 1$$ and its derivative.
