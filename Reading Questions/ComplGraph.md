@@ -13,7 +13,7 @@ Consider the following function:
 
 $$ f(x) = \cos(x^2) + x + 1 $$
 
-1. Draw the computational graph used to compute this function. Each node in your graph should be an arithmetic operation, or the computation of $$\cos$$.
+1. Draw the computational graph used to compute this function. Each node in your graph should be an arithmetic operation, or the computation of $$\cos$$. The graph should have one input $$x$$ and one output $$y$$.
 
 Consider the figure in slide [17](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/AD.pdf#page=17)/47. Denote the input $$x$$ on the left and the output $$y$$ on the right. We will denote $$z_i$$ the output of node $$i$$. The nodes are numbered from 1 to $$n$$, going from left to right. Each node corresponds to some arithmetic operation. 
 
