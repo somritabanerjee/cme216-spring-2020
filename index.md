@@ -44,6 +44,7 @@ Module 4
 
 {:start="16"}
 1. [Automatic Differentiation Overview](Reading Questions/AD)
+1. [Computational graph](Reading Questions/ComplGraph)
 
 ## Programming Homework
 
