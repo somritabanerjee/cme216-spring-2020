@@ -46,6 +46,7 @@ Module 4
 1. [Automatic Differentiation Overview](Reading Questions/AD)
 1. [Computational graph](Reading Questions/ComplGraph)
 1. [Forward and reverse modes](Reading Questions/FwdRevMode)
+1. [AD for Physical Simulation](Reading Questions/ADPhys)
 
 ## Programming Homework
 
