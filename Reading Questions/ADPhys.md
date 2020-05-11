@@ -47,7 +47,7 @@ $$ u_{n+1} = 0 $$
 
 $$ [ \hspace{3em} -\lambda_n, \; 2 \lambda_n + 1] $$
 
-Assume now that $$\partial u / \partial x = 0$$ at $$x = \Delta x / 2$$ on the left. As a result we estimate
+Assume now that $$\partial u / \partial x = 0$$ at node $$i = 1$$ on the left. As a result we estimate
 
 $$ \frac{u_2 - u_0}{2 \Delta x} = 0 $$
 
