@@ -9,7 +9,9 @@ The python dependencies required for this homework are listed in ***requirements
 
 **Submission**: Now that you are familiar with using jupyter notebook, you will answer questions in [markdown cells](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) in the notebook and make a single submission with pdf for each notebook to gradescope. You are free to add additional cells (code or markdown) as needed.
 
-You will find the starter code and required files [here](https://ericdarve.github.io/cme216-spring-2020/Homework/hw3_starter_code.zip).
+[Starter code and required files](https://ericdarve.github.io/cme216-spring-2020/Homework/hw3_starter_code.zip)
+
+[Data files](https://drive.google.com/drive/folders/1zpZ8T8qq6opAmSz1oapoPBCrwM4WLh5_)
 
 ## Problem 1: Forward and inverse modeling
 
