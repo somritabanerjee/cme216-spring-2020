@@ -47,11 +47,13 @@ $$ u_{n+1} = 0 $$
 
 $$ [ \hspace{3em} -\lambda_n, \; 2 \lambda_n + 1] $$
 
-Assume now that $$\partial u / \partial x = 0$$ at node $$i = 1$$ on the left. As a result we estimate
+Assume now that $$\partial u / \partial x = 0$$ at node $$i = 1$$ on the left. For this specific problem, we can prove that this condition implies that the solution $$u(x)$$ can be extended and made even about $$x=0$$. This is done by formulating an equivalent PDE problem on the interval $$[-1,1]$$ with Dirichlet BC at $$x=-1$$ and $$x=1$$. At $$x=0$$, we recover $$\partial u / \partial x = 0$$. This solution $$u$$ formulated over the interval $$[-1,1]$$ is even and matches the solution $$u$$ to our problem on $$[0,1]$$.
 
-$$ \frac{u_2 - u_0}{2 \Delta x} = 0 $$
+With our numbering we have that $$x_1 = 0$$ and $$x_2 = \Delta x$$. We introduce the point $$x_0 = -\Delta x$$. Since $$u$$ is even (a consequence of the $$\partial u / \partial x = 0$$ condition as discussed above), we get:
+
+$$ \frac{u_2 - u_0}{2 \Delta x} \approx \frac{\partial u}{\partial x} \Big\rvert_{x=0} = 0, \text{ or } u_0 = u_2$$
 
 {:start="4"}
-1. Show that row 1 of matrix $$A(a,b)$$ is 
+1. Using this result, show that row 1 of matrix $$A(a,b)$$ is 
 
 $$ [ 2 \lambda_1 + 1, \; - 2 \lambda_1, \hspace{3em}] $$
