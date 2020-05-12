@@ -40,6 +40,8 @@ Module 3
 1. [Momentum and ADAGRAD](Reading Questions/Momentum)
 1. [RMSProp and Adam](Reading Questions/Adam)
 
+- [Module 3 Solutions](RA Solutions/RA1_Solution_module3)
+
 Module 4
 
 {:start="16"}
@@ -51,7 +53,7 @@ Module 4
 ## Programming Homework
 
 - [Python setup guide](Python Setup Guide)
-- [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
+- [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip) and [solution](HW Solutions/svm.ipynb)
 - [Homework 2](Homework/HW2 Questions) and [starter code](Homework/hw2_starter_code.zip)
 - [Homework 3](Homework/HW3 Questions) and [starter code](Homework/hw3_starter_code.zip)
 
