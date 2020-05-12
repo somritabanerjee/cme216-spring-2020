@@ -40,7 +40,7 @@ Module 3
 1. [Momentum and ADAGRAD](Reading Questions/Momentum)
 1. [RMSProp and Adam](Reading Questions/Adam)
 
-- [Module 3 Solutions](RA Solutions/RA1_Solution_module3)
+- [Module 3 Solutions](RA Solutions/RA_Solution_module3)
 
 Module 4
 
