@@ -13,9 +13,7 @@ U = zeros(n, m+1)
 Δx = 1/n 
 x = Array((0:n)*Δx)
 
-# x-->κ, length(x) x 1
-resnet  = Resnet1D(1, 20; num_blocks = 3, activation = "tanh")
-# κ = squeeze(fc(x, [20,20,20,1])) + 1.0
+κ = squeeze(fc(x, [20,20,20,1])) + 1.0
 
 κ = squeeze(resnet(x)) + 1.0
 
@@ -78,9 +76,5 @@ plot(x, (@. 5.0 + 1/(1+x^2) + x^2), "--", label="Reference")
 legend()
 savefig("NN.png")
 
-
-# close("all")
-# plot(LEFT_SIDE_HYPO)
-# savefig("temperature_adcme_hypo.png")
 
 

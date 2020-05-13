@@ -12,8 +12,9 @@ U = zeros(n, m+1)
 x = Array((0:n)*Δx)
 a = 5.0
 b = 2.0
-# κ = a .+ b * x 
 
+# Use one of the expressions below for simulation 
+# κ = a .+ b * x 
 κ = @. a + 1/(1+x^2) + x^2
 
 λ = κ * Δt/Δx^2
