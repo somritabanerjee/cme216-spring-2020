@@ -49,6 +49,7 @@ Module 4
 1. [Computational graph](Reading Questions/ComplGraph)
 1. [Forward and reverse modes](Reading Questions/FwdRevMode)
 1. [AD for Physical Simulation](Reading Questions/ADPhys)
+1. [AD through Implicit Operators](Reading Questions/ImplicitOps)
 
 ## Programming Homework
 
