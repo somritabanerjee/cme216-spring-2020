@@ -112,7 +112,7 @@ This strategy can be applied to integrate the gradient.
 
 In the momentum method we use the following equation
 
-$$ m \leftarrow \beta m - \eta \nabla_W L $$
+$$ m \leftarrow \beta m - \alpha \nabla_W L $$
 
 $$ \Delta W = m $$
 
@@ -121,7 +121,7 @@ class: middle
 
 For a large number of steps $n$:
 
-$$ m \approx - \eta \sum\_{k=0}^{n-1} \beta^{n-1-k} \nabla_W L_k $$
+$$ m \approx - \alpha \sum\_{k=0}^{n-1} \beta^{n-1-k} \nabla_W L_k $$
 
 Take $\beta = 0.9$. We can get a huge boost. 
 
@@ -130,14 +130,14 @@ class: middle
 
 Towards the end of the convergence when the gradient is nearly constant:
 
-$$ m \approx - \eta \sum\_{k=0}^{n-1} \beta^{n-1-k} \nabla_W L_k = - \eta \frac{\nabla_W L_n}{1-\beta} $$
+$$ m \approx - \alpha \sum\_{k=0}^{n-1} \beta^{n-1-k} \nabla_W L_k = - \alpha \frac{\nabla_W L_n}{1-\beta} $$
 
-$$ m \approx - 10 \eta \nabla_W L_n $$
+$$ m \approx - 10 \alpha \nabla_W L_n $$
 
 ---
 class: middle
 
-$$ m \approx - 10 \eta \nabla_W L_n $$
+$$ m \approx - 10 \alpha \nabla_W L_n $$
 
 $$ \Delta W = m $$
 
