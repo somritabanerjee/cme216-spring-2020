@@ -183,7 +183,7 @@ We flatten $\\{u_{ij}^k\\}$ to a 1D vector $U^k$, using $i$ as the leading dimen
 
 In this problem, we extend the AD framework using custom operators (also known as _external function support_ in the AD community). In the starter code `Case2D/starter.jl`, we provide a function, `heat_equation`, a differentiable heat equation solver, which is already implemented for you using C++. By using custom operators, we replace the PDE solver node in the computational graph with our own, more efficient, implementation. 
 
-Read the [instructions](http://127.0.0.1:4000/cme216-spring-2020/Homework/ADCME_HW/Setup.html) on how to compile the custom operator, and answer the following two questions. 
+Read the [instructions](./ADCME_setup.md) on how to compile the custom operator, and answer the following two questions. 
 
 {:start="10"}
 1. Similar to Problem 1, implement the forward computation using `while_loop` with the starter code `Case2D/starter.jl`. Plot the curve of the temperature at $(0.5,0.5)$. 
