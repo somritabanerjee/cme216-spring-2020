@@ -129,9 +129,10 @@ Module 4
 
 _Physics informed learning, automatic differentiation, inverse modeling_
 
-The slides are assembled into a single PDF file. Each lecture will cover one section in that PDF file.
+The slides are assembled into two PDF files. Each lecture will cover one section in one of these PDF files. The lecture videos are on [Canvas](https://canvas.stanford.edu/courses/118944/external_tools/3367).
 
 - [Automatic Differentiation for Computational Engineering](Slides/AD/AD.pdf)
+- [Inverse Modeling using ADCME](Slides/AD/Inverse.pdf)
 
 ## Contents of class
 
