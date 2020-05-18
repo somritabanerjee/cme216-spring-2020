@@ -8,6 +8,7 @@ Late day policy: 1 late day with a 20% grade penalty.
 
 For this homework, you need to install Julia and ADCME. See this [installation guide](./ADCME_setup.md) for detail setup. 
 
+- [ADCME tutorial pages](https://kailaix.github.io/ADCME.jl/dev/tutorial/)
 - [ADCME basics](https://kailaix.github.io/ADCME.jl/dev/tu_basic/)
 - [ADCME API reference](https://kailaix.github.io/ADCME.jl/dev/api/)
 
