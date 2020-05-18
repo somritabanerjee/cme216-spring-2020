@@ -57,6 +57,7 @@ Module 4
 - [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip) and [solution](HW Solutions/svm.ipynb)
 - [Homework 2](Homework/HW2 Questions) and [starter code](Homework/hw2_starter_code.zip) and [solution](HW Solutions/hw2_solution.zip)
 - [Homework 3](Homework/HW3 Questions) and [starter code](Homework/hw3_starter_code.zip)
+- [Homework 4](Homework/HW4/HW4 Questions) and [starter code](Homework/HW4/hw4_starter_code.zip)
 
 ## Final Project
 
