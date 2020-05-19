@@ -7,6 +7,8 @@ ADCME is tested and supported on Linux and MacOS systems. The support for custom
 
 If you only have a Windows machine, you can use the Stanford [Farmshare](https://srcc.stanford.edu/farmshare2) computing environment. ssh to `rice.stanford.edu` using your SUNetID.
 
+Please see the first two videos on [Canvas](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9a0acfdc-5022-4f2d-920d-abb90058a233) for a step-by-step installation guide.
+
 # ADCME installation instructions
 
 ADCME has been tested with Julia 1.3/1.4 (Linux) and Julia 1.3 (MacOS). Julia 1.4 on MacOS will not work because of some incompatibility with the current version of TensorFlow. If you have some earlier version of Julia already installed with a version at least 1.0, it should work and you can skip the steps below. Go straight to step 2 "Install Project Dependencies."
@@ -123,9 +125,9 @@ julia> ADCME.cmake()
 julia> ADCME.make()
 ```
 
-This will compile and link the `.h` and `.cpp` files (in the directory above `build`) with the TensorFlow dynamic library shipped with the Python TensorFlow wrapper.
+The command [ADCME.cmake()](https://cmake.org/cmake/help/latest/guide/tutorial/index.html) will run commands in the file `CMakeLists.txt` and create the appropriate Makefile. Then the command [ADCME.make()](https://www.gnu.org/software/make/manual/make.html) will compile the source code `HeatEquation.h` and `HeatEquation.cpp` to create the shared library.
 
-You will see that there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
+After running this, you should see that there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
 
 Run the `Case2D/example.jl` file to check if the shared library works. You may see some warning messages. If you see the following output at the end:
 

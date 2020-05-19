@@ -5,12 +5,19 @@ title: Programming Homework 4
 
 Late day policy: 1 late day with a 20% grade penalty.
 
+Kailai prepared a complete set of videos for this homework. Please go to Canvas in [Course Videos](https://canvas.stanford.edu/courses/118944/external_tools/3367). There is a folder called `Homework 4 Videos`. You will find 9 videos in that folder.
 
-For this homework, you need to install Julia and ADCME. See this [installation guide](./ADCME_setup.md) for detail setup. 
+![](assets/hw4videos.png){:width="80%"}
+
+You should watch these videos before doing the homework. Each video covers different parts of the homework so you can start working on this homework after watching the first few videos.
+
+For this homework, you will need to install Julia and ADCME. See this [installation guide](./ADCME_setup.md) for detail setup. The first two videos on [Canvas](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9a0acfdc-5022-4f2d-920d-abb90058a233) will give you a step-by-step demonstration.
 
 - [ADCME tutorial pages](https://kailaix.github.io/ADCME.jl/dev/tutorial/)
 - [ADCME basics](https://kailaix.github.io/ADCME.jl/dev/tu_basic/)
 - [ADCME API reference](https://kailaix.github.io/ADCME.jl/dev/api/)
+
+If you have some difficulties with this homework and you have a question, make sure it is not already covered in one of the videos. If not, please ask your question on [Slack](https://stanford.enterprise.slack.com/).
 
 # Inverse Modeling with ADCME
 
