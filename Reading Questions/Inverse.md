@@ -28,5 +28,5 @@ The next questions refer to video "5.2 Neural Networks as Function Approximators
 We consider the unit cube in dimension $\mathbb R^d$. The unit cube is the set of all points $x=(x_1,\dots,x_d)$, such that $0 \le x_i \le 1$, $1 \le i \le d$. Assume that we discretize the unit cube using a Cartesian grid, made of small cubes, which we call elements; $h$ is the length of the sides of each element.
 
 {:start="4"}
-1. How many elements are required to cover the unit cube? Give your answer in terms of $h.$
-1. Check slide [20]()/50. Explain what it means that DNNs are robust to noise compared to RBF.
+1. How many elements are required to cover the unit cube? Give your answer in terms of $h$ and $d.$
+1. Check slide [20](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/Inverse.pdf#page=20)/50. Explain what it means that DNNs are robust to noise compared to RBF.
