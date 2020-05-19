@@ -45,11 +45,16 @@ Module 3
 Module 4
 
 {:start="16"}
-1. [Automatic Differentiation Overview](Reading Questions/AD)
+1. [Automatic differentiation overview](Reading Questions/AD)
 1. [Computational graph](Reading Questions/ComplGraph)
 1. [Forward and reverse modes](Reading Questions/FwdRevMode)
-1. [AD for Physical Simulation](Reading Questions/ADPhys)
-1. [AD through Implicit Operators](Reading Questions/ImplicitOps)
+1. [AD for physical simulation](Reading Questions/ADPhys)
+1. [AD through implicit operators](Reading Questions/ImplicitOps)
+
+Module 5
+
+{:start="21"}
+1. [Inverse problems](Reading Questions/Inverse)
 
 ## Programming Homework
 
@@ -125,7 +130,7 @@ _Deep Learning_
 - [Saddle points illustration code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Saddle%20points.ipynb)
 - [ADAGRAD benchmark code](https://github.com/EricDarve/cme216-spring-2020/blob/master/Code/Adagrad.ipynb)
 
-Module 4
+Module 4 and 5
 
 _Physics informed learning, automatic differentiation, inverse modeling_
 
@@ -146,7 +151,7 @@ Module 1 (week 1 and 2, 4/6, 4/13)
 - SVM; [scikit-learn](https://scikit-learn.org/stable/); kernel trick; radial basis functions
 - Overfitting; underfitting; regularization
 
-- Homework 1 due; April 16 (SVM homework)
+- Homework 1 (SVM homework)
 
 **Deep learning**
 
@@ -164,7 +169,7 @@ Module 3 Part 1 (week 4, 4/27)
 - Regularization strategies
 <!-- - Batch normalization -->
 
-- Homework 2 due; April 30 (covid-19 modeling)
+- Homework 2 (covid-19 modeling)
 
 Module 3 Part 2 (week 5-6, 5/4, 5/11)
 
@@ -173,7 +178,7 @@ Module 3 Part 2 (week 5-6, 5/4, 5/11)
 
 **Physics-informed learning**
 
-Module 4 (week 6-7, 5/11, 5/18)
+Module 4 and 5 (week 6-8, 5/11--5/25)
 
 - Physics-based ML; PhysML
 - DNN and numerical PDE solvers
@@ -181,29 +186,31 @@ Module 4 (week 6-7, 5/11, 5/18)
 - Examples of numerical PDE solutions with ADCME
 - Physics constrained learning
 
-- Homework 3 due on May 17 (week 6; bathymetry)
+- Homework 3 (week 6; bathymetry)
 
 **Generative deep networks**
 
-Module 5 (week 8-9, 5/25, 6/1)
+Module 6 (week 9-10, 6/1)
 
 <!-- - Autoencoders and variational autoencoders -->
+- PhysGAN and ADCME
 - GANs to generate samples from a given probability distribution
 - Generator and discriminator networks; WGANs
 - TensorFlow example
-- PhysGAN and ADCME
 
-- Homework 4 due on May 31 (week 8; physics informed learning)
+- Homework 4 (5/31; physics informed learning)
 
 **Reinforcement learning**
 
-Module 6 (week 9-10, 6/1, 6/8)
+Module 7
+
+We probably won't have enough time to cover this topic.
 
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
 - Policy gradients and actor-critic algorithms
 
-- Short homework 5 on RL (June 10)
+<!-- - Short homework 5 on RL (June 10) -->
 
 ## Reading material
 

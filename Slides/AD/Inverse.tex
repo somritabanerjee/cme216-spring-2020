@@ -318,8 +318,8 @@ $$\kappa(x) = a + bx$$
 		\item \textcolor{red}{Parameter Inverse Problem}. The unknowns are constant scalars, vectors, matrices, or tensors. $\kappa(x) = a + bx$.
 		\item \textcolor{red}{Function Inverse Problem}. The unknowns are functions:
 		\begin{itemize}
-		\item The unknown function is \textcolor{red}{independent} of state variables. No function form of $\kappa(x)$ is given. 
-		\item The unknown function is \textcolor{red}{dependent} on state variables. No function form of $\kappa(x, u)$ is given. 
+		\item The unknown function is \textcolor{red}{independent} of state variables. No functional form of $\kappa(x)$ is given. 
+		\item The unknown function is \textcolor{red}{dependent} on state variables. No functional form of $\kappa(x, u)$ is given. 
 		\end{itemize}
 		\item \textcolor{red}{Stochastic Inverse Problem}. The unknown is a random variable. $\kappa(\varpi)$.
 	\end{itemize}
@@ -333,10 +333,10 @@ $$\kappa(x) = a + bx$$
 
 
 \begin{frame}
-	\frametitle{Function Forms}
+	\frametitle{Functional Forms}
 	
 \begin{itemize}
-	\item The key to solve function inverse problem is to \textcolor{red}{parametrize} the unknown function $\kappa(x)$ or $\kappa(x, u)$ using a \textcolor{red}{function form}
+	\item The key to solve function inverse problem is to \textcolor{red}{parametrize} the unknown function $\kappa(x)$ or $\kappa(x, u)$ using a \textcolor{red}{functional form}
 	$$\kappa(x) \approx \kappa_\theta(x) \qquad \kappa(x, u) \approx \kappa_\theta(x, u)$$
 	\begin{align*}
 \min_{\textcolor{red}{\theta}}\ & \int_{0}^t ( u(0, t)- u_0(t))^2 dt\\
@@ -346,7 +346,7 @@ $$\kappa(x) = a + bx$$
 & u(x, 0) = 0, x\in [0,1]
 \end{align*}
 
-\item Let's see a few function form examples. 
+\item Let's see a few functional form examples. 
 \end{itemize}
 \end{frame}
 
@@ -401,9 +401,9 @@ $$\kappa(x) = a + bx$$
 	$$\varphi_i(x) = x^{i-1} $$
 	\item Chebyshev polynomials
 	$$\varphi_i(x) = \begin{cases}
-\cos\big(n \arccos x \big), & \text{if }|x| \le 1 \\
-\cosh\big(n \operatorname{arcosh} x \big), & \text{if }x \ge 1 \\ 
-(-1)^n \cosh\big(n \operatorname{arcosh} (-x) \big), & \text{if }x \le -1  
+\cos\big(i \arccos x \big), & \text{if }|x| \le 1 \\
+\cosh\big(i \operatorname{arcosh} x \big), & \text{if }x \ge 1 \\ 
+(-1)^i \cosh\big(i \operatorname{arcosh} (-x) \big), & \text{if }x \le -1  
 \end{cases}$$
 \item B-splines
 $$\varphi_i(x) = B_{i,p}(x)$$
@@ -438,7 +438,7 @@ $$\theta = [\mathbf{W}_1, \mathbf{b}_1, \mathbf{W}_2, \mathbf{b}_2, \ldots, \mat
 	\frametitle{Neural Networks}
 
 \begin{itemize}
-	\item For generalized linear models, the number of coefficients typically grow exponentially in the dimension $d$.
+	\item For generalized linear models, the number of coefficients typically grows exponentially in the dimension $d$.
 	\item Implementing high dimensional  generalized linear models is nontrivial, but it's often easier to extend neural networks to high dimensional input/output space. 
 \end{itemize}
 \begin{figure}[hbt]
@@ -919,7 +919,7 @@ $${\small\tilde L_h(\theta)  = L_h(G_h(\theta))}$$
 		\item Four types of inverse problems: 
 		\begin{itemize}
 			\item Parameter inverse problem;
-			\item Function inverse problem (covered in this lecture);
+			\item function inverse problem (covered in this lecture);
 			\item Stochastic inverse problem.
 		\end{itemize}
 		\item Neural networks as a function approximation form;

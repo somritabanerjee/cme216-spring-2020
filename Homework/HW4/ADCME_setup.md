@@ -138,9 +138,10 @@ Congratulations! `example.jl` completed successfully
 
 the code ran successfully.
 
-If you run the code within the Julia REPL, you will see a figure. For this, start julia:
+If you run the code within the Julia REPL, you will see a figure. For this, start julia in the directory `Case2D`, which contains `example.jl`:
 
 ```shell
+$ cd Case2D
 $ julia
 ```
 
