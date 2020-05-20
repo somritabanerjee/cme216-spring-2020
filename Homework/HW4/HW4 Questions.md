@@ -17,6 +17,16 @@ For this homework, you will need to install Julia and ADCME. See this [installat
 - [ADCME basics](https://kailaix.github.io/ADCME.jl/dev/tu_basic/)
 - [ADCME API reference](https://kailaix.github.io/ADCME.jl/dev/api/)
 
+If you are not familiar with Julia, this language is similar to Python and Matlab. It's a scripting language. The syntax is different from Python but the functionalities are similar to numpy and scipy in Python to some extent. The examples in the videos should be sufficient to do this homework. You don't need to know much more. There are many more features in Julia that are available but they are not needed for this homework. 
+
+- [Julia documentation](https://docs.julialang.org/en/v1/)
+
+There are many excellent Julia tutorials. We are providing the links below for _reference_ but you should not have to read this to do the homework.
+
+- [Julia express](http://bogumilkaminski.pl/files/julia_express.pdf)
+- [Julia language: a concise tutorial](https://syl1.gitbook.io/julia-language-a-concise-tutorial/)
+- [Many learning resources](https://julialang.org/learning/)
+
 If you have some difficulties with this homework and you have a question, make sure it is not already covered in one of the videos. If not, please ask your question on [Slack](https://stanford.enterprise.slack.com/).
 
 # Inverse Modeling with ADCME
