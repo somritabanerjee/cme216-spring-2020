@@ -19,6 +19,7 @@ For this homework, you will need to install Julia and ADCME. See this [installat
 
 If you are not familiar with Julia, this language is similar to Python and Matlab. It's a scripting language. The syntax is different from Python but the functionalities are similar to numpy and scipy in Python to some extent. The examples in the videos should be sufficient to do this homework. You don't need to know much more. There are many more features in Julia that are available but they are not needed for this homework. 
 
+- [Main differences between Julia and Python](https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-Python-1)
 - [Julia documentation](https://docs.julialang.org/en/v1/)
 
 There are many excellent Julia tutorials. We are providing the links below for _reference_ but you should not have to read this to do the homework.
