@@ -23,7 +23,7 @@ If you are not familiar with Julia, this language is similar to Python and Matla
 
 There are many excellent Julia tutorials. We are providing the links below for _reference_ but you should not have to read this to do the homework.
 
-- [Julia express](http://bogumilkaminski.pl/files/julia_express.pdf)
+- [The Julia Express](http://bogumilkaminski.pl/files/julia_express.pdf)
 - [Julia language: a concise tutorial](https://syl1.gitbook.io/julia-language-a-concise-tutorial/)
 - [Many learning resources](https://julialang.org/learning/)
 
