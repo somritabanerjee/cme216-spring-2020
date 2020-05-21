@@ -77,8 +77,6 @@ Then you can install Julia following these [instructions](https://julialang.org/
 
 [Detailed instructions to install Julia on Windows](https://julialang.org/downloads/platform/#windows)
 
-
-
 ---
 
 For Mac and Linux users, restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt (Julia REPL).
@@ -87,10 +85,9 @@ For Mac and Linux users, restart your shell to apply the new settings. Type `jul
 
 ---
 
-For Windows users, you can press the Windows button or click the Windows icon (usually located at lower left) and type `julia`. Open the Desktop App `Julia` and you will see a Julia prompt immediately. 
+For Windows users, you can press the Windows button or click the Windows icon (usually located in the lower left of your screen) and type `julia`. Open the Desktop App `Julia` and you will see a Julia prompt. 
 
 ![](./assets/windows.png){:width="40%"}
-
 
 ## 2. Install the Project Dependencies
 
