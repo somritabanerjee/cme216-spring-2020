@@ -3,21 +3,41 @@ layout: full-width
 title: Installation Guide For ADCME 
 ---
 
-ADCME is tested and supported on Linux and MacOS systems. The support for custom operators on Windows is not available yet. We have separate instructions for MacOS and Linux systems. 
+[Link back to Homework 4](./HW4 Questions.md)
 
-If you only have a Windows machine, you can use the Stanford [Farmshare](https://srcc.stanford.edu/farmshare2) computing environment. ssh to `rice.stanford.edu` using your SUNetID.
+ADCME is tested and supported on Linux, macOS, and Windows (beta) systems. We have separate instructions for each operating systems.
 
-Please see the first two videos on [Canvas](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9a0acfdc-5022-4f2d-920d-abb90058a233) for a step-by-step installation guide.
+![](assets/support_matrix.png){:width="40%"}
+
+You can also use the Stanford [Farmshare](https://srcc.stanford.edu/farmshare2) computing environment. ssh to `rice.stanford.edu` using your SUNetID. Use the Linux installation guide for this.
+
+Please see the first three videos on [Canvas](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=9a0acfdc-5022-4f2d-920d-abb90058a233) for a step-by-step installation guide.
 
 # ADCME installation instructions
 
-ADCME has been tested with Julia 1.3/1.4 (Linux) and Julia 1.3 (MacOS). Julia 1.4 on MacOS will not work because of some incompatibility with the current version of TensorFlow. If you have some earlier version of Julia already installed with a version at least 1.0, it should work and you can skip the steps below. Go straight to step 2 "Install Project Dependencies."
+If you have some earlier version of Julia already installed with a version at least 1.0, it should work and you can skip the steps below. Go straight to step 2 "Install Project Dependencies." For Windows platforms, you will also need Microsoft Visual Studio 2017 15 (see below for instructions).
 
 ## 1. Install Julia
 
 We will first install Julia binary and then configure the binary path so you can have easy access to Julia by typing `julia` in a terminal. But strictly speaking, configuring the path is unnecessary if your ADCME version $\geq 0.5.3$. 
 
-### For MacOS
+### For Linux 
+
+[Video with step-by-step instructions](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f823ee8e-42b5-4004-a075-abb7005aa3b8)
+
+Download Julia 1.3 or 1.4 from the [official website](https://julialang.org/downloads/). Uncompress the tarball to any directory you want. There is a directory `bin` inside the Julia directory you just uncompressed. Add the absolute path of the `bin` directory to your `PATH` environment variable. 
+
+Suppose the Julia `bin` path is `<LocalJuliaPath>` (e.g., `~/julia-1.4.1/bin`), execute the following command in your terminal:
+
+```bash
+echo 'export PATH=<LocalJuliaPath>:$PATH' >> ~/.bashrc
+```
+
+In case you use another shell (e.g., `zsh`) other than bash, you need to replace `~/.bashrc` in the command with the corresponding startup file. You can use `echo $SHELL` to check which shell you are using. 
+
+### For macOS
+
+[Video with step-by-step instructions](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=027f5390-6cad-4190-ab91-abb70055cb3c)
 
 Due to an incompatibility issue with Julia 1.4 and TensorFlow 1.x, please download and install Julia 1.3 from the [official website](https://julialang.org/downloads/oldreleases/#v131_dec_30_2019). 
 
@@ -39,19 +59,23 @@ Add this path to your `PATH` environment variable (make sure to scroll to the ri
 echo 'export PATH=/Applications/Julia-1.3.app/Contents/Resources/julia/bin:$PATH' >> ~/.bash_profile
 ```
 
-On the most recent version of MacOS, you need to replace `~/.bash_profile` by `~/.zshrc`. If you are unsure, type `ls ~/.zshrc`. If the file exists, this is the one you should use.
+On the most recent version of macOS, you need to replace `~/.bash_profile` by `~/.zshrc`. If you are unsure, type `ls ~/.zshrc`. If the file exists, this is the one you should use.
 
-### For Linux 
+### For Windows
 
-Download Julia 1.3 or 1.4 from the [official website](https://julialang.org/downloads/). Uncompress the tarball to any directory you want. There is a directory `bin` inside the Julia directory you just uncompressed. Add the absolute path of the `bin` directory to your `PATH` environment variable. 
+[Video with step-by-step instructions](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e17b2799-0590-405a-9536-abc20017a4d8)
 
-Suppose the Julia `bin` path is `<LocalJuliaPath>` (e.g., `~/julia-1.4.1/bin`), execute the following command in your terminal:
+If you have a Windows OS, you will need to install Microsoft Visual Studio 2017 15.
 
-```bash
-echo 'export PATH=<LocalJuliaPath>:$PATH' >> ~/.bashrc
-```
+[Download and installation instructions](https://visualstudio.microsoft.com/vs/older-downloads/)
 
-In case you use another shell (e.g., `zsh`) other than bash, you need to replace `~/.bashrc` in the command with the corresponding startup file. You can use `echo $SHELL` to check which shell you are using. 
+![](assets/vs2017.png){:width="40%"}
+
+A free community version is available. Note that this is an older version of Visual Studio. It's not the one from 2019 but the previous version from 2017.
+
+Then you can install Julia following these [instructions](https://julialang.org/downloads/). Choose your version of Windows (32-bit or 64-bit).
+
+[Detailed instructions to install Julia on Windows](https://julialang.org/downloads/platform/#windows)
 
 
 
@@ -61,6 +85,8 @@ For Mac and Linux users, restart your shell to apply the new settings. Type `jul
 
 ![](./assets/julia_prompt.png){:width="40%"}
 
+---
+
 For Windows users, you can press the Windows button or click the Windows icon (usually located at lower left) and type `julia`. Open the Desktop App `Julia` and you will see a Julia prompt immediately. 
 
 ![](./assets/windows.png){:width="40%"}
@@ -68,7 +94,7 @@ For Windows users, you can press the Windows button or click the Windows icon (u
 
 ## 2. Install the Project Dependencies
 
-This homework requires installing some Julia packages. Open your julia 
+This homework requires installing some Julia packages. Start julia 
 
 ```bash
 $ julia
@@ -83,7 +109,6 @@ julia> Pkg.add("DelimitedFiles")
 julia> Pkg.add("Conda")
 julia> Pkg.add("PyCall")
 julia> Pkg.add("PyPlot")
-julia> Pkg.build("PyPlot") # important: force PyPlot to use the correct Python version
 ```
 
 ## 3. Start using ADCME
@@ -136,7 +161,7 @@ julia> ADCME.make()
 
 The command [ADCME.cmake()](https://cmake.org/cmake/help/latest/guide/tutorial/index.html) will run commands in the file `CMakeLists.txt` and create the appropriate Makefile. Then the command [ADCME.make()](https://www.gnu.org/software/make/manual/make.html) will compile the source code `HeatEquation.h` and `HeatEquation.cpp` to create the shared library.
 
-After running this, you should see that there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
+After running this, you should see that there is a `libHeatEquation.so` (Linux), `libHeatEquation.dylib` (macOS), or `HeatEquation.dll` (Windows) in your `build` directory. 
 
 Run the `Case2D/example.jl` file to check if the shared library works. You may see some warning messages. If you see the following output at the end:
 
@@ -172,7 +197,7 @@ On some Mac systems, you may encounter the following warning when you run `using
 
 ---
 
-PyPlot is using tkagg backend, which is known to cause crashes on MacOS (#410); use the MPLBACKEND environment variable to request a different backend.
+PyPlot is using tkagg backend, which is known to cause crashes on macOS (#410); use the MPLBACKEND environment variable to request a different backend.
 
 ---
 
@@ -180,7 +205,7 @@ To fix this problem, run the following commands at a Julia prompt:
 
 ```julia
 julia> using Conda
-julia> Conda.add("pyqt", :ADCME)
+julia> Conda.add("pyqt") # if you install ADCME v0.5.2, this should be Conda.add("pyqt", :ADCME)
 julia> using Pkg
 julia> Pkg.build("PyPlot")
 ```
