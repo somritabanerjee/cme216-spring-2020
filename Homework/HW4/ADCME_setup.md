@@ -69,7 +69,7 @@ If you have a Windows OS, you will need to install Microsoft Visual Studio 2017 
 
 [Download and installation instructions](https://visualstudio.microsoft.com/vs/older-downloads/)
 
-![](assets/vs2017.png){:width="40%"}
+![](assets/vs2017.png){:width="60%"}
 
 A free community version is available. Note that this is an older version of Visual Studio. It's not the one from 2019 but the previous version from 2017.
 
