@@ -77,8 +77,6 @@ Then you can install Julia following these [instructions](https://julialang.org/
 
 [Detailed instructions to install Julia on Windows](https://julialang.org/downloads/platform/#windows)
 
-
-
 ---
 
 For Mac and Linux users, restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt (Julia REPL).
