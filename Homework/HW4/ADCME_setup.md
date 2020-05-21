@@ -91,7 +91,6 @@ For Windows users, you can press the Windows button or click the Windows icon (u
 
 ![](./assets/windows.png){:width="40%"}
 
-
 ## 2. Install the Project Dependencies
 
 This homework requires installing some Julia packages. Start julia 
