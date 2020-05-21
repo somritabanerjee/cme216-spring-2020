@@ -109,6 +109,7 @@ julia> Pkg.add("DelimitedFiles")
 julia> Pkg.add("Conda")
 julia> Pkg.add("PyCall")
 julia> Pkg.add("PyPlot")
+julia> Pkg.build("PyPlot") # if you have ADCME≧0.5.3, this step is not necessary
 ```
 
 ## 3. Start using ADCME
