@@ -15,6 +15,8 @@ ADCME has been tested with Julia 1.3/1.4 (Linux) and Julia 1.3 (MacOS). Julia 1.
 
 ## 1. Install Julia
 
+We will first install Julia binary and then configure the binary path so you can have easy access to Julia by typing `julia` in a terminal. But strictly speaking, configuring the path is unnecessary if your ADCME version $\geq 0.5.3$. 
+
 ### For MacOS
 
 Due to an incompatibility issue with Julia 1.4 and TensorFlow 1.x, please download and install Julia 1.3 from the [official website](https://julialang.org/downloads/oldreleases/#v131_dec_30_2019). 
@@ -51,11 +53,18 @@ echo 'export PATH=<LocalJuliaPath>:$PATH' >> ~/.bashrc
 
 In case you use another shell (e.g., `zsh`) other than bash, you need to replace `~/.bashrc` in the command with the corresponding startup file. You can use `echo $SHELL` to check which shell you are using. 
 
+
+
 ---
 
-Restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt (Julia REPL).
+For Mac and Linux users, restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt (Julia REPL).
 
 ![](./assets/julia_prompt.png){:width="40%"}
+
+For Windows users, you can press the Windows button or click the Windows icon (usually located at lower left) and type `julia`. Open the Desktop App `Julia` and you will see a Julia prompt immediately. 
+
+![](./assets/windows.png){:width="40%"}
+
 
 ## 2. Install the Project Dependencies
 
