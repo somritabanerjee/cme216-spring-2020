@@ -62,6 +62,7 @@ Then have $k$ go from $n-1$ down to 0.
 
 The next questions refer to video "5.5 Training Methods: Direct Method, Residual Minimization, and Penalty Method."
 
+{:start="4"}
 1. In the direct training method, are we using the PDE from slide [23](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/Inverse.pdf#page=23)?
 1. In the penalty method, list the quantities that are known before the calculation starts, and the variables that are being computed by the algorithm. In the penalty method, is the PDE satisfied exactly?
 1. What penalty parameters are associated with (a) the boundary condition on the left size of the domain ($x=0$), (b) the right-side of the domain ($x=1$), and (c) the initial condition at $t=0$?
