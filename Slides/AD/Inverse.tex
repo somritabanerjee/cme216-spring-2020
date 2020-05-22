@@ -702,13 +702,13 @@ However, wse cannot express $u_\theta$ analytically in terms of $\theta$.
 	\item Let's consider a simple example
 	\begin{align*}
 		\min_\theta & \ \|u-u_0\|^2\\
-		\mathrm{s.t.} & \ (A+\theta B) u = y 
+		\mathrm{s.t.} & \ B(\theta) u = y 
 	\end{align*}
 	
 	By definition:
 	$$\tilde L_h(\theta) := \|u_\theta-u_0\|^2$$
 	where $u_\theta$ is the solution to 
-	$$ (A+\theta B) u = y $$
+	$$ B(\theta) u = y $$
 \end{itemize}	
 
 \end{frame}
