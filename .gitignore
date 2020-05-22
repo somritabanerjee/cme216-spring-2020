@@ -11,5 +11,6 @@ _site/
 *.out
 *.snm
 *.toc
+*.synctex
 
 Code/DNN_regularization rev0.ipynb
