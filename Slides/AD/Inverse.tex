@@ -729,45 +729,47 @@ $$y'(x) = \frac{3x^2}{3y(x)^2+1}$$
 
 
 \begin{frame}
-	\frametitle{Physics Constrained Learning (Optional)}
+	\frametitle{Physics Constrained Learning}
 	\begin{enumerate}
 		\item 
 		$$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = 2(u_\theta-u_0)^T \frac{\partial u_\theta}{\partial \theta}$$
-\item To compute $\frac{\partial u_\theta}{\partial \theta}$, consider the PDE constraint 
-$$(A+\theta B) u_\theta = y$$
-Take derivative with respect to $\theta$ on both sides 
-$$Bu_\theta + (A+\theta B) \frac{\partial u_\theta}{\partial \theta} = 0\Rightarrow \frac{\partial u_\theta}{\partial \theta} = (A+\theta B)^{-1} Bu_\theta$$
+\item To compute $\frac{\partial u_\theta}{\partial \theta}$, consider the PDE constraint ($\theta$ is a scalar)
+$$B(\theta) u_\theta = y$$
+Take the derivative with respect to $\theta$ on both sides 
+$$\frac{\partial B(\theta)}{\partial \theta}u_\theta + B(\theta) \frac{\partial u_\theta}{\partial \theta} = 0\Rightarrow \frac{\partial u_\theta}{\partial \theta} = -B(\theta)^{-1} \frac{\partial B(\theta)}{\partial \theta}u_\theta$$
 \item Finally, 
-$$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = 2(u_\theta-u_0)^T(A+\theta B)^{-1} Bu_\theta$$
+$$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = -2(u_\theta-u_0)^TB(\theta)^{-1} \frac{\partial B(\theta)}{\partial \theta}u_\theta$$
 	\end{enumerate}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Physics Constrained Learning (Optional)}
+	\frametitle{Physics Constrained Learning}
 	
 	\begin{enumerate}
 		\item Remember: in reverse-mode AD, gradients are always back-propagated from downstream (objective function) to upstream (unknowns). 
 		\item The following quantity is computed first:
-		$$g^T = 2(u_\theta-u_0)^T(A+\theta B)^{-1}$$
+		$$g^T = 2(u_\theta-u_0)^TB(\theta)^{-1}$$
 		which is equivalent to solve a linear system 
-		$$(A+\theta B)^T g = 2(u_\theta-u_0)$$
+		$$B(\theta)^T g = 2(u_\theta-u_0)$$
 		\item \textcolor{red}{In the gradient back-propagation step, a linear system with an adjoint matrix (compared to the forward computation) is solved.} 
 		\item Finally, 
-		$$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = 2(u_\theta-u_0)^T(A+\theta B)^{-1} Bu_\theta = g^T Bu_\theta$$
+		$$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = -2(u_\theta-u_0)^TB(\theta)^{-1} \frac{\partial B(\theta)}{\partial \theta}u_\theta = -g^T \frac{\partial B(\theta)}{\partial \theta}u_\theta$$
 	\end{enumerate}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Physics Constrained Learning (Optional)}
+	\frametitle{Physics Constrained Learning}
 	
 	\begin{itemize}
 		\item A trick for evaluating $g^T Bu_\theta$: consider $g$ as independent of $\theta$ in the computational graph, then 
-		$$g^T Bu_\theta = \frac{\partial (g^T Bu)}{\partial \theta}$$
-		\item $g^T Bu$ is a scalar, thus we can apply reverse-mode AD to compute $g^T Bu_\theta$.
+		$$g^T \frac{\partial B(\theta)}{\partial \theta}u_\theta = \frac{\partial (g^T B(\theta) u_\theta)}{\partial \theta}$$
+		\item $g^T B(\theta) u_\theta$ is a scalar, thus we can apply reverse-mode AD to compute $g^T B(\theta) u_\theta$.
 		\item Declaring independence of variables can be done with \texttt{tf.stop\_gradient} in TensorFlow or \texttt{independent} in ADCME. 
 	\end{itemize}
 \end{frame}
+
+
 
 
 \begin{frame}
