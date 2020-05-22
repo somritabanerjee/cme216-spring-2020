@@ -22,7 +22,7 @@ We want to calculate
 
 $$ \frac{\partial u_n}{\partial \theta} $$
 
-using reverse-mode AD, with $k$ going from $n-1$ to 0.
+using reverse-mode AD, with $k$ going from $n-1$ to 0. This is the process ADCME and TensorFlow follow.
 
 1. Show that at each step in reverse-mode, we need to keep track of these two derivatives:
 
@@ -52,6 +52,8 @@ $$\frac{\partial u_n}{\partial \theta} \leftarrow
 $$
 
 Make sure you identify the independent variables correctly.
+
+Hint: if on the numerator you get the term $u_k + f_{k+1}$, use the definition of $u_{k+1}$ to simplify.
 
 To start this recurrence, we use
 
