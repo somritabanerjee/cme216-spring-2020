@@ -5,6 +5,9 @@ title: Inverse problems
 
 Write your answers in a PDF and upload the document on [gradescope](https://www.gradescope.com/courses/102338) for submission. Each question is worth 10 points. Post on [Slack](https://stanford.enterprise.slack.com/) for questions.
 
+[Videos](https://canvas.stanford.edu/courses/118944/external_tools/3367)
+[Slides](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/Inverse.pdf)
+
 Late day policy: 1 late day with a 20% grade penalty.
 
 The next questions refer to video "5.1 Inverse Problem Overview."
