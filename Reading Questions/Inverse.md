@@ -26,7 +26,7 @@ Assume now that $\kappa(x,u)$ is a function of the independent variable $x$ and 
 The next questions refer to video "5.2 Neural Networks as Function Approximators: Part I" and "5.3 Part II."
 
 {:start="3"}
-1. Can a DNN be written as a linear composition of basis functions $\phi_i(x)$ in general? Provide a justification for your answer.
+1. Can a DNN be written as a linear combination of basis functions $\phi_i(x)$ in general? Provide a justification for your answer.
 
 We consider the unit cube in dimension $\mathbb R^d$. The unit cube is the set of all points $x=(x_1,\dots,x_d)$, such that $0 \le x_i \le 1$, $1 \le i \le d$. Assume that we discretize the unit cube using a Cartesian grid, made of small cubes, which we call elements; $h$ is the length of the sides of each element.
 
