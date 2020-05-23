@@ -55,7 +55,8 @@ Module 5
 
 {:start="21"}
 1. [Inverse problems](Reading Questions/Inverse)
-1. [Training for Inverse Problems](Reading Questions/InverseTraining)
+1. [Training for inverse problems](Reading Questions/InverseTraining)
+1. [Physics constrained learning](Reading Questions/PCL)
 
 ## Programming Homework
 

@@ -25,6 +25,8 @@ We will first install Julia binary and then configure the binary path so you can
 
 [Video with step-by-step instructions](https://stanford-pilot.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f823ee8e-42b5-4004-a075-abb7005aa3b8)
 
+See below for instructions on _rice_.
+
 Download Julia 1.3 or 1.4 from the [official website](https://julialang.org/downloads/). Uncompress the tarball to any directory you want. There is a directory `bin` inside the Julia directory you just uncompressed. Add the absolute path of the `bin` directory to your `PATH` environment variable. 
 
 Suppose the Julia `bin` path is `<LocalJuliaPath>` (e.g., `~/julia-1.4.1/bin`), execute the following command in your terminal:
@@ -34,6 +36,18 @@ echo 'export PATH=<LocalJuliaPath>:$PATH' >> ~/.bashrc
 ```
 
 In case you use another shell (e.g., `zsh`) other than bash, you need to replace `~/.bashrc` in the command with the corresponding startup file. You can use `echo $SHELL` to check which shell you are using. 
+
+---
+
+For _rice_, Julia is already installed. Just run
+
+```bash
+$ module load julia/1.3.1
+```
+
+This will load Julia 1.3.1.
+
+The installation is very slow on _rice_. Please be prepare to wait for a long time. The installation is on the order of one hour because the file system on _rice_ is very slow. Once everything is installed, running the code is relatively fast.
 
 ### For macOS
 
@@ -188,6 +202,8 @@ You will see the same output as above `run(sess, err) = 2.9971950130484027e-6` a
 ![](assets/example_output.png){:width="40%"}
 
 You can rotate the figure in 3D using your mouse.
+
+On _rice_, you will not see the figure because you are connected remotely through `ssh` and you cannot see graphic windows but you won't need this for the homework.
 
 ## Troubleshooting
 

@@ -688,13 +688,11 @@ This step requires computing the gradients
 $$\boxed{\frac{\partial \tilde L_h(\theta)}{\partial \theta}}$$
 \end{itemize}
 
-However, wse cannot express $u_\theta$ analytically in terms of $\theta$.
+However, we do not have an explicit expression of $u_\theta$ in terms of $\theta$.
 
 \textbf{Challenge}: how to compute the gradient \textcolor{red}{efficiently} and \textcolor{red}{automatically} in a computational graph?
 
 \end{frame}
-
-
 
 \begin{frame}
 	\frametitle{Physics Constrained Learning}
@@ -758,26 +756,22 @@ $$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = -2(u_\theta-u_0)^TB(\the
 	\end{enumerate}
 \end{frame}
 
-
 \begin{frame}
 	\frametitle{Physics Constrained Learning}
 	
 	\begin{itemize}
-		\item A trick for evaluating $g^T Bu_\theta$: consider $g$ as independent of $\theta$ in the computational graph, then 
+		\item There is a trick for evaluating $g^T Bu_\theta$; consider that $g$ is independent of $\theta$ in the computational graph, then 
 		$$g^T \frac{\partial B(\theta)}{\partial \theta}u_\theta = \frac{\partial (g^T B(\theta) u_\theta)}{\partial \theta}$$
 		\item $g^T B(\theta) u_\theta$ is a scalar, thus we can apply reverse-mode AD to compute $g^T B(\theta) u_\theta$.
-		\item Declaring independence of variables can be done with \texttt{tf.stop\_gradient} in TensorFlow or \texttt{independent} in ADCME. 
+		\item Declaring that a variable is independent can be done using \texttt{tf.stop\_gradient} in TensorFlow or \texttt{independent} in ADCME. 
 	\end{itemize}
 \end{frame}
-
-
-
 
 \begin{frame}
 	\frametitle{Physics Constrained Learning}
 	 $${\small    \min_{\theta}\; L_h(u_h) \quad \mathrm{s.t.}\;\; F_h(\theta, u_h) = 0}$$
 	\begin{itemize}
-\item Assume in the forward computation, we solve for $u_h=G_h(\theta)$ in $F_h(\theta, u_h)=0$, and then
+\item Assume that in the forward computation, we solve for $u_h=G_h(\theta)$ in $F_h(\theta, u_h)=0$, and then
 $${\small\tilde L_h(\theta)  = L_h(G_h(\theta))}$$
 \item Applying the \textcolor{red}{implicit function theorem}
 {  \scriptsize
