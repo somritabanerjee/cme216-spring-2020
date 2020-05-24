@@ -143,7 +143,7 @@ The slides are assembled into two PDF files. Each lecture will cover one section
 
 ## Contents of class
 
-Highlight of topics to cover
+Highlights of topics to cover
 
 **Supervised learning and SVM**
 
@@ -206,7 +206,7 @@ Module 6 (week 9-10, 6/1)
 
 Module 7
 
-We probably won't have enough time to cover this topic.
+We won't have enough time to cover this topic unfortunately.
 
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
