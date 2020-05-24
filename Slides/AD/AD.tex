@@ -815,13 +815,11 @@
 \begin{frame}
 	\frametitle{Example}
 
-	\begin{itemize}
-		\item Consider a function $f:x\rightarrow y$, which is implicitly defined by
-		      $$F(x,y) = x^3 - (y^3+y) = 0$$
-		      If not using the cubic formula for finding the roots, the forward computation consists of iterative algorithms, such as the Newton's method and bisection method
-	\end{itemize}
+	Consider a function $f:x\rightarrow y$, which is implicitly defined by
+	$$F(x,y) = x^3 - (y^3+y) = 0$$
+	The forward computation may consist of iterative algorithms, such as the Newton's method and the bisection method:
 
-
+	\vspace{-0.5em}
 
 	\begin{minipage}[t]{0.48\textwidth}
 		\centering
@@ -839,13 +837,13 @@
 	\begin{minipage}[t]{0.48\textwidth}
 		\centering
 		\begin{algorithmic}
-			\State $b \gets -M$, $a\gets M$, $m\gets 0$
+			\State $a \gets -M$, $b \gets M$, $m \gets 0$
 			\While {$|F(x, m)|>\epsilon$}
 			\State $m \gets \frac{a+b}{2}$
 			\If{$F(x, m)>0$}
-			\State $a\gets m$
+			\State $b \gets m$
 			\Else
-			\State $b\gets m$
+			\State $a \gets m$
 			\EndIf
 			\EndWhile
 			\State \textbf{Return} $m$
