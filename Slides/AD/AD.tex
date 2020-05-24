@@ -839,16 +839,16 @@
 	\begin{minipage}[t]{0.48\textwidth}
 		\centering
 		\begin{algorithmic}
-			\State $l \gets -M$, $r\gets M$, $m\gets 0$
+			\State $b \gets -M$, $a\gets M$, $m\gets 0$
 			\While {$|F(x, m)|>\epsilon$}
-			\State $c \gets \frac{a+b}{2}$
+			\State $m \gets \frac{a+b}{2}$
 			\If{$F(x, m)>0$}
 			\State $a\gets m$
 			\Else
 			\State $b\gets m$
 			\EndIf
 			\EndWhile
-			\State \textbf{Return} $c$
+			\State \textbf{Return} $m$
 		\end{algorithmic}
 
 	\end{minipage}
