@@ -51,12 +51,15 @@ Module 4
 1. [AD for physical simulation](Reading Questions/ADPhys)
 1. [AD through implicit operators](Reading Questions/ImplicitOps)
 
+- [Module 4 Solutions](RA Solutions/RA_Solution_module4)
+
 Module 5
 
 {:start="21"}
 1. [Inverse problems](Reading Questions/Inverse)
 1. [Training for inverse problems](Reading Questions/InverseTraining)
 1. [Physics constrained learning](Reading Questions/PCL)
+1. [Physics-informed learning conclusion](Reading Questions/InverseConclusion)
 
 ## Programming Homework
 
@@ -143,7 +146,7 @@ The slides are assembled into two PDF files. Each lecture will cover one section
 
 ## Contents of class
 
-Highlight of topics to cover
+Highlights of topics to cover
 
 **Supervised learning and SVM**
 
@@ -206,7 +209,7 @@ Module 6 (week 9-10, 6/1)
 
 Module 7
 
-We probably won't have enough time to cover this topic.
+We won't have enough time to cover this topic unfortunately.
 
 - Reinforcement learning; [Sutton and Barto](http://incompleteideas.net/book/the-book.html); [Mnih 2013](https://arxiv.org/abs/1312.5602)
 - Temporal difference learning; deep Q-learning networks
