@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Partial Solutions to Reading Assignments 8-11
+title: Partial Solutions to Reading Assignments 8-15
 ---
 
 Here are the solutions to trickier questions from these reading assignments.
