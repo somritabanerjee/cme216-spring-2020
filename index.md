@@ -51,6 +51,8 @@ Module 4
 1. [AD for physical simulation](Reading Questions/ADPhys)
 1. [AD through implicit operators](Reading Questions/ImplicitOps)
 
+- [Module 4 Solutions](RA Solutions/RA_Solution_module4)
+
 Module 5
 
 {:start="21"}
