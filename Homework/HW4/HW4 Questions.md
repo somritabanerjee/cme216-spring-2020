@@ -64,7 +64,7 @@ Assume that we want to experiment with a piece of new material. The thermal diff
 
 ## Problem 1: Parameter Inverse Problem in 1D
 
-We first consider the 1D case. In this problem, the material is a rod $\Omega=[0,1]$. We consider a homogeneous (zero) fixed boundary condition on the right side, and an insulated boundary on the left side. The initial temperature is zero everywhere, i.e., $u(x, 0)=0$, $x\in [0,1]$. The source term is $f(x, t) = \exp(-10(x-0.5)^2)$, and $\kappa(x)$ is a function of space
+We first consider the 1D case. In this problem, the material is a rod $\Omega=[0,1]$. We consider a homogeneous (zero) fixed boundary condition on the right side, and an insulated boundary on the left side. The initial temperature is zero everywhere, i.e., $u(x, 0)=0$, $x\in [0,1]$. The source term is $f(x, t) = \exp(-50(x-0.5)^2)$, and $\kappa(x)$ is a function of space
 
 $$\kappa(x) = a + bx$$
 
