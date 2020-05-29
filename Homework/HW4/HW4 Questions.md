@@ -169,11 +169,11 @@ Hint: Your curve should look like the following
 Hint: You can add noise using
 
 ```julia
-uc = @. uc * (1 + 0.01*randn(length(uc)))
-uc = @. uc * (1 + 0.1*randn(length(uc)))
+uc =  uc .* (1 .+ 0.01*randn(size(uc)...))
+uc =  uc .* (1 .+ 0.1*randn(size(uc)...))
 ```
 
-Here `@.` is for elementwise operations. 
+Here `.` is for elementwise operations. 
 
 ## Problem 3: Parameter Inverse Problem in 2D
 
