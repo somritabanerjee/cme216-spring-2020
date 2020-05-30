@@ -34,3 +34,15 @@ Q7:
 $$\text{tanh}(1+x^2) = \text{tanh}(2) = 0.964$$
 
 $$d/dx (\text{tanh}(1+x^2)) = 2xx' / \text{cosh}^2(1+x^2) = 16/\text{cosh}^2(2) = 1.13$$
+
+**RA17**
+
+Q2&3: Note the questions are referring to the generic computational graph in slide with n nodes.
+
+For question 2, we want to traverse the graph from left to right in forward mode. Using the given chain rule relation, we can initialize the derivative to be $$ \frac{\partial y}{\partial x} = 1 $$. Then, in for a loop with i going from 1 to n, we update  $$ \frac{\partial y}{\partial x} \leftarrow \frac{\partial y}{\partial x} \times \frac{\partial z_i}{\partial z_{i-1}} $$, with $$ z_n = y, z_1 = x $$. 
+
+For question 3, we want to traverse the graph from right to left in forward mode. Using the given chain rule relation, we can again initialize the derivative to be $$ \frac{\partial y}{\partial x} = 1 $$. Then, in for a loop with i going from n down to 1, we update  $$ \frac{\partial y}{\partial x} \leftarrow \frac{\partial y}{\partial x} \times \frac{\partial z_i}{\partial z_{i-1}} $$, with $$ z_n = y, z_1 = x $$.
+
+Note that despite the two algorithms look very similar, the orders of computation are reversed, making each more efficient in specific cases as we see in following questions.
+
+Q4-7: Depending on your interpretation, you might get different numeric answers. But using forward mode in one-to-many and using backward mode in many-to-one should result in shorter computation time than the other two cases, due to the ability to reuse shared intermediate values, since in these two cases only one traversal is needed for all the hidden nodes. 
