@@ -61,6 +61,8 @@ Module 5
 1. [Physics constrained learning](Reading Questions/PCL)
 1. [Physics-informed learning conclusion](Reading Questions/InverseConclusion)
 
+- [Module 5 Solutions](RA Solutions/RA_Solution_module5)
+
 ## Programming Homework
 
 - [Python setup guide](Python Setup Guide)
