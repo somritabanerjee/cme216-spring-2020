@@ -63,6 +63,11 @@ Module 5
 
 - [Module 5 Solutions](RA Solutions/RA_Solution_module5)
 
+Module 6
+
+{:start="25"}
+1. [Generative Adversarial Networks](Reading Questions/GAN)
+
 ## Programming Homework
 
 - [Python setup guide](Python Setup Guide)
