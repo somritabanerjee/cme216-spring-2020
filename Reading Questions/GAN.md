@@ -13,7 +13,7 @@ GAN are important in engineering because they allow modeling stochastic processe
 
 $$ \frac{\partial u(x, t)}{\partial t} = \color{red}{\kappa(\varpi)}\Delta u(x, t) + f(x, t) $$
 
-$\color{red}{\kappa}$ is a stochastic variable. In this case the concept of matching the data is more complicated. The training data will also be a random variable. So the inverse modeling process becomes one where we optimize $\color{red}{\kappa}$ so that the statistics of $u_\text{pred}$ match the statistics of $u_\text{data}$. As you can imagine this is not an easy process.
+$\color{red}{\kappa(\varpi)}$ is a stochastic variable. In this case the concept of matching the data is more complicated. The training data will also be a random variable. So the inverse modeling process becomes one where we optimize $\kappa$ so that the statistics of $u_\text{pred}$ match the statistics of $u_\text{data}$. As you can imagine this is not an easy process.
 
 The way to do that is to build a DNN $\kappa(z;\theta)$ such that if $z$ is a random variable then $\kappa(z;\theta)$ has the same statistical properties as $\color{red}{\kappa(\varpi)}$ (in some appropriate sense defined by the loss function).
 
@@ -66,7 +66,7 @@ Click on "Data Distribution" on the top, select the left-most model (the green l
 
 Experiment with this tool and read the documentation on the web page, below the lab tool.
 
-You can click on the small button ![](button.png){:width="20px"} next to the "Play" arrow so see step-by-step explanations:
+You can click on the small button ![](button.png){:width="20px"} next to the "Play" arrow to see step-by-step explanations:
 
 ![](ganlab7.png)
 
