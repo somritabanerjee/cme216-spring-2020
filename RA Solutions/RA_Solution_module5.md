@@ -54,3 +54,6 @@ RA22 Q4: No. The PDE is not actually used in that method.
 RA22 Q5: in the penalty method $u_0$ and $f$ are known. The variables are $\theta$ ($\kappa_\theta$) and $u$. Since we are enforcing the PDE only through a penalty term, unless the loss is exactly 0, we cannot expect the PDE to be satisfied exactly. As $\lambda_1$ increases the error in the PDE decays. But typically it is very difficult to achieve a small error on the PDE.
 
 RA22 Q6: (a) $\lambda_2$, (b) $\lambda_3$, (c) $\lambda_4$.
+
+
+RA23 Q3: let $$ x = -2(u_\theta - u_0)^T B(\theta)^{-1} $$, we need to rearrange this into the $$ Ax=b $$ form to use the solver: $$ xB(\theta) = -2(u_\theta - u_0)^T $$, $$ B(\theta)^T x^T = -2(u_\theta - u_0) $$. So $$ A = B(\theta)^T $$ and $$ b = -2(u_\theta - u_0) $$.
