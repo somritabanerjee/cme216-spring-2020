@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
+---
+layout: slides
+---
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../cme216_slides.css">
-</head>
-
-<body>
-    <textarea id="source">
 class: center, middle
 
 # CME 216, ME 343 - Spring 2020
@@ -33,26 +27,28 @@ That is, we are given a point $x \in \mathbb R^n$, and we want to predict a labe
 ---
 class: middle
 
-In SVM, the space $\mathbb R^n$ of possible $x$ is subdivided into 2 half-space by a hyperplane: a line in 2D or a plane in 3D. 
+In SVM, the space $\mathbb R^n$ of possible $x$ is subdivided into 2 half-space by a hyperplane: a line in 2D or a plane
+in 3D.
 
 On one side of the hyperplane, the label is $1$ and is $-1$ on the other.
 
 ---
 class: middle
 
- Example: the line that separates the $-1$ labels from $+1$ is simply $y = x$. 
+Example: the line that separates the $-1$ labels from $+1$ is simply $y = x$.
 
 The $-1$ labels are in the top left and the $+1$ in the bottom right.
 
 ---
 class: center, middle
 
-<iframe src="svm1.html" width="1000" height="600" frameborder="0"></iframe>
+![](svm1.svg)
 
 ---
 class: middle
 
-However, if the training data that we are given are only the colored dots, we cannot exactly determine the separating line $y = x$. 
+However, if the training data that we are given are only the colored dots, we cannot exactly determine the separating
+line $y = x$.
 
 So instead, based on the observed data (the dots), we ask what the best hyperplane we can find is.
 
@@ -66,23 +62,25 @@ $$ w^T x + b = 0 $$
 ---
 class: middle
 
-Once the hyperplane is found, the classification is given as follows. 
+Once the hyperplane is found, the classification is given as follows.
 
 If $ w^T x + b > 0 $ then we predict that the label is $1$, otherwise the label is $-1$.
 
 ---
 class: middle
 
-In SVM, the best hyperplane is defined as the one that has the largest **margin,** that is the one which the points are the farthest from. 
+In SVM, the best hyperplane is defined as the one that has the largest **margin,** that is the one which the points are
+the farthest from.
 
 This makes the classifier more robust and accurate.
 
 ---
 class: middle
 
-In the figure below, the "exact" solution is $$y = x$$ (the solid blue line), but this is unknown to us. 
+In the figure below, the "exact" solution is $$y = x$$ (the solid blue line), but this is unknown to us.
 
-Instead, we observe only the colored dots. Based on this, the best line of separation is the black solid line in the middle. 
+Instead, we observe only the colored dots. Based on this, the best line of separation is the black solid line in the
+middle.
 
 ---
 class: center, middle
@@ -92,10 +90,10 @@ class: center, middle
 ---
 class: middle
 
+The goal in SVM is to determine the equation of the black solid line such that the distance $h$ is maximum.
 
-The goal in SVM is to determine the equation of the black solid line such that the distance $h$ is maximum. 
-
-By definition, no training points (the colored dots) can reside between the dashed lines. The black solid line must be equidistant from the two dashed lines.
+By definition, no training points (the colored dots) can reside between the dashed lines. The black solid line must be
+equidistant from the two dashed lines.
 
 ---
 class: middle
@@ -105,20 +103,20 @@ Let's now see how this can be formulated mathematically.
 ---
 class: middle
 
-The first step is calculating the distance of a point to the separating hyperplane (black solid line above). 
+The first step is calculating the distance of a point to the separating hyperplane (black solid line above).
 
-This hyperplane will be defined by the equation $ w^T x + b = 0 $ 
+This hyperplane will be defined by the equation $ w^T x + b = 0 $
 
- $w$: vector in $\mathbb R^n$
- 
+$w$: vector in $\mathbb R^n$
+
 $b$: scalar
 
 ---
 class: middle
 
-Take a point $x$ not on the hyperplane. 
+Take a point $x$ not on the hyperplane.
 
-How far is it from the hyperplane? 
+How far is it from the hyperplane?
 
 You can prove that the distance $\delta$ is
 
@@ -132,7 +130,7 @@ We then need to search for $(w,b)$ that makes $\delta$ as large as possible.
 ---
 class: middle
 
-The division by $\|w\|$ indicates that there is a scaling invariance in this problem. 
+The division by $\|w\|$ indicates that there is a scaling invariance in this problem.
 
 We can multiply $w$ and $b$ by any constant $C$ and the hyperplane/classifier is the same.
 
@@ -141,7 +139,7 @@ class: center, middle
 
 $$ \text{maximize } \delta = \frac{|w^T x + b|}{\|w\|} $$
 
- is simplified to
+is simplified to
 
 ---
 class: middle
@@ -149,16 +147,16 @@ class: middle
 To normalize, we choose $w$ and $b$ such that
 
 - $y_i (w^T x_i + b) \ge 1$ for all $i$, and
-- there must be some $i$ for which 
+- there must be some $i$ for which
 
-$$y_i (w^T x_i + b) = 1$$ 
+$$y_i (w^T x_i + b) = 1$$
 
 This happens for the point(s) that is closest to the plane.
 
 ---
 class: middle
 
-The condition $y_i (w^T x_i + b) = 1$ may look strange. 
+The condition $y_i (w^T x_i + b) = 1$ may look strange.
 
 But, recall that:
 
@@ -198,15 +196,15 @@ Equivalently $\|w\|$ minimum with $ \| w^T x_i + b \| = 1 $.
 ---
 class: middle
 
-To solve this problem, we can re-write it as a quadratic programming problem. 
+To solve this problem, we can re-write it as a quadratic programming problem.
 
 We don't need to know what this is in detail but what matters is that there are efficient
-methods to solve this type of problem. 
+methods to solve this type of problem.
 
 ---
 class: middle
 
-Since we want to maximize the distance of the nearest point $\rho$, we minimize $\| w \|_2$. 
+Since we want to maximize the distance of the nearest point $\rho$, we minimize $\| w \|_2$.
 
 ---
 class: middle
@@ -241,38 +239,6 @@ class: center, middle
 ---
 class: middle
 
-In the previous figure, the red and blue dots lying on the dashed lines are the support vectors. 
+In the previous figure, the red and blue dots lying on the dashed lines are the support vectors.
 
 The black solid line is our best guess $w^T x + b = 0$ where $x$ is a point in the plane $x = (x_1,x_2)$.
-    </textarea>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-        </script>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script type="text/javascript">
-        remark.macros.width = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="width: ' + percentage + '" />';
-        };
-        remark.macros.height = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="height: ' + percentage + '" />';
-        };
-
-        var slideshow = remark.create({
-            ratio: '16:9',
-            highlightLanguage: 'c++',
-            highlightStyle: 'atom-one-light'
-        });
-    </script>
-</body>
-
-</html>

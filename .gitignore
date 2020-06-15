@@ -1,3 +1,16 @@
 _site/
 .jekyll-cache/
 .ipynb_checkpoints/
+.jekyll-metadata
+*.DS_Store
+*.texpadtmp
+
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.synctex
+
+Code/DNN_regularization rev0.ipynb

@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
+---
+layout: slides
+---
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../cme216_slides.css">
-</head>
-
-<body>
-    <textarea id="source">
 class: center, middle
 
 # CME 216, ME 343 - Winter 2020
@@ -159,7 +153,7 @@ fig.add_trace(go.Scatter(x=x, y=a*x + b2))
 ---
 class: center, middle
 
-<iframe src="svm1.html" width="800" height="600" frameborder="0"></iframe>
+![](svm1.svg)
 
 ---
 
@@ -180,36 +174,4 @@ where `X` contains the coordinates of the points where the function is to be eva
 ---
 class: center, middle
 
-<iframe src="svm2.html" width="800" height="600" frameborder="0"></iframe>
-</textarea>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            }
-        };
-    </script>
-    <script type="text/javascript" id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-        </script>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script type="text/javascript">
-        remark.macros.width = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="width: ' + percentage + '" />';
-        };
-        remark.macros.height = function (percentage) {
-            var url = this;
-            return '<img src="' + url + '" style="height: ' + percentage + '" />';
-        };
-
-        var slideshow = remark.create({
-            ratio: '16:9',
-            highlightLanguage: 'c++',
-            highlightStyle: 'atom-one-light'
-        });
-    </script>
-</body>
-
-</html>
+![](svm2.svg)
